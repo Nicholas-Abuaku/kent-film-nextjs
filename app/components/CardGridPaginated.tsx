@@ -35,11 +35,8 @@ const CardGridPaginated = () => {
       "Content-Type": "application/json",
     };
     try {
-      const response = await axios.get(
-        "https://www.eventbriteapi.com/v3/organizations/335808768129/events/",
-        { headers: headers, params: { status: "live" } }
-      );
-      setAllEvents(response.data.events);
+      const response = await axios.post("/api/eventbrite");
+      setAllEvents(response.data);
       setIsLoading(true);
     } catch (err) {
       console.log(err);
