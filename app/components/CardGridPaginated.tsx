@@ -22,7 +22,7 @@ interface Event {
   logo?: { url: string }; // Optional logo property
 }
 const CardGridPaginated = () => {
-  const API_KEY = "3PCCZI3NTRWB2PLGZE7D";
+  const API_KEY = "";
   const [allEvents, setAllEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
