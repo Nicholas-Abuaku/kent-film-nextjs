@@ -8,6 +8,7 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import PayPalDonate from "./components/PayPalDonate";
 
 interface LatestScreeningInfo {
   heading: string;
@@ -53,7 +54,9 @@ const Home = async () => {
         </Grid>
         <Grid item xs={12}>
           <CardGridPaginated />
-          <Button variant="contained">Click Me</Button>
+        </Grid>
+        <Grid item xs={12}>
+          <PayPalDonate />
         </Grid>
       </Grid>
     </main>
