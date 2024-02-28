@@ -1,0 +1,66 @@
+"use client";
+import React, { useState } from "react";
+import { TextField, Typography, Stack, Grid, Button } from "@mui/material";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+const LoginForm = () => {
+  const { push } = useRouter();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleUsernameChange(e) {
+    console.log(e.target.value);
+    setUsername(e.target.value);
+  }
+  function handlePasswordChange(e) {
+    console.log(e.target.value);
+    setPassword(e.target.value);
+  }
+
+  const handleSubmit = async (event) => {
+    try {
+      const formData = new FormData();
+      formData.append("name", username);
+      formData.append("password", password);
+      event.preventDefault();
+      const response = await axios.post("/api/login", formData);
+      console.log(response.data);
+      if (response.status === 200) {
+        push("/dashboard");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <Stack
+        direction="column"
+        spacing={2}
+        alignItems={"center"}
+        justifyContent={"center"}
+      >
+        <Typography variant="h3">Login</Typography>
+        <TextField
+          name="username"
+          label="username"
+          type="text"
+          sx={{ width: "50%" }}
+          onChange={handleUsernameChange}
+        />
+        <TextField
+          name="password"
+          label="Password"
+          type="password"
+          sx={{ width: "50%" }}
+          onChange={handlePasswordChange}
+        />
+        <Button variant="contained" onClick={handleSubmit}>
+          Login
+        </Button>
+      </Stack>
+    </form>
+  );
+};
+
+export default LoginForm;
