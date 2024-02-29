@@ -15,7 +15,7 @@ export async function login(formData: FormData) {
     );
     console.log(response.data);
     if (response.data.status === true) {
-      Cookies.set("isLoggedIn", true);
+      cookies().set({ name: "isLoggedIn", value: "true" });
     } else {
       console.log(response.data.message);
       console.log("Error");
