@@ -16,7 +16,7 @@ const FilmClubActions = (props: FilmClubActionsProps) => {
   const { tableUpdate, setTableUpdate } = useContext(ManageTableContext);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
-  const [openSnack, setOpenSnack] = useState();
+  const [openSnack, setOpenSnack] = useState<boolean>();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -27,8 +27,16 @@ const FilmClubActions = (props: FilmClubActionsProps) => {
     console.log(props.id);
   };
 
-  const handleDelete = () => {
-    console.log("no");
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete("/api/film-clubs/delete/" + props.id);
+      console.log(response.data);
+      setTableUpdate(true);
+      props.onDelete();
+      setOpenSnack(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
