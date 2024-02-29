@@ -13,27 +13,72 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 import Link from "next/link";
+import FilmClubCard from "@/app/components/FilmClubCard";
+interface FilmClubData {
+  id: number;
+  heading: string;
+  description: string;
+  img_Url: string;
+}
 
 const page = () => {
   const params = useParams();
-  const userId = params.id;
+  const clubId = params.id;
   const [imageFile, setImageFile] = useState<File>();
   const [fileUrl, setFileUrl] = useState<string | null>(null);
-  const [clubData, setClubData] = useState([]);
+  const [clubData, setClubData] = useState<FilmClubData | null>(null);
   const [fileName, setFileName] = useState<string>("");
-  const [heading, setHeading] = useState<string>("");
+  const [heading, setHeading] = useState<string>(" ");
   const [description, setDescription] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm.up.railway.app/api/film-clubs/" + userId
+        "https://kentfilm.up.railway.app/api/film-clubs/" + clubId
       );
       setClubData(response.data);
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
   };
+  const handlePost = async () => {
+    const formData = new FormData();
+    if (!heading) {
+      formData.append("heading", clubData?.heading || "no heading supplied");
+    } else {
+      formData.append("heading", heading);
+    }
+
+    if (!description) {
+      formData.append("description", clubData?.description || "no description");
+    } else {
+      formData.append("description", description);
+    }
+
+    if (imageFile) {
+      formData.append("img_Url", imageFile, fileName);
+    }
+    try {
+      const response = await axios.post("/api/film-clubs/" + clubId, formData);
+      console.log(response.data);
+      if (response.status === 200) {
+        setShowSuccessAlert(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  function handleSubmit() {
+    if (clubId) {
+      console.log("there is id");
+      handlePost();
+    } else {
+      console.log("No id");
+      // handleNew();
+    }
+  }
   //file handler
   async function fileHandler(event: React.FormEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement & {
@@ -55,6 +100,10 @@ const page = () => {
     setDescription(event.target.value);
   }
 
+  useEffect(() => {
+    fetchClubData();
+  }, []);
+
   //handleNew
   return (
     <>
@@ -66,7 +115,7 @@ const page = () => {
                 <ArrowBackIcon />
               </IconButton>
             </Link>
-            <h1>{userId ? "Edit" : "New"}</h1>
+            <h1>{clubId ? "Edit" : "New"}</h1>
           </Stack>
         </Grid>
         <Grid item xs={6}>
@@ -101,14 +150,14 @@ const page = () => {
               <Button
                 variant="contained"
                 color="success"
-                // onClick={handleSubmit}
+                onClick={handleSubmit}
               >
                 Submit
               </Button>
             </Stack>
             {showSuccessAlert && (
               <Alert severity="success">
-                {userId
+                {clubId
                   ? "Film Club Successfully Updated!"
                   : "Film Club Added Successfully"}
               </Alert>
@@ -124,16 +173,18 @@ const page = () => {
             >
               Preview
             </Typography>
-            {/* <FilmClubCard
-              heading={heading ? heading : clubData.heading}
-              desc={description ? description : clubData.description}
-              img={
-                fileUrl
-                  ? fileUrl
-                  : "https://kentfilm.up.railway.app/storage/" +
-                    clubData.img_Url
-              }
-            /> */}
+            {
+              <FilmClubCard
+                heading={heading ? heading : clubData?.heading || ""}
+                desc={description ? description : clubData?.description || ""}
+                img={
+                  fileUrl
+                    ? fileUrl
+                    : "https://kentfilm.up.railway.app/storage/" +
+                      clubData?.img_Url
+                }
+              />
+            }
           </Stack>
         </Grid>
       </Grid>
