@@ -16,7 +16,7 @@ import {
   Button,
   ThemeProvider,
 } from "@mui/material";
-import Navigation from "../components/Navigation";
+
 import FilmClubDisplayGrid from "../components/FilmClubDisplayGrid";
 import FilmClubTheme from "../Themes/FilmClubTheme";
 

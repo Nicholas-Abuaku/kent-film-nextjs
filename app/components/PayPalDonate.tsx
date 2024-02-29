@@ -6,7 +6,7 @@ const PayPalDonate = () => {
   return (
     <Button
       endIcon={<PaidIcon />}
-      variant="outlined"
+      variant="contained"
       sx={{ borderRadius: "20px", backgroundColor: "#339465", float: "right" }}
     >
       Donate

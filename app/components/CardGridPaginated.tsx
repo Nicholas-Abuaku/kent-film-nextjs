@@ -17,9 +17,9 @@ import {
 interface Event {
   id: string;
   name: { text: string };
-  start: { local: string }; // Assuming the API response structure
+  start: { local: string };
   url: string;
-  logo?: { url: string }; // Optional logo property
+  logo?: { url: string };
 }
 const CardGridPaginated = () => {
   const API_KEY = "";
@@ -46,7 +46,7 @@ const CardGridPaginated = () => {
   useEffect(() => {
     fetchAllEvents();
   }, []);
-  const currentMonthEvents = allEvents.filter((event) => {
+  const currentMonthEvents = allEvents.filter((event: Event) => {
     const startDate = new Date(event.start.local);
     const currentDate = new Date();
 
@@ -64,7 +64,10 @@ const CardGridPaginated = () => {
     indexOfLastEvent
   );
 
-  const handlePageChange = (event: unknown, value: T) => {
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
     setCurrentPage(value);
   };
   return (
@@ -117,7 +120,7 @@ const CardGridPaginated = () => {
                       date={startDate}
                       time={startTime}
                       link={a.url}
-                      img={imageUrl}
+                      img={imageUrl ? imageUrl : "N/A"}
                     />
                   </Grid>
                 );
@@ -130,7 +133,7 @@ const CardGridPaginated = () => {
               </Grid>
             )
           ) : (
-            Array.from({ length: itemsPerPage }).map((_, index) => (
+            Array.from({ length: 3 }).map((_, index) => (
               <Grid item key={index}>
                 <Skeleton
                   variant="rectangular"

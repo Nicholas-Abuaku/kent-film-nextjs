@@ -15,7 +15,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     );
     const data = axiosRes.data;
     if (data.status === true) {
-      cookies().set("isLoggedIn", true);
+      cookies().set({ name: "isLoggedIn", value: "true" });
       return NextResponse.json({ message: "success" });
     }
   } catch (err) {
@@ -23,9 +23,4 @@ export async function POST(request: NextRequest, response: NextResponse) {
       eror: err,
     });
   }
-
-  //   return NextResponse.json({
-  //     user: name,
-  //     pass: password,
-  //   });
 }

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { TextField, Typography, Stack, Grid, Button } from "@mui/material";
+import { ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 const LoginForm = () => {
@@ -8,16 +9,20 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleUsernameChange(e) {
-    console.log(e.target.value);
-    setUsername(e.target.value);
+  function handleUsernameChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    console.log((e.target as HTMLInputElement).value);
+    setUsername((e.target as HTMLInputElement).value);
   }
-  function handlePasswordChange(e) {
-    console.log(e.target.value);
-    setPassword(e.target.value);
+  function handlePasswordChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    console.log((e.target as HTMLInputElement).value);
+    setPassword((e.target as HTMLInputElement).value);
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.MouseEvent<HTMLElement>) => {
     try {
       const formData = new FormData();
       formData.append("name", username);
@@ -33,7 +38,7 @@ const LoginForm = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <Stack
         direction="column"
         spacing={2}

@@ -29,7 +29,7 @@ const PressCardGrid = () => {
     }
   };
 
-  const handlePageChange = (event, newPage) => {
+  const handlePageChange = (event: any, newPage: number) => {
     setPage(newPage);
   };
   const startIndex = (page - 1) * itemsPerPage;
@@ -44,7 +44,7 @@ const PressCardGrid = () => {
           ? pressData
               .slice(startIndex, endIndex)
               .reverse()
-              .map((article) => (
+              .map((article: PressArticle) => (
                 <Grid item md={5} xs={12} xl={4} key={article.id}>
                   <PressCard
                     newsSource={article.news_source}

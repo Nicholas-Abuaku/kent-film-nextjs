@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Typography, Stack, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
+import EditLatestScreening from "@/app/components/EditLatestScreening";
 const page = () => {
   return (
     <Grid container>
@@ -22,7 +23,7 @@ const page = () => {
         </Stack>
       </Grid>
       <Grid item xs={12}>
-        {/* <EditLatestScreening /> */}
+        <EditLatestScreening />
       </Grid>
     </Grid>
   );

@@ -1,3 +1,4 @@
+import CssBaseline from "@mui/material/CssBaseline";
 import LatestScreeningCard from "./components/LatestScreeningCard";
 import CardGridPaginated from "./components/CardGridPaginated";
 import {
@@ -23,6 +24,9 @@ const Home = async () => {
     "https://kentfilm.up.railway.app/api/featured-content"
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
+  const newDate = new Date(latestInfo[0].date);
+  const dateString = newDate.toDateString();
+  console.log(latestInfo[0].img_Url);
   return (
     <main>
       <Grid
@@ -45,7 +49,7 @@ const Home = async () => {
         >
           <LatestScreeningCard
             title={latestInfo[0].heading}
-            date={latestInfo[0].date}
+            date={dateString}
             description={latestInfo[0].description}
             img={latestInfo[0].img_Url}
             url={latestInfo[0].eventUrl}

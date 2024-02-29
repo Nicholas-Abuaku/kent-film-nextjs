@@ -27,16 +27,18 @@ const Navigation = () => {
         <Toolbar
           sx={{ backgroundColor: "#339465", width: "100%", height: "100px" }}
         >
-          <IconButton sx={{ float: "left" }} disableRipple>
-            <img
-              src={KentFilmLogo.src}
-              width={80}
-              height={80}
-              title="Kent Film Foundation Logo"
-              alt="A white seagull flying with a white clapperboard in its mouth "
-              loading="eager"
-            />
-          </IconButton>
+          <Link href={"/"}>
+            <IconButton sx={{ float: "left" }} disableRipple>
+              <img
+                src={KentFilmLogo.src}
+                width={80}
+                height={80}
+                title="Kent Film Foundation Logo"
+                alt="A white seagull flying with a white clapperboard in its mouth "
+                loading="eager"
+              />
+            </IconButton>
+          </Link>
           <Stack direction={"column"}>
             <Typography
               sx={{

@@ -3,6 +3,10 @@ import { NextRequest } from "next/server";
 import axios from "axios";
 import { cookies } from "next/headers";
 
+interface Event {
+  status: string; // Assuming "status" is a property with a string value
+  // Add other properties as needed, specifying their types
+}
 export async function POST(request: NextRequest, response: NextResponse) {
   const API_KEY = process.env.NEXT_EVENTBRITE_KEY;
   const headers = {
@@ -18,12 +22,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     // Filter events based on "status" property in each event object
     const liveEvents = response.data.events.filter(
-      (event) => event.status === "live"
+      (event: Event) => event.status === "live"
     );
 
     return NextResponse.json(liveEvents); // Return only live events
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err); // Log detailed error for debugging
-    return NextResponse.json({ message: err.message }); // Return specific error message
+    if (err instanceof Error) {
+      return NextResponse.json({ message: err.message });
+    }
   }
 }
