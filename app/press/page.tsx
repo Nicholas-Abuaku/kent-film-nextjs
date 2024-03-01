@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import {
   Grid,
@@ -6,13 +5,14 @@ import {
   useTheme,
   useMediaQuery,
   ThemeProvider,
-  createTheme,
 } from "@mui/material";
 import PressCardGrid from "../components/PressCardGrid";
 import PressTheme from "../Themes/PressTheme";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Press",
+};
 function Press() {
-  const isMobile = useMediaQuery(PressTheme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={PressTheme}>
       <Grid container justifyContent={"center"} alignItems={"center"}>
