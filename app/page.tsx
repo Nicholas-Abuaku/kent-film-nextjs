@@ -17,11 +17,7 @@ import {
 import PayPalDonate from "./components/PayPalDonate";
 import { Metadata } from "next";
 // import MailingListDialog from "./components/MailingListDialog";
-// export async function generateMetadata(): Promise<Metadata>{
-//   return{
-//     title:
-//   }
-// }
+
 interface LatestScreeningInfo {
   heading: string;
   img_Url: string;
@@ -32,7 +28,8 @@ interface LatestScreeningInfo {
 
 const Home = async () => {
   const response = await fetch(
-    "https://kentfilm.up.railway.app/api/featured-content"
+    "https://kentfilm.up.railway.app/api/featured-content",
+    { cache: "no-cache" }
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
   const newDate = new Date(latestInfo[0].date);
