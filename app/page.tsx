@@ -15,8 +15,13 @@ import {
   Typography,
 } from "@mui/material";
 import PayPalDonate from "./components/PayPalDonate";
+import { Metadata } from "next";
 // import MailingListDialog from "./components/MailingListDialog";
-
+// export async function generateMetadata(): Promise<Metadata>{
+//   return{
+//     title:
+//   }
+// }
 interface LatestScreeningInfo {
   heading: string;
   img_Url: string;
