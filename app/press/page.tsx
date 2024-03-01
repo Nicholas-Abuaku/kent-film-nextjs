@@ -9,24 +9,26 @@ import {
   createTheme,
 } from "@mui/material";
 import PressCardGrid from "../components/PressCardGrid";
+import PressTheme from "../Themes/PressTheme";
 
 function Press() {
-  const textTheme = createTheme();
-  const isMobile = useMediaQuery(textTheme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(PressTheme.breakpoints.down("md"));
   return (
-    <Grid container justifyContent={"center"} alignItems={"center"}>
-      <Grid item md={12} xs={12} marginBottom={0}>
-        <Typography variant="h3" textAlign={"center"} component={"h2"}>
-          Media & Press
-        </Typography>
-        <Typography variant="h6" textAlign={"center"} component={"h2"}>
-          Kent Film Foundation Press and Media Coverage
-        </Typography>
+    <ThemeProvider theme={PressTheme}>
+      <Grid container justifyContent={"center"} alignItems={"center"}>
+        <Grid item md={12} xs={12} marginBottom={0}>
+          <Typography variant="h3" textAlign={"center"} component={"h2"}>
+            Media & Press
+          </Typography>
+          <Typography variant="h6" textAlign={"center"} component={"h2"}>
+            Kent Film Foundation Press and Media Coverage
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <PressCardGrid />
+        </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <PressCardGrid />
-      </Grid>
-    </Grid>
+    </ThemeProvider>
   );
 }
 
