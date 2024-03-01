@@ -22,14 +22,6 @@ function About() {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        {/* <Grid item xs={12} md={12}>
-          <Box width={"100%"} height={200} sx={{ backgroundColor: "black" }}>
-            <Typography variant="h1" color="red" textAlign={"center"}>
-              {" "}
-              Image Placeholder
-            </Typography>
-          </Box>
-        </Grid> */}
         <Grid item container>
           <Grid item xs={7} md={7} marginRight={0}>
             <Typography variant="h3" component={"h2"} marginLeft={4}>
