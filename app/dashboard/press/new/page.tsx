@@ -51,11 +51,11 @@ const page = () => {
     formData.append("article_url", articleUrl);
 
     if (imageFile) {
-      formData.append("imgage", imageFile, fileName);
+      formData.append("image", imageFile, fileName);
     }
 
     try {
-      const response = await axios.post("/api/film-clubs/add/", formData);
+      const response = await axios.post("/api/press/add/", formData);
       console.log(response.data);
       if (response.status === 200) {
         setShowSuccessAlert(true);
