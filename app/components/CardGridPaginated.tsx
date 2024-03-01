@@ -127,9 +127,15 @@ const CardGridPaginated = () => {
               })
             ) : (
               <Grid item xs={12}>
-                <Typography variant="h3" color={"white"}>
-                  Nothing Scheduled yet, check back again later!
-                </Typography>
+                {isMobile ? (
+                  <Typography variant="h5" color={"white"}>
+                    Nothing Scheduled yet, check back again later!
+                  </Typography>
+                ) : (
+                  <Typography variant="h3" color={"white"}>
+                    Nothing Scheduled yet, check back again later!
+                  </Typography>
+                )}
               </Grid>
             )
           ) : (
