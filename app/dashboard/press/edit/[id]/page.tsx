@@ -44,8 +44,48 @@ const page = () => {
     }
   };
 
+  const handlePost = async () => {
+    const formData = new FormData();
+    if (!newsSource) {
+      formData.append("news_source", articleData?.news_source || "");
+    } else {
+      formData.append("news_source", newsSource);
+    }
+
+    if (!articleTitle) {
+      formData.append("article_title", articleData?.article_title || "");
+    } else {
+      formData.append("article_title", articleTitle);
+    }
+
+    if (!articleUrl) {
+      formData.append("article_url", articleData?.article_url || "");
+    } else {
+      formData.append("article_url", articleUrl || "");
+    }
+
+    if (imageFile) {
+      formData.append("image", imageFile, fileName || "");
+    }
+
+    try {
+      const response = await axios.post("/api/press/" + articleId, formData);
+      console.log("Post Response: " + response.data);
+      if (response.status === 200) {
+        setShowSuccessAlert(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const handleSubmit = async () => {
-    console.log(articleData?.news_source);
+    if (articleId) {
+      console.log("there is id");
+      handlePost();
+    } else {
+      console.log("No id");
+      // handleNew();
+    }
   };
   async function fileHandler(event: React.FormEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement & {
