@@ -1,6 +1,11 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import LatestScreeningCard from "./components/LatestScreeningCard";
 import CardGridPaginated from "./components/CardGridPaginated";
+import dynamic from "next/dynamic";
+const MailingListDialog = dynamic(
+  () => import("./components/MailingListDialog"),
+  { ssr: false }
+);
 import {
   Grid,
   useTheme,
@@ -10,6 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import PayPalDonate from "./components/PayPalDonate";
+// import MailingListDialog from "./components/MailingListDialog";
 
 interface LatestScreeningInfo {
   heading: string;
@@ -26,7 +32,6 @@ const Home = async () => {
   const latestInfo: LatestScreeningInfo[] = await response.json();
   const newDate = new Date(latestInfo[0].date);
   const dateString = newDate.toDateString();
-  console.log(latestInfo[0].img_Url);
   return (
     <main>
       <Grid
@@ -61,6 +66,8 @@ const Home = async () => {
         </Grid>
         <Grid item xs={12}>
           <PayPalDonate />
+
+          <MailingListDialog />
         </Grid>
       </Grid>
     </main>
