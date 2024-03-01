@@ -22,7 +22,15 @@ const PressActionsButton = (props: PressActionProps) => {
     setAnchorEl(event.currentTarget);
   };
   const handleDelete = async () => {
-    console.log("Havent implemented handle delete");
+    try {
+      const response = await axios.delete("/api/press/delete/" + props.id);
+      console.log(response.data);
+      setTableUpdate(true);
+      props.onDelete();
+      setOpenSnack(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
