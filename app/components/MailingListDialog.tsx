@@ -16,11 +16,11 @@ import Close from "@mui/icons-material/Close";
 import MailingDialogTheme from "../Themes/MailingDialogTheme";
 import Link from "next/link";
 const MailingListDialog = () => {
-  const closedPopUp = window.sessionStorage.getItem("closedMailingPopUp");
+  const closedPopUp = window.localStorage.getItem("closedMailingPopUp");
   const [open, setOpen] = useState(closedPopUp !== "true");
   const isMobile = useMediaQuery(MailingDialogTheme.breakpoints.down("md"));
   const handleClose = () => {
-    window.sessionStorage.setItem("closedMailingPopUp", "true");
+    window.localStorage.setItem("closedMailingPopUp", "true");
     setOpen(false);
   };
   const styles = {
@@ -38,7 +38,7 @@ const MailingListDialog = () => {
     },
   };
   useEffect(() => {
-    const closedPopUp = window.sessionStorage.getItem("closedMailingPopUp");
+    const closedPopUp = window.localStorage.getItem("closedMailingPopUp");
     if (closedPopUp === "true") {
       setOpen(false);
     }
