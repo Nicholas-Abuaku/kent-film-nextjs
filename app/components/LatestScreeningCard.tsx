@@ -110,7 +110,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 {props.date}
               </Typography>
               <Typography textAlign={"center"}>{props.description}</Typography>
-              <Link href={props.url}>
+              <Link href={props.url} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="contained"
                   color="inherit"
@@ -204,7 +204,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 {props.date}
               </Typography>
               <Typography textAlign={"center"}>{props.description}</Typography>
-              <Link href={props.url}>
+              <Link href={props.url} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="contained"
                   sx={{

@@ -31,7 +31,7 @@ const MCard = (props: MCardProps) => {
   const isMobile = useMediaQuery(MCardTheme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
-      <Link href={props.link}>
+      <Link href={props.link} target="_blank" rel="noopener noreferrer">
         <CardActionArea>
           {isMobile ? (
             <Card
