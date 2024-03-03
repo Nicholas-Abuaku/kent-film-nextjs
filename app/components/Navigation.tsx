@@ -18,6 +18,7 @@ import KentFilmLogo from "../icons/RamsgateCinema.jpg";
 import Link from "next/link";
 import { NavDrawer } from "./NavDrawer";
 import NavbarTheme from "../Themes/NavbarTheme";
+import Image from "next/image";
 const Navigation = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -29,14 +30,21 @@ const Navigation = () => {
         >
           <Link href={"/"}>
             <IconButton sx={{ float: "left" }} disableRipple>
-              <img
+              <Image
+                src={KentFilmLogo.src}
+                width={80}
+                height={80}
+                title="Kent Film Foundation Logo"
+                alt="Kent Film Foundation Logo"
+              />
+              {/* <img
                 src={KentFilmLogo.src}
                 width={80}
                 height={80}
                 title="Kent Film Foundation Logo"
                 alt="A white seagull flying with a white clapperboard in its mouth "
                 loading="eager"
-              />
+              /> */}
             </IconButton>
           </Link>
           <Stack direction={"column"}>
