@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <Navigation2 />
+          <Navigation />
           {children}
           <Footer />
         </AppRouterCacheProvider>

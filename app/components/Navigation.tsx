@@ -63,48 +63,48 @@ const Navigation = () => {
             </Typography>
             <Typography>Ramsgate Community Cinema</Typography>
           </Stack>
-          {/* {isMobile ? (
+          {isMobile ? (
             <NavDrawer />
-          ) : ( */}
-          <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
-            <NavHome />
-            <Link href={"/film-clubs"}>
-              <Button variant="text" color="inherit">
-                Film Clubs
-              </Button>
-            </Link>
-            <Link href={"/press"}>
-              <Button
-                variant="text"
-                color="inherit"
-                // component={Link}
-                // to={"/press"}
-              >
-                Press
-              </Button>
-            </Link>
-            <Link href={"/about"}>
-              <Button
-                variant="text"
-                color="inherit"
-                // component={Link}
-                // to={"/about"}
-              >
-                About
-              </Button>
-            </Link>
-            <Link href={"/contact"}>
-              <Button
-                variant="text"
-                color="inherit"
-                // component={Link}
-                // to={"/contact"}
-              >
-                Contact Us
-              </Button>
-            </Link>
-          </Stack>
-          {/* )} */}
+          ) : (
+            <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
+              <NavHome />
+              <Link href={"/film-clubs"}>
+                <Button variant="text" color="inherit">
+                  Film Clubs
+                </Button>
+              </Link>
+              <Link href={"/press"}>
+                <Button
+                  variant="text"
+                  color="inherit"
+                  // component={Link}
+                  // to={"/press"}
+                >
+                  Press
+                </Button>
+              </Link>
+              <Link href={"/about"}>
+                <Button
+                  variant="text"
+                  color="inherit"
+                  // component={Link}
+                  // to={"/about"}
+                >
+                  About
+                </Button>
+              </Link>
+              <Link href={"/contact"}>
+                <Button
+                  variant="text"
+                  color="inherit"
+                  // component={Link}
+                  // to={"/contact"}
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </Stack>
+          )}
         </Toolbar>
       </AppBar>
     </ThemeProvider>
