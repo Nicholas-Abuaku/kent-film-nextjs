@@ -42,7 +42,18 @@ export const metadata: Metadata = {
     canonical: `https://kentfilmfoundation.netlify.app/film-clubs`,
   },
 };
+interface FilmClubInfo {
+  id: number;
+  heading: string;
+  img_Url: string;
+  description: string;
+}
 const FilmClubs = async () => {
+  const response = await fetch(
+    "https://kentfilm.up.railway.app/api/film-clubs",
+    { cache: "no-cache" }
+  );
+  const filmClubs: FilmClubInfo[] = await response.json();
   return (
     <ThemeProvider theme={FilmClubTheme}>
       <Grid
@@ -98,7 +109,17 @@ const FilmClubs = async () => {
             </CardContent>
           </Card>
         </Grid>
-        <FilmClubDisplayGrid />
+        <Grid item container>
+          {filmClubs.map((club: FilmClubInfo) => (
+            <Grid item md={6} xs={12} xl={3} key={club.id}>
+              <FilmClubDisplayCard
+                heading={club.heading}
+                description={club.description}
+                img={club.img_Url}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
     </ThemeProvider>
   );
