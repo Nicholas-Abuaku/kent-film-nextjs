@@ -14,7 +14,10 @@ export const NavDrawer = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
-      <IconButton onClick={() => setOpenDrawer(true)}>
+      <IconButton
+        onClick={() => setOpenDrawer(true)}
+        sx={{ marginLeft: "auto" }}
+      >
         <MenuIcon />
       </IconButton>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
