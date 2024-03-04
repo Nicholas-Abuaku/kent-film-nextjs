@@ -42,7 +42,7 @@ const FilmClubDisplayGrid = () => {
   //fetch film club data
   return (
     <>
-      {isMobile ? (
+      {/* {isMobile ? (
         <Card
           sx={{
             backgroundColor: "#127346",
@@ -88,6 +88,10 @@ const FilmClubDisplayGrid = () => {
             marginTop: "40px",
             marginBottom: "30px",
             maxWidth: "80%",
+            "@media (max-width: 600px)": {
+              width: "90%",
+              maxWidth: "unset", // Remove max-width for smaller screens
+            },
           }}
           elevation={24}
         >
@@ -115,7 +119,7 @@ const FilmClubDisplayGrid = () => {
             </Stack>
           </CardContent>
         </Card>
-      )}
+      )} */}
       <Grid container>
         {filmClubs.map((club: FilmClub) => (
           <Grid item md={6} xs={11} xl={3} key={club.id}>
