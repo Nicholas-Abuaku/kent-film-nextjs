@@ -72,7 +72,7 @@ const CardGridPaginated = () => {
   };
   return (
     <>
-      <Grid
+      {/* <Grid
         container
         spacing={1}
         direction={"row"}
@@ -86,8 +86,8 @@ const CardGridPaginated = () => {
           maxHeight: "723px",
         }}
         minHeight={"47.61vh"}
-      >
-        <Grid item xs={12} width={"100%"}>
+      > */}
+      {/* <Grid item xs={12} width={"100%"}>
           <Typography
             variant="h2"
             fontFamily={"Open Sans, arial, sans-serif"}
@@ -101,57 +101,53 @@ const CardGridPaginated = () => {
           >
             What's On
           </Typography>
-        </Grid>
-        {
-          isLoading ? (
-            allEvents.length > 0 ? (
-              allEvents.map((a: Event) => {
-                const startArr = a.start.local.replace("T", " ");
-                const dateTimeArray = startArr.split(" ");
-                const startTime = dateTimeArray[1];
-                const startDate = new Date(dateTimeArray[0]);
-                const eventDate = startDate.toDateString();
-                const imageUrl = a.logo ? a.logo.url : null;
-                return (
-                  <Grid item key={a.id}>
-                    <MCard
-                      title={a.name.text}
-                      description={a.name.text}
-                      date={startDate}
-                      time={startTime}
-                      link={a.url}
-                      img={imageUrl ? imageUrl : "N/A"}
-                    />
-                  </Grid>
-                );
-              })
-            ) : (
-              <Grid item xs={12}>
-                {isMobile ? (
-                  <Typography variant="h5" color={"white"}>
-                    Nothing Scheduled yet, check back again later!
-                  </Typography>
-                ) : (
-                  <Typography variant="h3" color={"white"}>
-                    Nothing Scheduled yet, check back again later!
-                  </Typography>
-                )}
-              </Grid>
-            )
+        </Grid> */}
+      {
+        isLoading ? (
+          allEvents.length > 0 ? (
+            allEvents.map((a: Event) => {
+              const startArr = a.start.local.replace("T", " ");
+              const dateTimeArray = startArr.split(" ");
+              const startTime = dateTimeArray[1];
+              const startDate = new Date(dateTimeArray[0]);
+              const eventDate = startDate.toDateString();
+              const imageUrl = a.logo ? a.logo.url : null;
+              return (
+                <Grid item key={a.id} xs={12}>
+                  <MCard
+                    title={a.name.text}
+                    description={a.name.text}
+                    date={startDate}
+                    time={startTime}
+                    link={a.url}
+                    img={imageUrl ? imageUrl : "N/A"}
+                  />
+                </Grid>
+              );
+            })
           ) : (
-            Array.from({ length: 3 }).map((_, index) => (
-              <Grid item key={index}>
-                <Skeleton
-                  variant="rectangular"
-                  width={576.13}
-                  height={275.06}
-                />
-              </Grid>
-            ))
+            <Grid item xs={12}>
+              {isMobile ? (
+                <Typography variant="h5" color={"white"}>
+                  Nothing Scheduled yet, check back again later!
+                </Typography>
+              ) : (
+                <Typography variant="h3" color={"white"}>
+                  Nothing Scheduled yet, check back again later!
+                </Typography>
+              )}
+            </Grid>
           )
-          // <Skeleton variant="rectangular" width={576.13} height={275.06} />
-        }
-      </Grid>
+        ) : (
+          Array.from({ length: 3 }).map((_, index) => (
+            <Grid item key={index}>
+              <Skeleton variant="rectangular" width={576.13} height={275.06} />
+            </Grid>
+          ))
+        )
+        // <Skeleton variant="rectangular" width={576.13} height={275.06} />
+      }
+
       <Pagination
         count={totalPages}
         page={currentPage}

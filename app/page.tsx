@@ -68,7 +68,37 @@ const Home = async () => {
             edit={false}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid
+          container
+          item
+          spacing={1}
+          direction={"row"}
+          paddingTop={3}
+          paddingBottom={3}
+          marginBottom={3}
+          paddingLeft={"3%"}
+          sx={{
+            backgroundColor: "#339465",
+            width: "100%",
+            maxHeight: "723px",
+          }}
+          minHeight={"47.61vh"}
+        >
+          <Grid item xs={12} width={"100%"}>
+            <Typography
+              variant="h2"
+              fontFamily={"Open Sans, arial, sans-serif"}
+              sx={{
+                border: "2px solid",
+                borderLeft: "0px",
+                borderRight: "0px",
+                marginRight: "40px",
+                color: "white",
+              }}
+            >
+              What's On
+            </Typography>
+          </Grid>
           <CardGridPaginated />
         </Grid>
         <Grid item xs={12}>
