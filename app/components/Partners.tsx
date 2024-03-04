@@ -15,6 +15,7 @@ import RamsgateCouncil from "../assets/images/1PartnerLogo.png";
 import ShiftKeyFilms from "../assets/images/1Shiftkey.png";
 import VioletPictures from "../assets/images/1VioletPictures.png";
 import RamsgateFilm from "../assets/images/3RamsgateInternationalFilm.png";
+import Image from "next/image";
 const Partners = () => {
   const isMobile = useMediaQuery(AboutTheme.breakpoints.down("md"));
   return (
@@ -45,22 +46,57 @@ const Partners = () => {
               justifyContent={"center"}
               alignItems={"center"}
             >
-              <img
+              <Image
                 src={GarfieldWestonIcon.src}
-                style={{ width: "60px", height: "60px" }}
                 alt="Garfield Weston Foundation"
+                width={60}
+                height={60}
               />
-              <img
+              <Image
                 src={ColyerFergusonIcon.src}
-                style={{ width: "60px", height: "60px" }}
+                width={60}
+                height={60}
+                alt="Colyer Ferguson Chartiable Trust"
               />
-              <img
+              <Image
                 src={KentCommunityFoundationIcon.src}
-                style={{ width: "60px", height: "60px" }}
+                alt="Kent Community Foundation"
+                title="Kent Community Foundation"
+                loading="lazy"
+                width={60}
+                height={60}
               />
-              <img
+              <Image
                 src={RamsgateCouncil.src}
-                style={{ width: "60px", height: "60px" }}
+                alt="Ramsgate Town Council"
+                title="Ramsgate Town Council"
+                width={60}
+                height={60}
+                loading="lazy"
+              />
+
+              <Image
+                src={RamsgateFilm.src}
+                title="Ramsgate International Film & TV Festival"
+                alt="Ramsgate International Film & TV Festival"
+                loading="lazy"
+                width={60}
+                height={60}
+                quality={100}
+              />
+              <Image
+                src={ShiftKeyFilms.src}
+                alt="ShiftKey Films"
+                title="ShiftKey Films"
+                width={60}
+                height={60}
+              />
+              <Image
+                src={VioletPictures.src}
+                alt="Violet Pictures"
+                title="Violet Pictures"
+                width={60}
+                height={60}
               />
             </Stack>
           ) : (
@@ -70,49 +106,57 @@ const Partners = () => {
               justifyContent={"center"}
               alignItems={"center"}
             >
-              <img
-                src={GarfieldWestonIcon.src} //Keep
+              <Image
+                src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
-                title="Garfield Weston Foundation"
-                loading="lazy"
+                width={130}
+                height={130}
               />
-              <img
-                src={ColyerFergusonIcon.src} //Keep
-                alt="Colyer Ferguson Charitable Trust"
-                title="Colyer Ferguson Charitable Trust"
-                loading="lazy"
+              <Image
+                src={ColyerFergusonIcon.src}
+                width={80}
+                height={80}
+                alt="Colyer Ferguson Chartiable Trust"
               />
-              <img
-                src={KentCommunityFoundationIcon.src} //Keep
+              <Image
+                src={KentCommunityFoundationIcon.src}
                 alt="Kent Community Foundation"
                 title="Kent Community Foundation"
                 loading="lazy"
+                width={65}
+                height={65}
               />
-              <img
+              <Image
                 src={RamsgateCouncil.src}
                 alt="Ramsgate Town Council"
                 title="Ramsgate Town Council"
+                width={125}
+                height={125}
                 loading="lazy"
               />
-              <img
+
+              <Image
                 src={RamsgateFilm.src}
                 title="Ramsgate International Film & TV Festival"
                 alt="Ramsgate International Film & TV Festival"
                 loading="lazy"
+                width={70}
+                height={70}
+                quality={100}
               />
-              <img
-                src={ShiftKeyFilms.src} //Keep
+              <Image
+                src={ShiftKeyFilms.src}
                 alt="ShiftKey Films"
                 title="ShiftKey Films"
-                loading="lazy"
                 width={150}
+                height={150}
               />
-              <img
-                src={VioletPictures.src} //Keep
+              <Image
+                src={VioletPictures.src}
                 alt="Violet Pictures"
                 title="Violet Pictures"
-                loading="lazy"
                 width={290}
+                height={290}
               />
             </Stack>
           )}
