@@ -54,6 +54,7 @@ const FilmClubs = () => {
           justifyContent={"center"}
           alignItems={"center"}
         ></Grid>
+
         <Grid item xs={12}>
           <FilmClubDisplayGrid />
         </Grid>
