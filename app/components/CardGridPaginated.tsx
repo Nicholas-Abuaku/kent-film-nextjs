@@ -23,12 +23,15 @@ interface Event {
 }
 const CardGridPaginated = () => {
   const API_KEY = "";
+  //Pagination Logic
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 3;
   const [allEvents, setAllEvents] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const itemsPerPage = isMobile ? 2 : 6;
+
   const fetchAllEvents = async () => {
     const headers = {
       Authorization: `Bearer ${API_KEY}`,
@@ -42,118 +45,62 @@ const CardGridPaginated = () => {
       console.log(err);
     }
   };
+  const handlePageChange = (event: any, newPage: number) => {
+    setPage(newPage);
+  };
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   useEffect(() => {
     fetchAllEvents();
   }, []);
-  const currentMonthEvents = allEvents.filter((event: Event) => {
-    const startDate = new Date(event.start.local);
-    const currentDate = new Date();
 
-    return (
-      startDate.getMonth() >= currentDate.getMonth() &&
-      startDate.getFullYear() === currentDate.getFullYear() &&
-      startDate.getDate() >= currentDate.getDate()
-    );
-  });
-  const totalPages = Math.ceil(currentMonthEvents.length / itemsPerPage);
-  const indexOfLastEvent = currentPage * itemsPerPage;
-  const indexOfFirstEvent = indexOfLastEvent - itemsPerPage;
-  const currentEvents = currentMonthEvents.slice(
-    indexOfFirstEvent,
-    indexOfLastEvent
-  );
-
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
-    setCurrentPage(value);
-  };
   return (
     <>
-      {/* <Grid
-        container
-        spacing={1}
-        direction={"row"}
-        paddingTop={3}
-        paddingBottom={3}
-        marginBottom={3}
-        paddingLeft={"3%"}
-        sx={{
-          backgroundColor: "#339465",
-          width: "100%",
-          maxHeight: "723px",
-        }}
-        minHeight={"47.61vh"}
-      > */}
-      {/* <Grid item xs={12} width={"100%"}>
-          <Typography
-            variant="h2"
-            fontFamily={"Open Sans, arial, sans-serif"}
-            sx={{
-              border: "2px solid",
-              borderLeft: "0px",
-              borderRight: "0px",
-              marginRight: "40px",
-              color: "white",
-            }}
-          >
-            What's On
-          </Typography>
-        </Grid> */}
-      {
-        isLoading ? (
-          allEvents.length > 0 ? (
-            allEvents.map((a: Event) => {
-              const startArr = a.start.local.replace("T", " ");
-              const dateTimeArray = startArr.split(" ");
-              const startTime = dateTimeArray[1];
-              const startDate = new Date(dateTimeArray[0]);
-              const eventDate = startDate.toDateString();
-              const imageUrl = a.logo ? a.logo.url : null;
-              return (
-                <Grid item key={a.id} xs={12}>
-                  <MCard
-                    title={a.name.text}
-                    description={a.name.text}
-                    date={startDate}
-                    time={startTime}
-                    link={a.url}
-                    img={imageUrl ? imageUrl : "N/A"}
-                  />
-                </Grid>
-              );
-            })
-          ) : (
-            <Grid item xs={12}>
-              {isMobile ? (
-                <Typography variant="h5" color={"white"}>
-                  Nothing Scheduled yet, check back again later!
-                </Typography>
-              ) : (
-                <Typography variant="h3" color={"white"}>
-                  Nothing Scheduled yet, check back again later!
-                </Typography>
-              )}
-            </Grid>
-          )
+      {isLoading ? (
+        allEvents.length > 0 ? (
+          allEvents.slice(startIndex, endIndex).map((event: Event) => {
+            const startArr = event.start.local.replace("T", " ");
+            const dateTimeArray = startArr.split(" ");
+            const startTime = dateTimeArray[1];
+            const startDate = new Date(dateTimeArray[0]);
+            const eventDate = startDate.toDateString();
+            const imageUrl = event.logo ? event.logo.url : null;
+            return (
+              <Grid item>
+                <MCard
+                  title={event.name.text}
+                  description={event.name.text}
+                  date={startDate}
+                  time={startTime}
+                  link={event.url}
+                  img={imageUrl ? imageUrl : "N/A"}
+                />
+              </Grid>
+            );
+          })
         ) : (
-          Array.from({ length: 3 }).map((_, index) => (
-            <Grid item key={index}>
-              <Skeleton variant="rectangular" width={576.13} height={275.06} />
-            </Grid>
-          ))
+          <Grid item>
+            <Typography>Nothing Scheduled</Typography>
+          </Grid>
         )
-        // <Skeleton variant="rectangular" width={576.13} height={275.06} />
-      }
-
-      <Pagination
-        count={totalPages}
-        page={currentPage}
-        onChange={handlePageChange}
-      />
+      ) : (
+        Array.from({ length: itemsPerPage }).map((_, index) => (
+          <Grid item key={index}>
+            <Skeleton variant="rectangular" width={576.13} height={275.06} />
+          </Grid>
+        ))
+      )}
+      <Grid item xs={12}>
+        <Pagination
+          count={Math.ceil(allEvents.length / itemsPerPage)}
+          page={page}
+          onChange={handlePageChange}
+          sx={{ mt: 2, justifyContent: "center" }}
+        />
+      </Grid>
     </>
   );
 };
+
 export default CardGridPaginated;

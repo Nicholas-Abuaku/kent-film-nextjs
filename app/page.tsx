@@ -70,7 +70,6 @@ const Home = async () => {
         </Grid>
         <Grid
           container
-          item
           spacing={1}
           direction={"row"}
           paddingTop={3}
@@ -81,6 +80,8 @@ const Home = async () => {
             backgroundColor: "#339465",
             width: "100%",
             maxHeight: "723px",
+            display: "flex",
+            flexGrow: "1",
           }}
           minHeight={"47.61vh"}
         >
