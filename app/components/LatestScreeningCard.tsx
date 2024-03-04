@@ -21,6 +21,7 @@ import {
 
 import Link from "next/link";
 import LatestScreeningTheme from "../Themes/LatestScreeningTheme";
+import Image from "next/image";
 type LatestScreeningCardProps = {
   title: string;
   date: string;
@@ -156,28 +157,39 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   maxWidth: "100%",
                 }}
               >
-                <CardMedia
-                  component={"img"}
-                  title={props.title ? props.title : "Hi"}
-                  src={
-                    props.edit
-                      ? props.img
-                      : "https://kentfilm.up.railway.app/storage/" + props.img
-                  }
-                  alt={props.title}
-                  loading="eager"
-                  sx={{
-                    objectFit: "cover",
-                    marginRight: "0px",
+                <Image
+                  src={"https://kentfilm.up.railway.app/storage/" + props.img}
+                  width={962}
+                  height={685.35}
+                  alt="Latest Screening"
+                  objectFit="cover"
+                  style={{
                     minWidth: "962px",
-                    "@media (max-width: 1280px)": { minWidth: "500px" },
-                    "@media (max-width: 1838px)": { minWidth: "46.875vw" },
-                    // "@media (max-width: 1832px)": { width: "300px" },
-                    "@media (max-width: 1024px)": { minWidth: "450px" },
-                    // maxWidth: "962px",
-                    minHeight: "95.14563106796116vh",
-                    // maxHeight: "708px",
+                    marginRight: "0px",
                   }}
+                />
+                <CardMedia
+                // component={"img"}
+                // title={props.title ? props.title : "Hi"}
+                // src={
+                //   props.edit
+                //     ? props.img
+                //     : "https://kentfilm.up.railway.app/storage/" + props.img
+                // }
+                // alt={props.title}
+                // loading="eager"
+                // sx={{
+                //   objectFit: "cover",
+                //   marginRight: "0px",
+                //   minWidth: "962px",
+                //   "@media (max-width: 1280px)": { minWidth: "500px" },
+                //   "@media (max-width: 1838px)": { minWidth: "46.875vw" },
+                //   // "@media (max-width: 1832px)": { width: "300px" },
+                //   "@media (max-width: 1024px)": { minWidth: "450px" },
+                //   // maxWidth: "962px",
+                //   minHeight: "95.14563106796116vh",
+                //   // maxHeight: "708px",
+                // }}
                 />
               </Box>
             )}
