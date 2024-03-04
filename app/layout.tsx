@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Navigation2 from "./components/Navigation2";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <Navigation />
+          <Navigation2 />
           {children}
           <Footer />
         </AppRouterCacheProvider>
