@@ -64,7 +64,9 @@ const Navigation = () => {
             <Typography>Ramsgate Community Cinema</Typography>
           </Stack>
           {isMobile ? (
-            <NavDrawer />
+            <Stack sx={{ flexGrow: 1, justifyContent: "flex-end" }}>
+              <NavDrawer />
+            </Stack>
           ) : (
             <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
               <NavHome />
