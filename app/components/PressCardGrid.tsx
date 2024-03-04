@@ -17,13 +17,17 @@ const PressCardGrid = () => {
   const itemsPerPage = 3;
   const fetchPressData = async () => {
     try {
-      axios
-        .get("https://kentfilm.up.railway.app/api/press")
-        .then((res: any) => {
-          console.log(res.data);
-          setPressData(res.data);
-          setIsLoading(true);
-        });
+      const response = await fetch(
+        "https://kentfilm.up.railway.app/api/press",
+        { cache: "no-cache" }
+      );
+      if (!response.ok) {
+        throw new Error(`Error fetching press data: ${response.statusText}`);
+      }
+      const data = await response.json();
+      console.log(data);
+      setPressData(data);
+      setIsLoading(true);
     } catch (err) {
       console.log(err);
     }
