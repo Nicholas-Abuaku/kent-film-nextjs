@@ -84,6 +84,9 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 width: "100%",
                 height: "200px",
                 "@media (max-width: 600px)": { minWidth: "100%" },
+                "@media (max-width: 900px)": {
+                  maxWidth: "10%",
+                },
               }}
               alt={props.title}
             />
@@ -103,7 +106,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
 
               <Typography
                 color={"white"}
-                paddingBottom={4}
+                paddingBottom={0}
                 textAlign={"center"}
                 variant="h4"
                 component={"h2"}
@@ -138,7 +141,16 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             height: "63.49vh",
           }}
         >
-          <Box maxHeight={"500px"} maxWidth={"974px"}>
+          <Box
+            maxHeight={"500px"}
+            maxWidth={"974px"}
+            sx={{
+              "@media (max-width: 1280px)": { minWidth: "500px" },
+              "@media (max-width: 1838px)": { minWidth: "46.875vw" },
+              "@media (max-width: 1832px)": { width: "300px" },
+              "@media (max-width: 1024px)": { minWidth: "450px" },
+            }}
+          >
             {props.img && typeof props.img === "object" ? (
               <Skeleton
                 variant="rectangular"
@@ -158,10 +170,15 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 }}
               >
                 <Image
-                  src={"https://kentfilm.up.railway.app/storage/" + props.img}
+                  src={
+                    props.edit
+                      ? props.img
+                      : "https://kentfilm.up.railway.app/storage/" + props.img
+                  }
                   width={962}
                   height={685.35}
-                  alt="Latest Screening"
+                  alt={props.title + " latest screening"}
+                  title={props.title}
                   objectFit="cover"
                   style={{
                     minWidth: "962px",
@@ -182,10 +199,10 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 //   objectFit: "cover",
                 //   marginRight: "0px",
                 //   minWidth: "962px",
-                //   "@media (max-width: 1280px)": { minWidth: "500px" },
-                //   "@media (max-width: 1838px)": { minWidth: "46.875vw" },
-                //   // "@media (max-width: 1832px)": { width: "300px" },
-                //   "@media (max-width: 1024px)": { minWidth: "450px" },
+                // "@media (max-width: 1280px)": { minWidth: "500px" },
+                // "@media (max-width: 1838px)": { minWidth: "46.875vw" },
+                // "@media (max-width: 1832px)": { width: "300px" },
+                // "@media (max-width: 1024px)": { minWidth: "450px" },
                 //   // maxWidth: "962px",
                 //   minHeight: "95.14563106796116vh",
                 //   // maxHeight: "708px",
@@ -203,7 +220,15 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             }}
           >
             <Stack direction={"column"} alignItems={"center"} spacing={1}>
-              <Typography textAlign={"center"} variant="h1" component="h2">
+              <Typography
+                textAlign={"center"}
+                variant="h1"
+                component="h2"
+                sx={{
+                  "@media (max-width: 900px)": { fontSize: "4rem" },
+                  "@media (max-width: 956px)": { fontSize: "5rem" },
+                }}
+              >
                 {props.title}
               </Typography>
               <Typography
@@ -223,6 +248,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     borderRadius: "20px",
                     height: "50px",
                     width: "160px",
+                    color: "black",
                   }}
                   onClick={() => {
                     console.log(props.url);
