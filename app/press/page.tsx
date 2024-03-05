@@ -11,6 +11,23 @@ import PressTheme from "../Themes/PressTheme";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Press",
+  description:
+    "Discover recent press coverage about the Kent Film Foundation and Ramsgate Community Cinema. See how we're making a difference in the community!",
+  openGraph: {
+    title: "Kent Film Foundation & Ramsgate Community Cinema: In The News",
+    description:
+      "Discover recent press coverage about the Kent Film Foundation and Ramsgate Community Cinema. See how we're making a difference in the community!",
+    type: "website",
+    url: "https://kentfilmfoundation.vercel.app/press",
+  },
+  twitter: {
+    title: "Kent Film Foundation",
+    description:
+      "Discover recent press coverage about the Kent Film Foundation and Ramsgate Community Cinema. See how we're making a difference in the community!",
+  },
+  alternates: {
+    canonical: `https://kentfilmfoundation.vercel.app/press`,
+  },
 };
 function Press() {
   return (
