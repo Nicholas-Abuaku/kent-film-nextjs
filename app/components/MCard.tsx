@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import MCardTheme from "../Themes/MCardTheme";
+import Image from "next/image";
 
 type MCardProps = {
   title: string;
@@ -44,22 +45,28 @@ const MCard = (props: MCardProps) => {
               }}
               elevation={10}
             >
-              <CardMedia
-                component="img"
-                image={props.img}
+              <Image
+                src={props.img}
+                height={0}
+                width={0}
                 title={props.title}
                 alt={"Movie poster for " + props.title}
                 loading="lazy"
-                sx={{
-                  maxWidth: "8.5vw",
-                  minHeight: "29vh",
-                  maxHeight: "29vh",
+                style={{
+                  width: "8.5vw",
+                  height: "30vh",
                   objectFit: "scale-down",
                   marginRight: "5px",
                 }}
               />
+              <CardMedia />
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
-              <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
+              <Box
+                sx={{
+                  wordWrap: "break-word",
+                  overflowY: "scroll",
+                }}
+              >
                 <Stack direction={"row"} spacing={2}>
                   <Typography
                     fontWeight={"bold"}
@@ -92,21 +99,22 @@ const MCard = (props: MCardProps) => {
               }}
               elevation={10}
             >
-              <CardMedia
-                component="img"
-                image={props.img}
+              <Image
+                src={props.img}
+                alt={props.title + " image"}
                 title={props.title}
-                sx={{
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
                   width: "200px",
                   height: "auto",
-                  // minHeight: "100%",
-                  // maxHeight: "29vh",
                   objectFit: "contain",
                   marginRight: "5px",
                 }}
-                alt="Latest screening poster"
                 loading="lazy"
               />
+              <CardMedia />
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
               <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
                 <Stack direction={"row"} spacing={10}>
