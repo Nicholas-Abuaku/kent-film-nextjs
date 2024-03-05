@@ -16,10 +16,11 @@ import {
   CardMedia,
 } from "@mui/material";
 
-import FilmClubDisplayGrid from "../components/FilmClubDisplayGrid";
+import FilmClubMain from "../assets/images/FilmClubsMainimg.png";
 import FilmClubDisplayCard from "../components/FilmClubDisplayCard";
 import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
+import Image from "next/image";
 export const metadata: Metadata = {
   title: "Film Clubs",
 
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
       "Explore films at Ramsgate Community Cinema. Check this month's screenings, enjoy events, and connect on social media. Your cinematic journey begins here!",
   },
   alternates: {
-    canonical: `https://kentfilmfoundation.netlify.app/film-clubs`,
+    canonical: `https://kentfilmfoundation.vercel.app/film-clubs`,
   },
 };
 interface FilmClubInfo {
@@ -73,7 +74,8 @@ const FilmClubs = async () => {
             // height={"65.18vh"}
             sx={{
               backgroundColor: "#127346",
-              width: "60%",
+              width: "59.46875vw",
+              height: "100%",
               margin: "auto",
               marginTop: "40px",
               marginBottom: "30px",
@@ -84,14 +86,17 @@ const FilmClubs = async () => {
             }}
             elevation={24}
           >
-            <CardMedia
-              component={"img"}
-              height={"50%"}
-              src="//img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/Girls%20film%20club%201.jpg/:/cr=t:16.67%25,l:0%25,w:100%25,h:66.67%25/rs=w:1240,h:620,cg:true"
+            <Image
+              src={FilmClubMain.src}
               alt="Free Youth Clubs Every Monday"
               title="Free Youth Clubs Every Monday"
               loading="eager"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ height: "50%", width: "100%" }}
             />
+            <CardMedia />
             <CardContent>
               <Stack spacing={2}>
                 <Typography
@@ -109,9 +114,15 @@ const FilmClubs = async () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item container>
+        <Grid
+          item
+          container
+          xs={12}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           {filmClubs.map((club: FilmClubInfo) => (
-            <Grid item md={6} xs={12} xl={3} key={club.id}>
+            <Grid item md={4} xs={12} xl={3} key={club.id}>
               <FilmClubDisplayCard
                 heading={club.heading}
                 description={club.description}
