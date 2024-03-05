@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "kentfilm.up.railway.app",
       },
+      {
+        protocol: "https",
+        hostname: "img.evbuc.com",
+      },
     ],
   },
 };
