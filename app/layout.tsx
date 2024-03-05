@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  openGraph: {
+    type: "website",
+    url: "https://kentfilmfoundation.vercel.app/",
+  },
+  alternates: {
+    canonical: "https://kentfilmfoundation.vercel.app/",
+  },
 };
 
 export default function RootLayout({
