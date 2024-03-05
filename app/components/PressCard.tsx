@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import PressCardTheme from "../Themes/PressCardTheme";
+import Image from "next/image";
 
 type PressCardProps = {
   newsSource: string;
@@ -37,13 +38,22 @@ const PressCard = (props: PressCardProps) => {
             borderRadius: "0px",
           }}
         >
-          <CardMedia
-            component={"img"}
-            height={"300px"}
+          <Image
             src={"https://kentfilm.up.railway.app/storage/" + image}
-            loading="eager"
+            height={0}
             title={articleTitle}
             alt={"News coverage from " + newsSource}
+            width={0}
+            sizes="100vw"
+            style={{ height: "350px", width: "100%", objectFit: "cover" }}
+          />
+          <CardMedia
+          // component={"img"}
+          // height={"300px"}
+          // src={"https://kentfilm.up.railway.app/storage/" + image}
+          // loading="eager"
+          // title={articleTitle}
+          // alt={"News coverage from " + newsSource}
           />
           <CardContent>
             <Stack spacing={0}>
@@ -87,18 +97,20 @@ const PressCard = (props: PressCardProps) => {
             // borderRadius: "0px",
           }}
         >
-          <CardMedia
-            component={"img"}
+          <Image
             src={"https://kentfilm.up.railway.app/storage/" + image}
-            loading="eager"
+            height={0}
             title={articleTitle}
             alt={"News coverage from " + newsSource}
-            sx={{
+            sizes="100vw"
+            width={0}
+            style={{
               width: "28.645833333333332vw",
               height: "35.76051779935275vh",
               objectFit: "cover",
             }}
           />
+          <CardMedia />
           <CardContent sx={{ height: "100%" }}>
             <Stack spacing={0}>
               <Typography
