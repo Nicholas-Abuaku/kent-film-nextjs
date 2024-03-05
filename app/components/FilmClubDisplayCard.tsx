@@ -33,16 +33,23 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           "@media (max-width: 600px)": {
             width: "90%",
           },
+          "@media (max-width: 899px)": {
+            width: "70%",
+          },
         }}
       >
-        <CardMedia
-          component={"img"}
-          height={"300px"}
+        <Image
           src={"https://kentfilm.up.railway.app/storage/" + props.img}
+          height={0}
+          width={0}
           alt={props.heading}
           title={props.heading}
-          loading="lazy"
+          unoptimized={true}
+          loading="eager"
+          style={{ height: "200px", width: "100%" }}
+          quality={80}
         />
+        <CardMedia />
         <CardContent>
           <Stack spacing={2}>
             <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
