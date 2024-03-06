@@ -114,23 +114,16 @@ const FilmClubs = async () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid
-          item
-          container
-          xs={12}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          {filmClubs.map((club: FilmClubInfo) => (
-            <Grid item xl={3} md={4} xs={12} key={club.id}>
-              <FilmClubDisplayCard
-                heading={club.heading}
-                description={club.description}
-                img={club.img_Url}
-              />
-            </Grid>
-          ))}
-        </Grid>
+
+        {filmClubs.map((club: FilmClubInfo) => (
+          <Grid item xl={3} md={4} xs={12} key={club.id}>
+            <FilmClubDisplayCard
+              heading={club.heading}
+              description={club.description}
+              img={club.img_Url}
+            />
+          </Grid>
+        ))}
       </Grid>
     </ThemeProvider>
   );
