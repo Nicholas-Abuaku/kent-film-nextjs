@@ -249,6 +249,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     height: "50px",
                     width: "160px",
                     color: "black",
+                    "&:hover": { backgroundColor: "#808080" },
                   }}
                   onClick={() => {
                     console.log(props.url);
