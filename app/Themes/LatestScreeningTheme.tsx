@@ -7,7 +7,7 @@ let LatestScreeningTheme = createTheme(theme, {
   },
   palette: {
     primary: {
-      main: "#FFFF", // Set a different primary color
+      main: "#FFFFFF", // Set a different primary color
     },
   },
 });
