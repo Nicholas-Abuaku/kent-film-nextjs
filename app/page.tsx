@@ -27,6 +27,7 @@ interface LatestScreeningInfo {
   heading: string;
   img_Url: string;
   date: string;
+  time: string;
   description: string;
   eventUrl: string;
 }
