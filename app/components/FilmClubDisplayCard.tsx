@@ -26,7 +26,9 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
         elevation={12}
         sx={{
           width: "80%",
-          marginLeft: "0.875rem",
+          // marginLeft: "0.875rem",
+          marginLeft: "auto",
+          marginRight: "auto",
           marginTop: "40px",
           backgroundColor: "#339465",
           color: "white",
@@ -46,7 +48,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           title={props.heading}
           unoptimized={true}
           loading="eager"
-          style={{ height: "200px", width: "100%" }}
+          style={{ height: "20.98635886673662vh", width: "100%" }}
           quality={80}
         />
         <CardMedia />
