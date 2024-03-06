@@ -96,7 +96,7 @@ const FilmClubs = async () => {
               sizes="100vw"
               style={{ height: "50%", width: "100%" }}
             />
-            <CardMedia />
+
             <CardContent>
               <Stack spacing={2}>
                 <Typography
@@ -122,7 +122,7 @@ const FilmClubs = async () => {
           alignItems={"center"}
         >
           {filmClubs.map((club: FilmClubInfo) => (
-            <Grid item md={4} xs={12} xl={3} key={club.id}>
+            <Grid item xl={3} md={4} xs={12} key={club.id}>
               <FilmClubDisplayCard
                 heading={club.heading}
                 description={club.description}
