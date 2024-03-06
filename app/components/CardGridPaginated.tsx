@@ -62,16 +62,16 @@ const CardGridPaginated = () => {
           allEvents.slice(startIndex, endIndex).map((event: Event) => {
             const startArr = event.start.local.replace("T", " ");
             const dateTimeArray = startArr.split(" ");
-            const startTime = dateTimeArray[1];
+            let startTime = dateTimeArray[1];
             const startDate = new Date(dateTimeArray[0]);
             const eventDate = startDate.toDateString();
             const imageUrl = event.logo ? event.logo.url : null;
             return (
-              <Grid item>
+              <Grid item key={event.id}>
                 <MCard
                   title={event.name.text}
                   description={event.name.text}
-                  date={startDate}
+                  date={eventDate}
                   time={startTime}
                   link={event.url}
                   img={imageUrl ? imageUrl : "N/A"}
