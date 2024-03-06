@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+
 import {
   Box,
   IconButton,
@@ -23,13 +24,14 @@ import Image from "next/image";
 type MCardProps = {
   title: string;
   description: string;
-  date: Date;
+  date: string;
   time: string;
   link: string;
   img: string;
 };
 const MCard = (props: MCardProps) => {
   const isMobile = useMediaQuery(MCardTheme.breakpoints.down("md"));
+  console.log(props.time);
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
       <Link href={props.link} target="_blank" rel="noopener noreferrer">
@@ -59,7 +61,7 @@ const MCard = (props: MCardProps) => {
                   marginRight: "5px",
                 }}
               />
-              <CardMedia />
+
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
               <Box
                 sx={{
@@ -72,7 +74,7 @@ const MCard = (props: MCardProps) => {
                     fontWeight={"bold"}
                     variant="h5"
                     component="h3"
-                    fontFamily={"Open Sans, arial, sans-serif"}
+                    // fontFamily={"Open Sans, arial, sans-serif"}
                   >
                     {props.title}
                   </Typography>
@@ -114,15 +116,14 @@ const MCard = (props: MCardProps) => {
                 }}
                 loading="lazy"
               />
-              <CardMedia />
-              {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
+
               <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
                 <Stack direction={"row"} spacing={10}>
                   <Typography
                     fontWeight={"bold"}
                     variant="h6"
                     component="h3"
-                    fontFamily={"Open Sans, arial, sans-serif"}
+                    // fontFamily={`${inter.style.fontFamily}, Helvetica, Arial, sans-serif`}
                   >
                     {props.title}
                   </Typography>
@@ -132,7 +133,7 @@ const MCard = (props: MCardProps) => {
                   variant="subtitle1"
                   component="h4"
                 >
-                  {props.date + " " + props.time}
+                  {props.date} <br /> {props.time}
                 </Typography>
 
                 <Typography sx={{ marginTop: "10px" }}>
