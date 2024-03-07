@@ -37,14 +37,6 @@ const Navigation = () => {
                 title="Kent Film Foundation Logo"
                 alt="Kent Film Foundation Logo"
               />
-              {/* <img
-                src={KentFilmLogo.src}
-                width={80}
-                height={80}
-                title="Kent Film Foundation Logo"
-                alt="A white seagull flying with a white clapperboard in its mouth "
-                loading="eager"
-              /> */}
             </IconButton>
           </Link>
           <Stack direction={"column"}>
