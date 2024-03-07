@@ -1,7 +1,7 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material";
 import { Noto_Sans } from "next/font/google";
-import {} from "next/font/google";
+
 const inter = Noto_Sans({
   subsets: ["latin"], // Specify the character subsets you need (optional)
   weight: ["500"], // Include desired font weights
