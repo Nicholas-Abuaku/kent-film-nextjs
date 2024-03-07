@@ -14,7 +14,7 @@ import {
   createTheme,
 } from "@mui/material";
 import NavHome from "./NavHome";
-import KentFilmLogo from "../icons/RamsgateCinema.jpg";
+import KentFilmLogo from "../assets/images/OtterLogo.png";
 import Link from "next/link";
 import { NavDrawer } from "./NavDrawer";
 import NavbarTheme from "../Themes/NavbarTheme";
