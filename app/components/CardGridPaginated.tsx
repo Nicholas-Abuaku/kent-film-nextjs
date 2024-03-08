@@ -22,21 +22,14 @@ interface Event {
   logo?: { url: string };
 }
 const CardGridPaginated = () => {
-  const API_KEY = "";
-  //Pagination Logic
   const [page, setPage] = useState(1);
-  const itemsPerPage = 3;
   const [allEvents, setAllEvents] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const itemsPerPage = isMobile ? 4 : 3;
 
   const fetchAllEvents = async () => {
-    const headers = {
-      Authorization: `Bearer ${API_KEY}`,
-      "Content-Type": "application/json",
-    };
     try {
       const response = await axios.post("/api/eventbrite");
       setAllEvents(response.data);
@@ -89,6 +82,18 @@ const CardGridPaginated = () => {
               <Typography variant="h3" color={"white"}>
                 Nothing Scheduled yet, check back again later!
               </Typography>
+              // <>
+              //   <Grid item>
+              //     <MCard
+              //       title="Movie (1999)"
+              //       description="If you're seeing this place holder it means nothing is scheduled on eventbrite, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
+              //       date="8 Mar 2024"
+              //       time="14:00"
+              //       link="none"
+              //       img="https://kentfilm.up.railway.app/storage/featured-content-images/OalDmfWP9omPjTS6vMkhjxzJ5CdwXTFs1vfku6Wd.png"
+              //     />
+              //   </Grid>
+              // </>
             )}
           </Grid>
         )
