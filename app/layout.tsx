@@ -5,7 +5,6 @@ import "./globals.css";
 
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import Navigation2 from "./components/Navigation2";
 
 // const inter = Inter({ subsets: ["latin"] });
 
