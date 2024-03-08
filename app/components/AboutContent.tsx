@@ -30,7 +30,7 @@ const AboutContent = () => {
             </Typography>
             <hr style={{ width: "300px" }} />
             {isMobile ? (
-              <Stack direction={"column"} spacing={2} width={200}>
+              <Stack direction={"column"} spacing={2} width={250}>
                 <Typography variant="body1" component={"h3"}>
                   Kent Film Foundation began as a non-for-profit arm of a film
                   production company based in Thanet , Kent an area of high
