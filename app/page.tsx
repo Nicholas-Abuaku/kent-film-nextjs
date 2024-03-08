@@ -22,7 +22,12 @@ import {
 import PayPalDonate from "./components/PayPalDonate";
 import { Metadata } from "next";
 // import MailingListDialog from "./components/MailingListDialog";
+import { Noto_Sans } from "next/font/google";
 
+const inter = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 interface LatestScreeningInfo {
   heading: string;
   img_Url: string;
@@ -89,7 +94,7 @@ const Home = async () => {
           <Grid item xs={12} width={"100%"}>
             <Typography
               variant="h2"
-              fontFamily={"Open Sans, arial, sans-serif"}
+              fontFamily={`${inter.style.fontFamily}`}
               sx={{
                 border: "2px solid",
                 borderLeft: "0px",
