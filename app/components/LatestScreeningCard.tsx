@@ -32,29 +32,27 @@ type LatestScreeningCardProps = {
 };
 
 const LatestScreeningCard = (props: LatestScreeningCardProps) => {
-  const theme = useTheme();
-  const textTheme = createTheme();
   const [isLoading, setIsLoading] = useState(false);
-  textTheme.typography.h2 = {
-    fontSize: "2rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "2.4rem",
-    },
-  };
+  // textTheme.typography.h2 = {
+  //   fontSize: "2rem",
+  //   "@media (min-width:600px)": {
+  //     fontSize: "1.5rem",
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     fontSize: "2.4rem",
+  //   },
+  // };
 
-  textTheme.typography.h4 = {
-    fontSize: "0.8rem",
-    "@media (min-width:600px)": {
-      fontSize: "1.5rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "2.4rem",
-    },
-  };
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // textTheme.typography.h4 = {
+  //   fontSize: "0.8rem",
+  //   "@media (min-width:600px)": {
+  //     fontSize: "1.5rem",
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     fontSize: "2.4rem",
+  //   },
+  // };
+  const isMobile = useMediaQuery(LatestScreeningTheme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
       {isMobile ? (
