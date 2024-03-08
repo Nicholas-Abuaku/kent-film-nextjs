@@ -16,6 +16,7 @@ import {
   useMediaQuery,
   createTheme,
   ThemeProvider,
+  Button,
 } from "@mui/material";
 import Link from "next/link";
 import MCardTheme from "../Themes/MCardTheme";
@@ -42,26 +43,12 @@ const MCard = (props: MCardProps) => {
                 width: "35vw",
                 height: "29vh",
                 display: "flex",
+
                 backgroundColor: "#F0F0ED ",
                 color: "black",
               }}
               elevation={10}
             >
-              <Image
-                src={props.img}
-                height={0}
-                width={0}
-                title={props.title}
-                alt={"Movie poster for " + props.title}
-                loading="lazy"
-                style={{
-                  width: "8.5vw",
-                  height: "30vh",
-                  objectFit: "scale-down",
-                  marginRight: "5px",
-                }}
-              />
-
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
               <Box
                 sx={{
@@ -88,12 +75,26 @@ const MCard = (props: MCardProps) => {
                   {props.description}
                 </Typography>
               </Box>
+              <Image
+                src={props.img}
+                height={0}
+                width={0}
+                title={props.title}
+                alt={"Movie poster for " + props.title}
+                loading="lazy"
+                style={{
+                  width: "8.5vw",
+                  height: "30vh",
+                  objectFit: "scale-down",
+                  marginRight: "5px",
+                }}
+              />
             </Card>
           ) : (
             <Card
               sx={{
                 width: "29.59vw",
-                height: "250px",
+                height: "300px",
                 // height: "29vh",
                 display: "flex",
                 backgroundColor: "#F0F0ED ",
@@ -117,7 +118,13 @@ const MCard = (props: MCardProps) => {
                 loading="lazy"
               />
 
-              <Box sx={{ wordWrap: "break-word", overflow: "auto" }}>
+              <Box
+                sx={{
+                  wordWrap: "break-word",
+                  overflow: "auto",
+                  height: "300px",
+                }}
+              >
                 <Stack direction={"row"} spacing={10}>
                   <Typography
                     fontWeight={"bold"}
@@ -136,9 +143,26 @@ const MCard = (props: MCardProps) => {
                   {props.date} <br /> {props.time}
                 </Typography>
 
-                <Typography sx={{ marginTop: "10px" }}>
+                <Typography sx={{ marginTop: "-9px" }}>
                   {props.description}
                 </Typography>
+                <Link href={props.link}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      borderRadius: "70px",
+                      backgroundColor: "#339465",
+                      position: "absolute",
+                      bottom: "10px",
+                      right: "10px;",
+                      "@media screen and (max-width: 1505px)": {
+                        visibility: "hidden",
+                      },
+                    }}
+                  >
+                    Click here
+                  </Button>
+                </Link>
               </Box>
             </Card>
           )}
