@@ -79,21 +79,21 @@ const CardGridPaginated = () => {
                 Nothing Scheduled yet, check back again later!
               </Typography>
             ) : (
-              <Typography variant="h3" color={"white"}>
-                Nothing Scheduled yet, check back again later!
-              </Typography>
-              // <>
-              //   <Grid item>
-              //     <MCard
-              //       title="Movie (1999)"
-              //       description="If you're seeing this place holder it means nothing is scheduled on eventbrite, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
-              //       date="8 Mar 2024"
-              //       time="14:00"
-              //       link="none"
-              //       img="https://kentfilm.up.railway.app/storage/featured-content-images/OalDmfWP9omPjTS6vMkhjxzJ5CdwXTFs1vfku6Wd.png"
-              //     />
-              //   </Grid>
-              // </>
+              // <Typography variant="h3" color={"white"}>
+              //   Nothing Scheduled yet, check back again later!
+              // </Typography>
+              <>
+                <Grid item>
+                  <MCard
+                    title="Movie (1999)"
+                    description="If you're seeing this place holder it means nothing is scheduled on eventbrite. Switch to mobile view to see the what should happen when nothing is scheduled!. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis nisi ipsum. Curabitur iaculis rhoncus augue. Quisque porta rhoncus nisl non cursus. Aenean dapibus at leo a porttitor. "
+                    date="8 Mar 2024"
+                    time="14:00"
+                    link="none"
+                    img="https://kentfilm.up.railway.app/storage/press-images/hsVOBEgQuBdNkY0NmUnQV03LXIMVlsNKSEcZM97q.png"
+                  />
+                </Grid>
+              </>
             )}
           </Grid>
         )
