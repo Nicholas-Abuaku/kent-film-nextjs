@@ -86,7 +86,7 @@ const CardGridPaginated = () => {
                 <Grid item>
                   <MCard
                     title="Movie (1999)"
-                    description="If you're seeing this place holder it means nothing is scheduled on eventbrite. Switch to mobile view to see the what should happen when nothing is scheduled!. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis nisi ipsum. Curabitur iaculis rhoncus augue. Quisque porta rhoncus nisl non cursus. Aenean dapibus at leo a porttitor. "
+                    description="If you're seeing this place holder it means nothing is scheduled on eventbrite. Switch to mobile view to see the what should happen when nothing is scheduled!. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis nisi ipsum.1 Aenean dapibus at leo a porttitor. "
                     date="8 Mar 2024"
                     time="14:00"
                     link="none"
