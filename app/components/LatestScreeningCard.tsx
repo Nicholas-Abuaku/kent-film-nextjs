@@ -80,10 +80,24 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               sx={{
                 objectFit: "cover",
                 width: "100%",
-                height: "200px",
-                "@media (max-width: 600px)": { minWidth: "100%" },
-                "@media (max-width: 900px)": {
-                  maxWidth: "10%",
+                height: "100%",
+                maxHeight: "350px",
+                "@media (min-width: 810px)": {
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "350px",
+                  objectFit: "fill",
+                },
+                "@media (min-width: 500px)": {
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "350px",
+                  objectFit: "fill",
+                },
+                "@media (min-width: 900px)": {
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "fill",
                 },
               }}
               alt={props.title}
@@ -140,14 +154,15 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           }}
         >
           <Box
-            maxHeight={"500px"}
+            // maxHeight={"500px"}
             maxWidth={"974px"}
-            sx={{
-              "@media (max-width: 1280px)": { minWidth: "500px" },
-              "@media (max-width: 1838px)": { minWidth: "46.875vw" },
-              "@media (max-width: 1832px)": { width: "300px" },
-              "@media (max-width: 1024px)": { minWidth: "450px" },
-            }}
+            // sx={{
+            //   "@media (max-width: 1280px)": { minWidth: "500px" },
+            //   "@media (max-width: 1838px)": { minWidth: "46.875vw" },
+            //   "@media (max-width: 1832px)": { width: "300px" },
+            //   "@media (max-width: 1024px)": { minWidth: "450px" },
+            // }}
+            sx={{ width: "50%", height: "auto" }}
           >
             {props.img && typeof props.img === "object" ? (
               <Skeleton
@@ -164,7 +179,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   justifyContent: "center",
                   alignItems: "center",
                   maxHeight: "auto",
-                  maxWidth: "100%",
+                  width: "100%",
+                  height: "100%",
                 }}
               >
                 <Image
@@ -173,14 +189,18 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                       ? props.img
                       : "https://kentfilm.up.railway.app/storage/" + props.img
                   }
-                  width={962}
-                  height={685.35}
+                  // width={962}
+                  // height={685.35}
+                  width={0}
+                  height={0}
                   alt={props.title + " latest screening"}
                   title={props.title}
-                  objectFit="cover"
+                  unoptimized={true}
                   style={{
-                    minWidth: "962px",
+                    width: "100%",
+                    maxWidth: "962px",
                     marginRight: "0px",
+                    height: "100%",
                   }}
                 />
               </Box>
