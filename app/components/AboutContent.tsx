@@ -30,7 +30,17 @@ const AboutContent = () => {
             </Typography>
             <hr style={{ width: "300px" }} />
             {isMobile ? (
-              <Stack direction={"column"} spacing={2} width={250}>
+              <Stack
+                direction={"column"}
+                spacing={2}
+                width={200}
+                sx={{
+                  "@media (min-width: 780px)": {
+                    width: "80%",
+                  },
+                }}
+                marginLeft={2}
+              >
                 <Typography variant="body1" component={"h3"}>
                   Kent Film Foundation began as a non-for-profit arm of a film
                   production company based in Thanet , Kent an area of high
@@ -98,7 +108,7 @@ const AboutContent = () => {
               </Stack>
             )}
           </Grid>
-          <Grid item xs={5} md={5} marginTop={20} marginLeft={0}>
+          <Grid item xs={4} md={5} marginTop={36} marginLeft={0}>
             {isMobile ? (
               <Stack
                 alignItems={"center"}
@@ -109,7 +119,7 @@ const AboutContent = () => {
                   style={{
                     borderRadius: "50%",
                     width: "100px",
-                    marginBottom: "10px",
+                    marginBottom: "0px",
                   }}
                   alt="'Aiming High' is a film made by our young filmmakers about Ian Payne a wheelchair tennis player."
                   title="Ian Payne"
