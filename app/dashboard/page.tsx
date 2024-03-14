@@ -1,6 +1,10 @@
 import React from "react";
-import { Grid, Paper, Typography } from "@mui/material";
-import ButtonGrid from "../components/ButtonGrid";
+import { Grid, Typography } from "@mui/material";
+import dynamic from "next/dynamic";
+const ButtonGrid = dynamic(() => import("../components/ButtonGrid"), {
+  ssr: false,
+});
+
 const page = () => {
   return (
     <Grid container>

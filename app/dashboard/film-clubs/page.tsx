@@ -1,16 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Grid, Stack, IconButton } from "@mui/material";
+import { Grid, Stack, IconButton } from "@mui/material";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import FilmClubTable from "@/app/components/FilmClubTable";
+const FilmClubTable = dynamic(() => import("@/app/components/FilmClubTable"));
 import { ManageTableContext } from "@/app/contexts/ManageTableContext";
-interface FilmClubData {
-  id: number;
-  heading: string;
-  description: string;
-  img_Url: string;
-}
+import dynamic from "next/dynamic";
+
 const AllFilmClubs = () => {
   const [tableUpdate, setTableUpdate] = useState(false);
   return (

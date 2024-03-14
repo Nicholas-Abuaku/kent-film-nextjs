@@ -13,7 +13,11 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 import Link from "next/link";
-import FilmClubCard from "@/app/components/FilmClubCard";
+
+import dynamic from "next/dynamic";
+const FilmClubCard = dynamic(() => import("@/app/components/FilmClubCard"), {
+  ssr: false,
+});
 interface FilmClubData {
   id: number;
   heading: string;

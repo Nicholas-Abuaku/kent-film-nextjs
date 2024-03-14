@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  Grid,
-  Typography,
-  useTheme,
-  useMediaQuery,
-  ThemeProvider,
-} from "@mui/material";
-import PressCardGrid from "../components/PressCardGrid";
+import { Grid, Typography, ThemeProvider } from "@mui/material";
+// import PressCardGrid from "";
+import dynamic from "next/dynamic";
+const PressCardGrid = dynamic(() => import("../components/PressCardGrid"), {
+  ssr: true,
+});
 import PressTheme from "../Themes/PressTheme";
 import { Metadata } from "next";
 export const metadata: Metadata = {

@@ -1,5 +1,8 @@
-import { TextField, Typography, Stack, Grid, Button } from "@mui/material";
-import LoginForm from "../components/LoginForm";
+import dynamic from "next/dynamic";
+// import LoginForm from "../components/LoginForm";
+const LoginForm = dynamic(() => import("../components/LoginForm"), {
+  ssr: true,
+});
 const page = () => {
   return <LoginForm />;
 };

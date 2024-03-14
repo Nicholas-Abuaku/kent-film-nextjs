@@ -9,7 +9,6 @@ import {
   IconButton,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import { PressCardPreview } from "../../components/back-end/PressCardPreview";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import Link from "next/link";

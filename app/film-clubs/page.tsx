@@ -1,23 +1,18 @@
 import React from "react";
 import {
-  Box,
-  IconButton,
   Stack,
   Typography,
-  Icon,
-  Paper,
   Grid,
-  useMediaQuery,
-  createTheme,
-  Button,
   ThemeProvider,
   Card,
   CardContent,
-  CardMedia,
 } from "@mui/material";
-
+import dynamic from "next/dynamic";
 import FilmClubMain from "../assets/images/FilmClubsMainimg.png";
-import FilmClubDisplayCard from "../components/FilmClubDisplayCard";
+const FilmClubDisplayCard = dynamic(
+  () => import("../components/FilmClubDisplayCard"),
+  { ssr: true }
+);
 import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
 import Image from "next/image";

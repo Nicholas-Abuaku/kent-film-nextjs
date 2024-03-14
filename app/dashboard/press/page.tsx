@@ -4,8 +4,11 @@ import { ManageTableContext } from "@/app/contexts/ManageTableContext";
 import React, { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
-import PressArticleTable from "@/app/components/PressArticleTable";
-// import { PressArticleTable } from "../../components/back-end/PressArticleTable";
+import dynamic from "next/dynamic";
+const PressArticleTable = dynamic(
+  () => import("@/app/components/PressArticleTable"),
+  { ssr: false }
+);
 const page = () => {
   const [tableUpdate, setTableUpdate] = useState(false);
   return (

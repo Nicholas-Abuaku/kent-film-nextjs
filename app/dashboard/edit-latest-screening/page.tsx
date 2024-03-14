@@ -2,7 +2,11 @@ import React from "react";
 import { Grid, Typography, Stack, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
-import EditLatestScreening from "@/app/components/EditLatestScreening";
+import dynamic from "next/dynamic";
+const EditLatestScreening = dynamic(
+  () => import("@/app/components/EditLatestScreening"),
+  { ssr: true }
+);
 const page = () => {
   return (
     <Grid container>
