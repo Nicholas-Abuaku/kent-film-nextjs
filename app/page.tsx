@@ -11,17 +11,9 @@ const CardGridPaginated = dynamic(
   () => import("./components/CardGridPaginated"),
   { ssr: false }
 );
-import {
-  Grid,
-  useTheme,
-  createTheme,
-  Skeleton,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import PayPalDonate from "./components/PayPalDonate";
-import { Metadata } from "next";
-// import MailingListDialog from "./components/MailingListDialog";
+
 import { Noto_Sans } from "next/font/google";
 
 const inter = Noto_Sans({
