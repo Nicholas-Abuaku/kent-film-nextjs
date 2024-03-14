@@ -27,7 +27,7 @@ const CardGridPaginated = () => {
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const itemsPerPage = isMobile ? 4 : 3;
+  const itemsPerPage = isMobile ? 2 : 3;
 
   const fetchAllEvents = async () => {
     try {
@@ -79,28 +79,20 @@ const CardGridPaginated = () => {
                 Nothing Scheduled yet, check back again later!
               </Typography>
             ) : (
-              // <Typography variant="h3" color={"white"}>
-              //   Nothing Scheduled yet, check back again later!
-              // </Typography>
-              <>
-                <Grid item>
-                  <MCard
-                    title="Movie (1999)"
-                    description="If you're seeing this place holder it means nothing is scheduled on eventbrite. Switch to mobile view to see the what should happen when nothing is scheduled!. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis nisi ipsum.1 Aenean dapibus at leo a porttitor. "
-                    date="8 Mar 2024"
-                    time="14:00"
-                    link="none"
-                    img="https://kentfilm.up.railway.app/storage/press-images/hsVOBEgQuBdNkY0NmUnQV03LXIMVlsNKSEcZM97q.png"
-                  />
-                </Grid>
-              </>
+              <Typography variant="h3" color={"white"}>
+                Nothing Scheduled yet, check back again later!
+              </Typography>
             )}
           </Grid>
         )
       ) : (
         Array.from({ length: itemsPerPage }).map((_, index) => (
           <Grid item key={index}>
-            <Skeleton variant="rectangular" width={576.13} height={275.06} />
+            <Skeleton
+              variant="rectangular"
+              width={isMobile ? "35vw" : 576.13}
+              height={isMobile ? "29vh" : 275.06}
+            />
           </Grid>
         ))
       )}
