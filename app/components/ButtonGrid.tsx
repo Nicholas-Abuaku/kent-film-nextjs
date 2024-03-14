@@ -1,9 +1,23 @@
 import React from "react";
-import { Grid, Stack, Paper } from "@mui/material";
-import DashboardFeaturedButton from "./DashboardFeaturedButton";
-import DashboardManageButton from "./DashboardManageButton";
-import DashboardManageNewsButton from "./DashboardManageNewsButton";
-import DashboardSignOutButton from "./DashboardSignOutButton";
+import { Grid } from "@mui/material";
+import dynamic from "next/dynamic";
+const DashboardFeaturedButton = dynamic(
+  () => import("./DashboardFeaturedButton"),
+  { ssr: false }
+);
+
+const DashboardManageButton = dynamic(() => import("./DashboardManageButton"), {
+  ssr: false,
+});
+const DashboardManageNewsButton = dynamic(
+  () => import("./DashboardManageNewsButton"),
+  { ssr: false }
+);
+const DashboardSignOutButton = dynamic(
+  () => import("./DashboardSignOutButton"),
+  { ssr: false }
+);
+
 const ButtonGrid = () => {
   return (
     <Grid
