@@ -49,6 +49,20 @@ const MCard = (props: MCardProps) => {
               }}
               elevation={10}
             >
+              <Image
+                src={props.img}
+                height={0}
+                width={0}
+                title={props.title}
+                alt={"Movie poster for " + props.title}
+                loading="lazy"
+                style={{
+                  width: "8.5vw",
+                  height: "30vh",
+                  objectFit: "scale-down",
+                  marginRight: "5px",
+                }}
+              />
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
               <Box
                 sx={{
@@ -75,20 +89,6 @@ const MCard = (props: MCardProps) => {
                   {props.description}
                 </Typography>
               </Box>
-              <Image
-                src={props.img}
-                height={0}
-                width={0}
-                title={props.title}
-                alt={"Movie poster for " + props.title}
-                loading="lazy"
-                style={{
-                  width: "8.5vw",
-                  height: "30vh",
-                  objectFit: "scale-down",
-                  marginRight: "5px",
-                }}
-              />
             </Card>
           ) : (
             <Card
