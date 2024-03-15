@@ -80,10 +80,9 @@ const page = () => {
       handlePost();
     } else {
       console.log("No id");
-      // handleNew();
     }
   }
-  //file handler
+
   async function fileHandler(event: React.FormEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement & {
       files: FileList;
@@ -93,7 +92,7 @@ const page = () => {
     setFileUrl(URL.createObjectURL(target.files[0]));
     console.log(imageFile);
   }
-  //field inputs
+
   function handleHeadingChange(event: React.ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
     setHeading(event.target.value);
@@ -108,7 +107,6 @@ const page = () => {
     fetchClubData();
   }, []);
 
-  //handleNew
   return (
     <>
       <Grid container justifyContent={"center"} alignItems={"center"}>
