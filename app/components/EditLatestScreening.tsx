@@ -97,6 +97,8 @@ const EditLatestScreening = () => {
           <TextField
             name="title"
             label="Title"
+            multiline={true}
+            rows={4}
             sx={{ width: "50%" }}
             onChange={handleHeadingChange}
           />
