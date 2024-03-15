@@ -33,26 +33,23 @@ type LatestScreeningCardProps = {
 
 const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  // textTheme.typography.h2 = {
-  //   fontSize: "2rem",
-  //   "@media (min-width:600px)": {
-  //     fontSize: "1.5rem",
-  //   },
-  //   [theme.breakpoints.up("md")]: {
-  //     fontSize: "2.4rem",
-  //   },
-  // };
-
-  // textTheme.typography.h4 = {
-  //   fontSize: "0.8rem",
-  //   "@media (min-width:600px)": {
-  //     fontSize: "1.5rem",
-  //   },
-  //   [theme.breakpoints.up("md")]: {
-  //     fontSize: "2.4rem",
-  //   },
-  // };
   const isMobile = useMediaQuery(LatestScreeningTheme.breakpoints.down("md"));
+  const renderTitle = () => {
+    const titleText = props.title || "";
+    return titleText.split("\n").map((paragraph, index) => (
+      <Typography
+        textAlign={"center"}
+        variant="h1"
+        component={"h2"}
+        sx={{
+          "@media (max-width: 900px)": { fontSize: "4rem" },
+          "@media (max-width: 956px)": { fontSize: "5rem" },
+        }}
+      >
+        {paragraph}
+      </Typography>
+    ));
+  };
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
       {isMobile ? (
@@ -126,7 +123,14 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 {props.date}
               </Typography>
               <Typography textAlign={"center"}>{props.description}</Typography>
-              <Link href={props.url} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={
+                  props.url ||
+                  "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   variant="contained"
                   color="inherit"
@@ -191,6 +195,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   }
                   // width={962}
                   // height={685.35}
+
                   width={0}
                   height={0}
                   alt={props.title + " latest screening"}
@@ -201,6 +206,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     maxWidth: "962px",
                     marginRight: "0px",
                     height: "100%",
+                    objectFit: "cover",
                   }}
                 />
               </Box>
@@ -211,11 +217,13 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               backgroundColor: "#1A1A1A",
               color: "white",
               wordBreak: "break-word",
-              minWidth: "50%",
+              width: "50%",
+              height: "100%",
+              position: "relative",
             }}
           >
             <Stack direction={"column"} alignItems={"center"} spacing={1}>
-              <Typography
+              {/* <Typography
                 textAlign={"center"}
                 variant="h1"
                 component="h2"
@@ -225,7 +233,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 }}
               >
                 {props.title}
-              </Typography>
+              </Typography> */}
+              {renderTitle()}
               <Typography
                 color={"white"}
                 paddingBottom={4}
@@ -235,8 +244,17 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               >
                 {props.date}
               </Typography>
-              <Typography textAlign={"center"}>{props.description}</Typography>
-              <Link href={props.url} target="_blank" rel="noopener noreferrer">
+              <Typography textAlign={"center"} maxHeight={336} maxWidth={"75%"}>
+                {props.description}
+              </Typography>
+              <Link
+                href={
+                  props.url ||
+                  "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   variant="contained"
                   sx={{
@@ -244,10 +262,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     height: "50px",
                     width: "160px",
                     color: "black",
+                    marginTop: "5px",
                     "&:hover": { backgroundColor: "#808080" },
-                  }}
-                  onClick={() => {
-                    console.log(props.url);
                   }}
                 >
                   Tickets
