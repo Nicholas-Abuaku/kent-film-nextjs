@@ -4,6 +4,12 @@ let theme = createTheme();
 let LatestScreeningTheme = createTheme(theme, {
   typography: {
     fontFamily: "'Open Sans', arial, sans-serif",
+    h1: {
+      fontSize: "4.5rem",
+    },
+    body1: {
+      fontSize: "1rem",
+    },
   },
   palette: {
     primary: {
