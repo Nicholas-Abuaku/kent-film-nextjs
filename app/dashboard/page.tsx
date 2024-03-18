@@ -4,15 +4,27 @@ import dynamic from "next/dynamic";
 const ButtonGrid = dynamic(() => import("../components/ButtonGrid"), {
   ssr: false,
 });
+import { Alexandria } from "next/font/google";
 
+const inter = Alexandria({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 const page = () => {
   return (
     <Grid container>
-      <Grid item xs={12} sx={{ backgroundColor: "grey" }}>
-        <Typography variant="h3">Dashboard</Typography>
-        <Typography>Welcome!</Typography>
+      <Grid item xs={12} sx={{ textAlign: "left", marginLeft: "10px" }}>
+        <Typography
+          variant="h3"
+          sx={{ fontFamily: `${inter.style.fontFamily}` }}
+        >
+          Dashboard
+        </Typography>
+        <Typography sx={{ fontFamily: `${inter.style.fontFamily}` }}>
+          Welcome!
+        </Typography>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={3} sx={{ justifyContent: "center", alignItems: "center" }}>
         <ButtonGrid />
       </Grid>
       <Grid item xs={12}>
