@@ -19,8 +19,9 @@ const DashboardManageNewsButton = () => {
           sx={{
             width: "300px",
             height: "140px",
-            background:
-              "linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(43,125,74,1) 50%)",
+            // background:
+            //   "linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(43,125,74,1) 50%)",
+            backgroundImage: "linear-gradient(62deg, #289ae2 0%, #171fb7 100%)",
             color: "white",
           }}
         >

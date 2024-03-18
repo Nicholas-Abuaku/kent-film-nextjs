@@ -36,8 +36,7 @@ const DashboardSignOutButton = () => {
           width: "300px",
           height: "140px",
 
-          backgroundImage:
-            "radial-gradient( circle farthest-corner at 17.1% 22.8%,  rgba(226,24,24,1) 0%, rgba(160,6,6,1) 90% )",
+          backgroundImage: "linear-gradient(to right, #AA0000,  #D2122E)",
           color: "white",
         }}
       >

@@ -23,8 +23,9 @@ const DashboardManageButton = () => {
           sx={{
             width: "300px",
             height: "140px",
-            background:
-              "linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(43,125,74,1) 50%)",
+            // background:
+            //   "linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(43,125,74,1) 50%)",
+            backgroundImage: " linear-gradient(to right, #1a5c42, #4fbd8a);",
             color: "white",
           }}
         >

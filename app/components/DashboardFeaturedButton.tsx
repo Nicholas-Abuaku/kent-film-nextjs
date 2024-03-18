@@ -23,7 +23,7 @@ const DashboardFeaturedButton = () => {
           sx={{
             width: "300px",
             height: "140px",
-            background: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);",
+            backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
             color: "white",
           }}
         >
