@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Grid, Skeleton, Pagination } from "@mui/material";
+import { Grid, Skeleton, Pagination, createTheme } from "@mui/material";
 import PressCard from "./PressCard";
 import axios from "axios";
 interface PressArticle {
@@ -15,6 +15,7 @@ const PressCardGrid = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const itemsPerPage = 3;
+
   const fetchPressData = async () => {
     try {
       const response = await fetch(
@@ -43,13 +44,22 @@ const PressCardGrid = () => {
   }, []);
   return (
     <>
-      <Grid container spacing={5} sx={{ margin: "auto" }} maxWidth={"100%"}>
+      <Grid
+        container
+        spacing={1}
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          "@media (min-width: 1200px)": { marginLeft: "10px" },
+        }}
+        maxWidth={"100%"}
+      >
         {isLoading
           ? pressData
               .slice(startIndex, endIndex)
               .reverse()
               .map((article: PressArticle) => (
-                <Grid item md={5} xs={12} xl={4} key={article.id}>
+                <Grid item md={5} xs={12} lg={4} xl={3} key={article.id}>
                   <PressCard
                     newsSource={article.news_source}
                     articleTitle={article.article_title}
@@ -58,12 +68,24 @@ const PressCardGrid = () => {
                   />
                 </Grid>
               ))
-          : Array.from({ length: 4 }).map((_, index) => (
-              <Grid item key={index} md={5} xs={12} xl={4}>
+          : Array.from({ length: 3 }).map((_, index) => (
+              <Grid
+                item
+                key={index}
+                md={5}
+                xs={12}
+                lg={4}
+                xl={3}
+                sx={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  "@media (min-width: 1200px)": { marginLeft: "10px" },
+                }}
+              >
                 <Skeleton
                   variant="rectangular"
-                  width={550}
-                  height={462}
+                  width={360}
+                  height={600}
                   animation="wave"
                 />
               </Grid>
