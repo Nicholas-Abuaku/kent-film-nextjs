@@ -10,6 +10,7 @@ import {
   Button,
   ThemeProvider,
   useMediaQuery,
+  Box,
 } from "@mui/material";
 import Link from "next/link";
 import PressCardTheme from "../Themes/PressCardTheme";
@@ -47,14 +48,7 @@ const PressCard = (props: PressCardProps) => {
             sizes="100vw"
             style={{ height: "350px", width: "100%", objectFit: "cover" }}
           />
-          <CardMedia
-          // component={"img"}
-          // height={"300px"}
-          // src={"https://kentfilm.up.railway.app/storage/" + image}
-          // loading="eager"
-          // title={articleTitle}
-          // alt={"News coverage from " + newsSource}
-          />
+
           <CardContent>
             <Stack spacing={0}>
               <Typography
@@ -87,56 +81,62 @@ const PressCard = (props: PressCardProps) => {
           elevation={24}
           sx={{
             backgroundColor: "#339465",
-            height: "500px",
-            maxWidth: "550px",
-            width: "100%",
+            height: "600px",
+            // maxWidth: "550px",
+            width: "360px",
             color: "white",
             marginBottom: "10px",
             display: "flex",
             flexDirection: "column",
+            marginRight: "0px",
+            "@media (min-width: 2284px)": { minWidth: "500px" },
+            "@media (min-width: 3000px)": { minWidth: "650px" },
             // borderRadius: "0px",
           }}
         >
-          <Image
-            src={"https://kentfilm.up.railway.app/storage/" + image}
-            height={0}
-            title={articleTitle}
-            alt={"News coverage from " + newsSource}
-            sizes="100vw"
-            width={0}
-            style={{
-              width: "28.645833333333332vw",
-              height: "35.76051779935275vh",
-              objectFit: "cover",
-            }}
-          />
-          <CardMedia />
-          <CardContent sx={{ height: "100%" }}>
-            <Stack spacing={0}>
-              <Typography
-                textAlign={"center"}
-                fontWeight={"bold"}
-                variant="subtitle1"
-                component={"h3"}
+          <Box sx={{ height: "70%" }}>
+            <Image
+              src={"https://kentfilm.up.railway.app/storage/" + image}
+              height={0}
+              title={articleTitle}
+              alt={"News coverage from " + newsSource}
+              sizes="100vw"
+              width={0}
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </Box>
+          <Box sx={{ width: "100%" }}>
+            <CardContent sx={{ height: "100%" }}>
+              <Stack spacing={0}>
+                <Typography
+                  textAlign={"center"}
+                  fontWeight={"bold"}
+                  variant="subtitle1"
+                  component={"h3"}
+                >
+                  {newsSource}
+                </Typography>
+                <Typography textAlign={"center"} variant="body1">
+                  {articleTitle}
+                </Typography>
+              </Stack>
+              <Stack
+                alignItems={"center"}
+                justifyContent={"center"}
+                marginTop={2}
               >
-                {newsSource}
-              </Typography>
-              <Typography textAlign={"center"} variant="body1">
-                {articleTitle}
-              </Typography>
-            </Stack>
-            <Stack
-              alignItems={"center"}
-              justifyContent={"center"}
-              marginTop={2}
-            >
-              <Link href={articleUrl}>
-                <Button variant="outlined" color="inherit">
-                  Learn More
-                </Button>
-              </Link>
-            </Stack>
-          </CardContent>
+                <Link href={articleUrl}>
+                  <Button variant="outlined" color="inherit">
+                    Learn More
+                  </Button>
+                </Link>
+              </Stack>
+            </CardContent>
+          </Box>
         </Card>
       )}
     </ThemeProvider>
