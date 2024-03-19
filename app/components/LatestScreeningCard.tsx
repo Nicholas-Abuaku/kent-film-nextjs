@@ -159,7 +159,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
         >
           <Box
             // maxHeight={"500px"}
-            maxWidth={"974px"}
+            // maxWidth={"974px"}
             // sx={{
             //   "@media (max-width: 1280px)": { minWidth: "500px" },
             //   "@media (max-width: 1838px)": { minWidth: "46.875vw" },
@@ -203,7 +203,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   unoptimized={true}
                   style={{
                     width: "100%",
-                    maxWidth: "962px",
+                    // maxWidth: "962px",
                     marginRight: "0px",
                     height: "100%",
                     objectFit: "cover",
