@@ -222,31 +222,40 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               position: "relative",
             }}
           >
-            <Stack direction={"column"} alignItems={"center"} spacing={1}>
-              {/* <Typography
-                textAlign={"center"}
-                variant="h1"
-                component="h2"
+            <Stack
+              direction={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              spacing={1}
+            >
+              <Box minHeight={150} paddingBottom={1}>
+                {renderTitle()}
+                <Typography
+                  color={"white"}
+                  paddingBottom={4}
+                  textAlign={"center"}
+                  variant="h4"
+                  component="h3"
+                >
+                  {props.date}
+                </Typography>
+              </Box>
+              <Box
                 sx={{
-                  "@media (max-width: 900px)": { fontSize: "4rem" },
-                  "@media (max-width: 956px)": { fontSize: "5rem" },
+                  maxHeight: "400px",
+                  minHeight: "150px",
+                  maxWidth: "98%",
                 }}
               >
-                {props.title}
-              </Typography> */}
-              {renderTitle()}
-              <Typography
-                color={"white"}
-                paddingBottom={4}
-                textAlign={"center"}
-                variant="h4"
-                component="h3"
-              >
-                {props.date}
-              </Typography>
-              <Typography textAlign={"center"} maxHeight={336} maxWidth={"75%"}>
-                {props.description}
-              </Typography>
+                <Typography
+                  maxHeight={"100%"}
+                  maxWidth={"75%"}
+                  textAlign={"center"}
+                  margin={"auto"}
+                >
+                  {props.description}
+                </Typography>
+              </Box>
               <Link
                 href={
                   props.url ||
