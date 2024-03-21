@@ -228,7 +228,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               justifyContent={"center"}
               spacing={1}
             >
-              <Box minHeight={150} paddingBottom={1}>
+              <Box minHeight={150} paddingBottom={4}>
                 {renderTitle()}
                 <Typography
                   color={"white"}
@@ -243,8 +243,11 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               <Box
                 sx={{
                   maxHeight: "400px",
-                  minHeight: "150px",
+
+                  minHeight: "200px",
                   maxWidth: "98%",
+
+                  overflow: "auto",
                 }}
               >
                 <Typography
