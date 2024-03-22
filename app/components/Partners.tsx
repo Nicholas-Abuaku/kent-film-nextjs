@@ -49,6 +49,7 @@ const Partners = () => {
               <Image
                 src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
+                title="Garfield Weston Foundation"
                 width={60}
                 height={60}
               />
@@ -57,6 +58,7 @@ const Partners = () => {
                 width={60}
                 height={60}
                 alt="Colyer Ferguson Chartiable Trust"
+                title="Colyer Ferguson Chartiable Trust"
               />
               <Image
                 src={KentCommunityFoundationIcon.src}
@@ -109,6 +111,7 @@ const Partners = () => {
               <Image
                 src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
+                title="Garfield Weston Foundation"
                 width={130}
                 height={130}
               />
@@ -117,6 +120,7 @@ const Partners = () => {
                 width={80}
                 height={80}
                 alt="Colyer Ferguson Chartiable Trust"
+                title="Colyer Ferguson Chartiable Trust"
               />
               <Image
                 src={KentCommunityFoundationIcon.src}
