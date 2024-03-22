@@ -11,10 +11,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { Box, Icon, Stack } from "@mui/material";
 
-import KentFilmLogo from "../icons/RamsgateCinema.jpg";
+import KentFilmLogo from "../assets/images/OtterLogo.png";
 import Close from "@mui/icons-material/Close";
 import MailingDialogTheme from "../Themes/MailingDialogTheme";
 import Link from "next/link";
+import Image from "next/image";
 const MailingListDialog = () => {
   const closedPopUp = window.localStorage.getItem("closedMailingPopUp");
   const [open, setOpen] = useState(closedPopUp !== "true");
@@ -50,7 +51,12 @@ const MailingListDialog = () => {
         <Dialog onClose={handleClose} open={open}>
           <Box sx={{ styles }}>
             <DialogTitle textAlign={"center"}>
-              <img src={KentFilmLogo.src} width={128} height={128} />
+              <Image
+                src={KentFilmLogo.src}
+                width={128}
+                height={128}
+                alt="Kent Film Foundation Logo"
+              />
             </DialogTitle>
             <IconButton
               aria-label="close"
@@ -67,10 +73,14 @@ const MailingListDialog = () => {
               sx={{ justifyContent: "center", alignItems: "center" }}
             >
               <Stack direction={"column"} spacing={2} marginBottom={10}>
-                <Typography textAlign={"center"}>
+                <Typography
+                  textAlign={"center"}
+                  variant="body1"
+                  component={"h1"}
+                >
                   Never miss a screening again!
                 </Typography>
-                <Typography textAlign={"center"} variant="h4">
+                <Typography textAlign={"center"} variant="h2">
                   Subscribe to our Mailing List
                 </Typography>
               </Stack>
@@ -118,7 +128,12 @@ const MailingListDialog = () => {
             }}
           >
             <DialogTitle textAlign={"center"}>
-              <img src={KentFilmLogo.src} width={128} height={128} />
+              <Image
+                src={KentFilmLogo.src}
+                width={128}
+                height={128}
+                alt="Kent Film Foundation Logo"
+              />
             </DialogTitle>
             <IconButton
               aria-label="close"
