@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   },
   description:
     "Free film clubs, screenings, & workshops in Ramsgate. Explore the world of film with Kent Film Foundation! Learn More",
+  keywords: [
+    "Ramsgate",
+    "Ramsgate Cinema",
+    "Ramsgate Film",
+    "Ramsgate Cinemas",
+    "Kent Film",
+    "Kent Film Foundation",
+    "Ramsgate Community Cinema",
+    "Cinemas in Ramsgate",
+    "Cinemas in Kent",
+    "Cinemas in Thanet",
+    "Film Club Ramsgate",
+    "Film Club Kent",
+    "Film Club Thanet",
+  ],
   twitter: {
     card: "summary_large_image",
   },
