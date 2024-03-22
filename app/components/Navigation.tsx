@@ -44,7 +44,7 @@ const Navigation = () => {
             <Typography
               sx={{
                 flexGrow: "1",
-                color: "white",
+
                 fontWeight: "bold",
                 flexBasis: "100%",
               }}
