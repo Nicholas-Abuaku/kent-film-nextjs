@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
 
