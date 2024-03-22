@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://kentfilmfoundation.vercel.app/",
+    url: "https://kentfilmfoundation.co.uk/",
   },
   alternates: {
-    canonical: "https://kentfilmfoundation.vercel.app/",
+    canonical: "https://kentfilmfoundation.co.uk/",
   },
 };
 
