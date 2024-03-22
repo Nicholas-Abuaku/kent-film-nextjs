@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Join Kent Film Foundation's Free Youth Film Clubs at Ramsgate Community Cinema - Mondays, 6-8pm.",
     type: "website",
-    url: "http://localhost:3000/film-clubs",
+    url: "https://kentfilmfoundation.co.uk/film-clubs",
   },
   twitter: {
     title: "Kent Film Foundation",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "Explore films at Ramsgate Community Cinema. Check this month's screenings, enjoy events, and connect on social media. Your cinematic journey begins here!",
   },
   alternates: {
-    canonical: `https://kentfilmfoundation.vercel.app/film-clubs`,
+    canonical: `https://kentfilmfoundation.co.uk/film-clubs`,
   },
 };
 interface FilmClubInfo {

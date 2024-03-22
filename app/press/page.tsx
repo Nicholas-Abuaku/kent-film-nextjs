@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Discover recent press coverage about the Kent Film Foundation and Ramsgate Community Cinema. See how we're making a difference in the community!",
     type: "website",
-    url: "https://kentfilmfoundation.vercel.app/press",
+    url: "https://kentfilmfoundation.co.uk/press",
   },
   twitter: {
     title: "Kent Film Foundation",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Discover recent press coverage about the Kent Film Foundation and Ramsgate Community Cinema. See how we're making a difference in the community!",
   },
   alternates: {
-    canonical: `https://kentfilmfoundation.vercel.app/press`,
+    canonical: `https://kentfilmfoundation.co.uk/press`,
   },
 };
 function Press() {
