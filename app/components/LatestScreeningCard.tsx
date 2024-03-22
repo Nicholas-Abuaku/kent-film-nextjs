@@ -67,7 +67,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               component={"img"}
               // width={"100%"}
               // maxHeight={"2px"}
-              loading="lazy"
+              loading="eager"
               title={props.title}
               src={
                 props.edit
@@ -77,23 +77,13 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               sx={{
                 objectFit: "cover",
                 width: "100%",
-                height: "100%",
+                height: "auto",
                 maxHeight: "350px",
-                "@media (min-width: 810px)": {
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: "350px",
-                  objectFit: "fill",
-                },
+
                 "@media (min-width: 500px)": {
-                  width: "100%",
-                  height: "auto",
-                  maxHeight: "350px",
-                  objectFit: "fill",
-                },
-                "@media (min-width: 900px)": {
-                  width: "100%",
-                  height: "auto",
+                  // width: "100%",
+                  // height: "100%",
+                  // maxHeight: "350px",
                   objectFit: "fill",
                 },
               }}
@@ -200,13 +190,14 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   height={0}
                   alt={props.title + " latest screening"}
                   title={props.title}
+                  className="latest-screening-image"
                   unoptimized={true}
                   style={{
                     width: "100%",
                     // maxWidth: "962px",
                     marginRight: "0px",
                     height: "100%",
-                    objectFit: "cover",
+                    objectFit: "fill",
                   }}
                 />
               </Box>
