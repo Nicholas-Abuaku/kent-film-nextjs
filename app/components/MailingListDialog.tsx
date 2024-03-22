@@ -80,7 +80,7 @@ const MailingListDialog = () => {
                 >
                   Never miss a screening again!
                 </Typography>
-                <Typography textAlign={"center"} variant="h2">
+                <Typography textAlign={"center"} variant="h2" component={"h3"}>
                   Subscribe to our Mailing List
                 </Typography>
               </Stack>
@@ -153,7 +153,7 @@ const MailingListDialog = () => {
                 <Typography textAlign={"center"}>
                   Never miss a screening again!
                 </Typography>
-                <Typography textAlign={"center"} variant="h4">
+                <Typography textAlign={"center"} variant="h4" component={"h3"}>
                   Subscribe to our Mailing List
                 </Typography>
               </Stack>
