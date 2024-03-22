@@ -26,7 +26,7 @@ const Partners = () => {
         md={12}
         justifyContent={"center"}
         alignItems={"center"}
-        spacing={1}
+        marginBottom={0}
       >
         <Grid item md={12}>
           <Typography
