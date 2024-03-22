@@ -180,6 +180,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   title={props.title}
                   className="latest-screening-image"
                   unoptimized={true}
+                  loading="eager"
                   style={{
                     width: "100%",
 
