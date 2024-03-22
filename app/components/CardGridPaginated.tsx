@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import { Noto_Sans } from "next/font/google";
 import MCard from "./MCard";
 import {
   Grid,
@@ -13,6 +14,11 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
+
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["300"],
+});
 
 interface Event {
   id: string;
@@ -75,11 +81,19 @@ const CardGridPaginated = () => {
         ) : (
           <Grid item>
             {isMobile ? (
-              <Typography variant="h5" color={"white"}>
+              <Typography
+                variant="h5"
+                color={"black"}
+                sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
+              >
                 Nothing Scheduled yet, check back again later!
               </Typography>
             ) : (
-              <Typography variant="h3" color={"white"}>
+              <Typography
+                variant="h3"
+                color={"black"}
+                sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
+              >
                 Nothing Scheduled yet, check back again later!
               </Typography>
             )}
