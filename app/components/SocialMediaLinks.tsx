@@ -18,7 +18,7 @@ const SocialMediaLinks = () => {
           <FacebookIcon />
         </IconButton>
       </Link>
-      <Link href={"https://www.instagram.com/ramsgatecinema/"}>
+      <Link href={"https://www.instagram.com/ramsgatecommunitycinema/"}>
         <IconButton sx={{ backgroundColor: "#339465", color: "white" }}>
           <InstagramIcon />
         </IconButton>
