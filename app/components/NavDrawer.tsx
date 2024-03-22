@@ -44,7 +44,7 @@ export const NavDrawer = () => {
           </ListItem>
 
           <ListItem>
-            <Link href={"/contact"}>
+            <Link href={"/contact-us"}>
               <Button sx={{ color: "white" }}>Contact Us</Button>
             </Link>
           </ListItem>

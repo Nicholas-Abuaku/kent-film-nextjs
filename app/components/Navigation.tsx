@@ -87,7 +87,7 @@ const Navigation = () => {
                   About
                 </Button>
               </Link>
-              <Link href={"/contact"}>
+              <Link href={"/contact-us"}>
                 <Button
                   variant="text"
                   color="inherit"
