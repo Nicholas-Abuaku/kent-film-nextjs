@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import AboutTheme from "../Themes/AboutTheme";
 import Partners from "./Partners";
+import Image from "next/image";
+import AimingHigh from "../assets/images/AimingHigh.png";
 
 const AboutContent = () => {
   const isMobile = useMediaQuery(AboutTheme.breakpoints.down("md"));
@@ -71,15 +73,12 @@ const AboutContent = () => {
             ) : (
               <Stack
                 direction={"column"}
+                marginTop={5}
                 spacing={2}
                 width={900}
                 marginLeft={4}
               >
-                <Typography
-                  variant="h5"
-                  component={"h3"}
-                  fontFamily={"'Open Sans', arial, sans-serif"}
-                >
+                <Typography variant="h5" component={"h3"}>
                   Kent Film Foundation began as a non-for-profit arm of a film
                   production company based in Thanet , Kent an area of high
                   deprivation where young people suffer from "Poverty of
@@ -108,7 +107,13 @@ const AboutContent = () => {
               </Stack>
             )}
           </Grid>
-          <Grid item xs={4} md={5} marginTop={36} marginLeft={0}>
+          <Grid
+            item
+            xs={4}
+            md={5}
+            marginTop={isMobile ? 36 : 20}
+            marginLeft={0}
+          >
             {isMobile ? (
               <Stack
                 alignItems={"center"}
@@ -124,7 +129,7 @@ const AboutContent = () => {
                   alt="'Aiming High' is a film made by our young filmmakers about Ian Payne a wheelchair tennis player."
                   title="Ian Payne"
                   loading="eager"
-                  src="https://img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/The_ParalympicsGB_Sports_Fest_has_been_a_great.jpg/:/cr=t:0%25,l:14.5%25,w:71%25,h:100%25/rs=w:400,h:400,cg:true"
+                  src={AimingHigh.src}
                 />
                 <Typography variant="caption">
                   "Aiming High" is a film made by our young filmmakers about Ian
@@ -137,16 +142,17 @@ const AboutContent = () => {
                 justifyContent={"center"}
                 width={400}
               >
-                <img
+                <Image
                   style={{
                     borderRadius: "50%",
-                    width: "300px",
                     marginBottom: "10px",
                   }}
                   alt="'Aiming High' is a film made by our young filmmakers about Ian Payne a wheelchair tennis player."
                   title="Ian Payne"
                   loading="eager"
-                  src="https://img1.wsimg.com/isteam/ip/c75f83f5-5376-471b-af2d-7c3435beb175/The_ParalympicsGB_Sports_Fest_has_been_a_great.jpg/:/cr=t:0%25,l:14.5%25,w:71%25,h:100%25/rs=w:400,h:400,cg:true"
+                  width={300}
+                  height={359}
+                  src={AimingHigh.src}
                 />
                 <Typography variant="caption" fontSize={15}>
                   "Aiming High" is a film made by our young filmmakers about Ian
