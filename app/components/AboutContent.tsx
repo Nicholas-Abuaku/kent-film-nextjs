@@ -120,15 +120,17 @@ const AboutContent = () => {
                 justifyContent={"center"}
                 width={150}
               >
-                <img
+                <Image
                   style={{
                     borderRadius: "50%",
-                    width: "100px",
+
                     marginBottom: "0px",
                   }}
                   alt="'Aiming High' is a film made by our young filmmakers about Ian Payne a wheelchair tennis player."
                   title="Ian Payne"
                   loading="eager"
+                  width={100}
+                  height={100}
                   src={AimingHigh.src}
                 />
                 <Typography variant="caption">
