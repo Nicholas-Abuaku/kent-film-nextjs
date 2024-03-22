@@ -20,7 +20,7 @@ const PressCardGrid = () => {
     try {
       const response = await fetch(
         "https://kentfilm.up.railway.app/api/press",
-        { cache: "no-cache" }
+        { next: { revalidate: 86400 } }
       );
       if (!response.ok) {
         throw new Error(`Error fetching press data: ${response.statusText}`);
