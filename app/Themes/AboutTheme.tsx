@@ -1,13 +1,16 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { Noto_Sans } from "next/font/google";
 
+const inter = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["300"],
+});
 let AboutTheme = createTheme({
   typography: {
-    h3: {
-      fontFamily: "'Open Sans', Arial, Sans-serif",
-    },
+    fontFamily: `${inter.style.fontFamily}`,
+
     h5: {
-      fontFamily: "'Open Sans', Arial, Sans-serif",
       fontSize: 23,
     },
     h4: {
