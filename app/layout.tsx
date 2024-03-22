@@ -40,6 +40,8 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <Navigation />
           {children}
+          <SpeedInsights />
+          <Analytics />
           <Footer />
         </AppRouterCacheProvider>
       </body>
