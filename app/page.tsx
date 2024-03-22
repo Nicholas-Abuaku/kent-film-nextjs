@@ -31,8 +31,7 @@ interface LatestScreeningInfo {
 
 const Home = async () => {
   const response = await fetch(
-    "https://kentfilm.up.railway.app/api/featured-content",
-    { next: { revalidate: 14400 } }
+    "https://kentfilm.up.railway.app/api/featured-content"
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
   const newDate = new Date(latestInfo[0].date);
