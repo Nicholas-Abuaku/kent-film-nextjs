@@ -40,6 +40,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
       <Typography
         textAlign={"center"}
         variant="h1"
+        key={index}
         component={"h2"}
         sx={{
           "@media (max-width: 900px)": { fontSize: "4rem" },
@@ -147,17 +148,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             height: "63.49vh",
           }}
         >
-          <Box
-            // maxHeight={"500px"}
-            // maxWidth={"974px"}
-            // sx={{
-            //   "@media (max-width: 1280px)": { minWidth: "500px" },
-            //   "@media (max-width: 1838px)": { minWidth: "46.875vw" },
-            //   "@media (max-width: 1832px)": { width: "300px" },
-            //   "@media (max-width: 1024px)": { minWidth: "450px" },
-            // }}
-            sx={{ width: "50%", height: "auto" }}
-          >
+          <Box sx={{ width: "50%", height: "auto" }}>
             {props.img && typeof props.img === "object" ? (
               <Skeleton
                 variant="rectangular"
@@ -183,9 +174,6 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                       ? props.img
                       : "https://kentfilm.up.railway.app/storage/" + props.img
                   }
-                  // width={962}
-                  // height={685.35}
-
                   width={0}
                   height={0}
                   alt={props.title + " latest screening"}
@@ -194,7 +182,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   unoptimized={true}
                   style={{
                     width: "100%",
-                    // maxWidth: "962px",
+
                     marginRight: "0px",
                     height: "100%",
                     objectFit: "fill",
