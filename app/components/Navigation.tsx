@@ -34,6 +34,7 @@ const Navigation = () => {
                 src={KentFilmLogo.src}
                 width={80}
                 height={80}
+                loading="eager"
                 title="Kent Film Foundation Logo"
                 alt="Kent Film Foundation Logo"
               />
