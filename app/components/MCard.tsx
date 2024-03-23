@@ -49,7 +49,7 @@ const MCard = (props: MCardProps) => {
               }}
               elevation={10}
             >
-              <Image
+              {/* <Image
                 src={props.img}
                 height={0}
                 width={0}
@@ -62,7 +62,7 @@ const MCard = (props: MCardProps) => {
                   objectFit: "scale-down",
                   marginRight: "5px",
                 }}
-              />
+              /> */}
               {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
               <Box
                 sx={{
@@ -85,7 +85,7 @@ const MCard = (props: MCardProps) => {
                   {props.date + " " + props.time}
                 </Typography>
 
-                <Typography sx={{ marginTop: "10px" }}>
+                <Typography sx={{ marginTop: "10px", marginLeft: "1px" }}>
                   {props.description}
                 </Typography>
               </Box>
