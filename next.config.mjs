@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "img.evbuc.com",
       },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+      },
+      {
+        protocol: "https",
+        hostname: "posters.movieposterdb.com",
+      },
     ],
   },
 };
