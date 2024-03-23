@@ -112,8 +112,9 @@ const MCard = (props: MCardProps) => {
                 style={{
                   width: "200px",
                   height: "auto",
-                  objectFit: "contain",
+                  objectFit: "fill",
                   marginRight: "5px",
+                  borderRadius: "5px",
                 }}
                 loading="lazy"
               />
@@ -143,11 +144,11 @@ const MCard = (props: MCardProps) => {
                   {props.date} <br /> {props.time}
                 </Typography>
 
-                <Typography sx={{ marginTop: "-9px" }}>
+                <Typography sx={{ marginTop: "4px" }}>
                   {props.description}
                 </Typography>
                 <Link href={props.link}>
-                  <Button
+                  {/* <Button
                     variant="contained"
                     sx={{
                       borderRadius: "70px",
@@ -161,7 +162,7 @@ const MCard = (props: MCardProps) => {
                     }}
                   >
                     Click here
-                  </Button>
+                  </Button> */}
                 </Link>
               </Box>
             </Card>

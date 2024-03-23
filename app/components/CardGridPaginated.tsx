@@ -4,6 +4,7 @@ import React from "react";
 import axios from "axios";
 import { Noto_Sans } from "next/font/google";
 import MCard from "./MCard";
+import FarFromCrowdImg from "../assets/images/farfrommaddingcrowd.jpg";
 import {
   Grid,
   Typography,
@@ -22,14 +23,37 @@ const notoSans = Noto_Sans({
 
 interface Event {
   id: string;
-  name: { text: string };
-  start: { local: string };
-  url: string;
-  logo?: { url: string };
+  name: string;
+  start: string;
+  url?: string;
+  logo?: string;
+  description: string;
 }
 const CardGridPaginated = () => {
   const [page, setPage] = useState(1);
-  const [allEvents, setAllEvents] = useState([]);
+  // const [allEvents, setAllEvents] = useState([]);
+  let allEvents = [
+    {
+      id: "1",
+      name: "Kind Hearts and Coronets (1949)",
+      description:
+        "When Louis D'Ascoyne Mazzini, who hails from a royal family, is denied dukedom, he plans to kill all the potential threats in his way.",
+      date: "Wednesday 27th",
+      start: "7pm",
+      url: "/",
+      logo: "https://posters.movieposterdb.com/09_03/1949/41546/l_41546_a598cce9.jpg",
+    },
+    {
+      id: "2",
+      name: "Far From the Madding Crowd (1967)",
+      description:
+        "Adaptation of a Thomas Hardy novel about a woman and her profound effect on three men.",
+      date: "Thursday 28th",
+      start: "2pm",
+      url: "/",
+      logo: "https://m.media-amazon.com/images/M/MV5BNzI4NzUwNDgwN15BMl5BanBnXkFtZTgwNTI3MjMwNTE@._V1_.jpg",
+    },
+  ];
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -38,7 +62,7 @@ const CardGridPaginated = () => {
   const fetchAllEvents = async () => {
     try {
       const response = await axios.post("/api/eventbrite");
-      setAllEvents(response.data);
+      // setAllEvents(response.data);
       setIsLoading(true);
     } catch (err) {
       console.log(err);
@@ -59,21 +83,15 @@ const CardGridPaginated = () => {
       {isLoading ? (
         allEvents.length > 0 ? (
           allEvents.slice(startIndex, endIndex).map((event: Event) => {
-            const startArr = event.start.local.replace("T", " ");
-            const dateTimeArray = startArr.split(" ");
-            let startTime = dateTimeArray[1];
-            const startDate = new Date(dateTimeArray[0]);
-            const eventDate = startDate.toDateString();
-            const imageUrl = event.logo ? event.logo.url : null;
             return (
               <Grid item key={event.id}>
                 <MCard
-                  title={event.name.text}
-                  description={event.name.text}
-                  date={eventDate}
-                  time={startTime}
-                  link={event.url}
-                  img={imageUrl ? imageUrl : "N/A"}
+                  title={event.name}
+                  description={event.description}
+                  date={"Saturday 27th "}
+                  time={event.start}
+                  link={event.url ? event.url : "/"}
+                  img={event.logo ? event.logo : "undefined"}
                 />
               </Grid>
             );
