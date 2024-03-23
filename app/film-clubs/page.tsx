@@ -99,7 +99,7 @@ const FilmClubs = async () => {
                   color={"white"}
                   component={"h2"}
                 >
-                  FREE YOUTH FILM CLUBS EVERY FRIDAY (term time only) 6-8pm
+                  FREE YOUTH FILM CLUBS EVERY MONDAY (term time only) 6-8pm
                 </Typography>
                 <Typography textAlign={"center"} color={"white"}>
                   For more information contact: kentfilmfoundation@gmail.com{" "}

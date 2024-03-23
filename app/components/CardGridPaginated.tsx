@@ -46,13 +46,13 @@ const CardGridPaginated = () => {
     },
     {
       id: "2",
-      name: "Far From the Madding Crowd (1967)",
+      name: "The Great Escaper",
       description:
-        "Adaptation of a Thomas Hardy novel about a woman and her profound effect on three men.",
+        "In the summer of 2014, a World War II veteran sneaks out of his care home to attend the 70th anniversary commemoration of the D-Day landings in Normandy.",
       date: "Thursday 28th",
       start: "2pm",
       url: "/",
-      logo: "https://m.media-amazon.com/images/M/MV5BNzI4NzUwNDgwN15BMl5BanBnXkFtZTgwNTI3MjMwNTE@._V1_.jpg",
+      logo: "https://m.media-amazon.com/images/M/MV5BZTRhMDgyM2QtNTUyOS00NGU2LTkzZmMtMGIwNDQyZTQ1NjJjXkEyXkFqcGdeQXVyNDc5NDc2Nw@@._V1_.jpg",
     },
   ];
   const [isLoading, setIsLoading] = useState(false);

@@ -51,7 +51,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           style={{ height: "20.98635886673662vh", width: "100%" }}
           quality={80}
         />
-        <CardMedia />
+
         <CardContent>
           <Stack spacing={2}>
             <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
