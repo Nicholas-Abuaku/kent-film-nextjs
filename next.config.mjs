@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "kentfilm.up.railway.app",
+        hostname: "picayune-belief-production.up.railway.app",
       },
       {
         protocol: "https",
@@ -17,6 +17,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "posters.movieposterdb.com",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },

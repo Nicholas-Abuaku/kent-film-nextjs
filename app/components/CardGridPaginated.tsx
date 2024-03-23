@@ -23,38 +23,38 @@ const notoSans = Noto_Sans({
 
 interface Event {
   id: string;
-  name: string;
+  title: string;
   start: string;
   date: string;
   url?: string;
-  logo?: string;
+  image?: string;
   description: string;
 }
 const CardGridPaginated = () => {
   const [page, setPage] = useState(1);
-  // const [allEvents, setAllEvents] = useState([]);
-  let allEvents = [
-    {
-      id: "1",
-      name: "Kind Hearts and Coronets (1949)",
-      description:
-        "When Louis D'Ascoyne Mazzini, who hails from a royal family, is denied dukedom, he plans to kill all the potential threats in his way.",
-      date: "Wednesday 27th",
-      start: "7pm",
-      url: "/",
-      logo: "https://posters.movieposterdb.com/09_03/1949/41546/l_41546_a598cce9.jpg",
-    },
-    {
-      id: "2",
-      name: "The Great Escaper",
-      description:
-        "In the summer of 2014, a World War II veteran sneaks out of his care home to attend the 70th anniversary commemoration of the D-Day landings in Normandy.",
-      date: "Thursday 28th",
-      start: "2pm",
-      url: "/",
-      logo: "https://m.media-amazon.com/images/M/MV5BZTRhMDgyM2QtNTUyOS00NGU2LTkzZmMtMGIwNDQyZTQ1NjJjXkEyXkFqcGdeQXVyNDc5NDc2Nw@@._V1_.jpg",
-    },
-  ];
+  const [allEvents, setAllEvents] = useState([]);
+  // let allEvents = [
+  //   {
+  //     id: "1",
+  //     name: "Kind Hearts and Coronets (1949)",
+  //     description:
+  //       "When Louis D'Ascoyne Mazzini, who hails from a royal family, is denied dukedom, he plans to kill all the potential threats in his way.",
+  //     date: "Wednesday 27th",
+  //     start: "7pm",
+  //     url: "/",
+  //     logo: "https://posters.movieposterdb.com/09_03/1949/41546/l_41546_a598cce9.jpg",
+  //   },
+  //   {
+  //     id: "2",
+  //     name: "The Great Escaper",
+  //     description:
+  //       "In the summer of 2014, a World War II veteran sneaks out of his care home to attend the 70th anniversary commemoration of the D-Day landings in Normandy.",
+  //     date: "Thursday 28th",
+  //     start: "2pm",
+  //     url: "/",
+  //     logo: "https://m.media-amazon.com/images/M/MV5BZTRhMDgyM2QtNTUyOS00NGU2LTkzZmMtMGIwNDQyZTQ1NjJjXkEyXkFqcGdeQXVyNDc5NDc2Nw@@._V1_.jpg",
+  //   },
+  // ];
   const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -62,8 +62,11 @@ const CardGridPaginated = () => {
 
   const fetchAllEvents = async () => {
     try {
-      const response = await axios.post("/api/eventbrite");
-      // setAllEvents(response.data);
+      const response = await axios.get(
+        "https://picayune-belief-production.up.railway.app/api/events"
+      );
+      setAllEvents(response.data);
+      console.log(response.data);
       setIsLoading(true);
     } catch (err) {
       console.log(err);
@@ -87,12 +90,15 @@ const CardGridPaginated = () => {
             return (
               <Grid item key={event.id}>
                 <MCard
-                  title={event.name}
+                  title={event.title}
                   description={event.description}
                   date={event.date}
                   time={event.start}
                   link={event.url ? event.url : "/"}
-                  img={event.logo ? event.logo : "undefined"}
+                  img={
+                    "https://picayune-belief-production.up.railway.app/storage/" +
+                    event.image
+                  }
                 />
               </Grid>
             );

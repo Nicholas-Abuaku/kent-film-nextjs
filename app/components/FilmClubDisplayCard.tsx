@@ -41,7 +41,10 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
         }}
       >
         <Image
-          src={"https://kentfilm.up.railway.app/storage/" + props.img}
+          src={
+            "https://picayune-belief-production.up.railway.app/storage/" +
+            props.img
+          }
           height={0}
           width={0}
           alt={props.heading}

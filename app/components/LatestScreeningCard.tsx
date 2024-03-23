@@ -73,7 +73,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               src={
                 props.edit
                   ? props.img
-                  : "https://kentfilm.up.railway.app/storage/" + props.img
+                  : "https://picayune-belief-production.up.railway.app/storage/" +
+                    props.img
               }
               sx={{
                 objectFit: "cover",
@@ -172,7 +173,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   src={
                     props.edit
                       ? props.img
-                      : "https://kentfilm.up.railway.app/storage/" + props.img
+                      : "https://picayune-belief-production.up.railway.app/storage/" +
+                        props.img
                   }
                   width={0}
                   height={0}

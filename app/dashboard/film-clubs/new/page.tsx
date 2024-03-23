@@ -38,7 +38,8 @@ const page = () => {
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm.up.railway.app/api/film-clubs/" + clubId
+        "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
+          clubId
       );
       setClubData(response.data);
       console.log(response.data);

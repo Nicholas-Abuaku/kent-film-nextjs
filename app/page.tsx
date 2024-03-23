@@ -31,9 +31,10 @@ interface LatestScreeningInfo {
 
 const Home = async () => {
   const response = await fetch(
-    "https://kentfilm.up.railway.app/api/featured-content",
-    { next: { revalidate: 7200 } }
+    "https://picayune-belief-production.up.railway.app/api/featured-content",
+    { cache: "no-cache" }
   );
+  console.log(response);
   const latestInfo: LatestScreeningInfo[] = await response.json();
   const newDate = new Date(latestInfo[0].date);
   const dateString = newDate.toDateString();

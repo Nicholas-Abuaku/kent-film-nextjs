@@ -18,7 +18,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     //   img: imgUrl,
     // });
     const axiosRes = await axios.post(
-      "https://kentfilm.up.railway.app/api/featured-content",
+      "https://picayune-belief-production.up.railway.app/api/featured-content",
       formData,
       { headers }
     );

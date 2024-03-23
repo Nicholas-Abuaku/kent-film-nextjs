@@ -20,7 +20,8 @@ export async function POST(
     console.log("formData:", formData); // Log for debugging
 
     const axiosRes = await axios.post(
-      "https://kentfilm.up.railway.app/api/film-clubs/" + params.id,
+      "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
+        params.id,
       formData,
       { headers }
     );

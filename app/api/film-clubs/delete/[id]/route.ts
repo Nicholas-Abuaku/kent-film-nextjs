@@ -19,7 +19,8 @@ export async function DELETE(
     console.log("formData:"); // Log for debugging
 
     const axiosRes = await axios.delete(
-      "https://kentfilm.up.railway.app/api/film-clubs/" + params.id,
+      "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
+        params.id,
 
       { headers }
     );

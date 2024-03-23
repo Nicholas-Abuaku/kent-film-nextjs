@@ -38,7 +38,7 @@ const FilmClubTable = () => {
   const fetchFilmClubs = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm.up.railway.app/api/film-clubs"
+        "https://picayune-belief-production.up.railway.app/api/film-clubs"
       );
       setData(response.data);
     } catch (err) {
@@ -81,7 +81,8 @@ const FilmClubTable = () => {
                 <TableCell>
                   <img
                     src={
-                      "https://kentfilm.up.railway.app/storage/" + club.img_Url
+                      "https://picayune-belief-production.up.railway.app/storage/" +
+                      club.img_Url
                     }
                     style={{ maxWidth: "50px", maxHeight: "50px" }}
                   />
