@@ -25,6 +25,7 @@ interface Event {
   id: string;
   name: string;
   start: string;
+  date: string;
   url?: string;
   logo?: string;
   description: string;
@@ -88,7 +89,7 @@ const CardGridPaginated = () => {
                 <MCard
                   title={event.name}
                   description={event.description}
-                  date={"Saturday 27th "}
+                  date={event.date}
                   time={event.start}
                   link={event.url ? event.url : "/"}
                   img={event.logo ? event.logo : "undefined"}
