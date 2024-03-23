@@ -29,7 +29,7 @@ const PressArticleTable = () => {
   const fetchPressData = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm.up.railway.app/api/press"
+        "https://picayune-belief-production.up.railway.app/api/press"
       );
       console.log(response.data);
       setPressData(response.data);
@@ -77,7 +77,8 @@ const PressArticleTable = () => {
                 {
                   <img
                     src={
-                      "https://kentfilm.up.railway.app/storage/" + article.image
+                      "https://picayune-belief-production.up.railway.app/storage/" +
+                      article.image
                     }
                     style={{ width: "50px", height: "50px" }}
                   />

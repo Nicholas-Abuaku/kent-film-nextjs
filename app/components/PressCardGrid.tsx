@@ -19,7 +19,7 @@ const PressCardGrid = () => {
   const fetchPressData = async () => {
     try {
       const response = await fetch(
-        "https://kentfilm.up.railway.app/api/press",
+        "https://picayune-belief-production.up.railway.app/api/press",
         { next: { revalidate: 86400 } }
       );
       if (!response.ok) {

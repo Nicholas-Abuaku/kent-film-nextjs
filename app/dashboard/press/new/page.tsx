@@ -35,7 +35,8 @@ const page = () => {
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm.up.railway.app/api/press/" + articleId
+        "https://picayune-belief-production.up.railway.app/api/press/" +
+          articleId
       );
       setArticleData(response.data);
       console.log(response.data);
@@ -121,7 +122,8 @@ const page = () => {
           img={
             fileUrl
               ? fileUrl
-              : "https://kentfilm.up.railway.app/storage/" + articleData?.image
+              : " https://picayune-belief-production.up.railway.app/storage/" +
+                articleData?.image
           }
           source={newsSource ? newsSource : articleData?.news_source || ""}
           title={articleTitle ? articleTitle : articleData?.article_title || ""}

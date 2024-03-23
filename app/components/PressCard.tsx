@@ -40,7 +40,10 @@ const PressCard = (props: PressCardProps) => {
           }}
         >
           <Image
-            src={"https://kentfilm.up.railway.app/storage/" + image}
+            src={
+              "https://picayune-belief-production.up.railway.app/storage/" +
+              image
+            }
             height={0}
             title={articleTitle}
             alt={"News coverage from " + newsSource}
@@ -96,7 +99,10 @@ const PressCard = (props: PressCardProps) => {
         >
           <Box sx={{ height: "70%" }}>
             <Image
-              src={"https://kentfilm.up.railway.app/storage/" + image}
+              src={
+                "https://picayune-belief-production.up.railway.app/storage/" +
+                image
+              }
               height={0}
               title={articleTitle}
               alt={"News coverage from " + newsSource}
