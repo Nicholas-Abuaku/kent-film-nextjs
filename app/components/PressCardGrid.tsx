@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Grid, Skeleton, Pagination, createTheme } from "@mui/material";
+import { Grid, Skeleton, Pagination } from "@mui/material";
 import PressCard from "./PressCard";
-import axios from "axios";
 interface PressArticle {
   id: number;
   news_source: string;
