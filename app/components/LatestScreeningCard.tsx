@@ -48,6 +48,10 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           "@media (max-width: 1024px)": {
             fontSize: "2rem",
           },
+          "@media (max-width: 400px)": {
+            paddingBottom: "0px",
+            fontSize: "1.5rem",
+          },
         }}
       >
         {paragraph}
@@ -219,7 +223,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               backgroundColor: "#1A1A1A",
               color: "white",
               wordBreak: "break-word",
-              minHeight: "400px",
+              minHeight: "500px",
               width: "100%",
             },
           }}
@@ -253,6 +257,10 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     paddingBottom: "0px",
                     fontSize: "1.7rem",
                   },
+                  "@media (max-width: 400px)": {
+                    paddingBottom: "0px",
+                    fontSize: "1rem",
+                  },
                 }}
               >
                 {props.date}
@@ -280,8 +288,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 sx={{
                   "@media (max-width: 1024px)": {
                     marginBottom: "0px",
-                    maxHeight: "15vh",
-                    overflow: "scroll",
+                    maxHeight: "14vh",
+                    overflow: "auto",
                   },
                 }}
               >

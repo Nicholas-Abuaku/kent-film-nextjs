@@ -19,7 +19,6 @@ import Image from "next/image";
 const MailingListDialog = () => {
   const closedPopUp = window.localStorage.getItem("closedMailingPopUp");
   const [open, setOpen] = useState(closedPopUp !== "true");
-  // const isMobile = useMediaQuery(MailingDialogTheme.breakpoints.down("md"));
   const handleClose = () => {
     window.localStorage.setItem("closedMailingPopUp", "true");
     setOpen(false);
@@ -47,84 +46,16 @@ const MailingListDialog = () => {
 
   return (
     <ThemeProvider theme={createTheme(MailingDialogTheme)}>
-      {/* {isMobile ? (
-        <Dialog onClose={handleClose} open={open}>
-          <Box sx={{ styles }}>
-            <DialogTitle textAlign={"center"}>
-              <Image
-                src={KentFilmLogo.src}
-                width={128}
-                height={128}
-                alt="Kent Film Foundation Logo"
-              />
-            </DialogTitle>
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              sx={{
-                position: "absolute",
-                right: 8,
-                top: 8,
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-            <DialogContent
-              sx={{ justifyContent: "center", alignItems: "center" }}
-            >
-              <Stack direction={"column"} spacing={2} marginBottom={10}>
-                <Typography
-                  textAlign={"center"}
-                  variant="body1"
-                  component={"h1"}
-                >
-                  Never miss a screening again!
-                </Typography>
-                <Typography textAlign={"center"} variant="h2" component={"h3"}>
-                  Subscribe to our Mailing List
-                </Typography>
-              </Stack>
-              <Link
-                href={"https://forms.gle/wLES8Bm7or54U58RA"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Typography
-                  sx={{
-                    display: "block",
-                    margin: "auto",
-                    textAlign: "center",
-                    color: "white",
-                    textDecoration: "none",
-                  }}
-                  onClick={handleClose}
-                >
-                  Click Here!
-                </Typography>
-              </Link>
-
-              <Typography
-                textAlign={"center"}
-                color={"white"}
-                marginTop={20}
-                sx={{ textDecoration: "underline", cursor: "pointer" }}
-                onClick={handleClose}
-              >
-                No Thanks
-              </Typography>
-            </DialogContent>
-          </Box>
-        </Dialog>
-      ) : ( */}
-      <Dialog onClose={handleClose} open={open}>
+      <Dialog onClose={handleClose} open={open} scroll="body">
         <Box
-          width={"31.25vw"}
           height={"64.72491909385113vh"}
+          width={"31.25vw"}
           sx={{
             backgroundColor: "#339465",
             color: "white",
             justifyContent: "center",
             alignItems: "center",
+            overflow: "hidden",
             "@media (max-width: 1024px)": {
               width: "100%",
               height: "100%",

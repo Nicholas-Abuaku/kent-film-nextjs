@@ -97,6 +97,9 @@ const Home = async () => {
                 borderRight: "0px",
                 marginRight: "40px",
                 color: "white",
+                "@media (max-width: 1024px)": {
+                  fontSize: "2.5rem",
+                },
               }}
             >
               What's On

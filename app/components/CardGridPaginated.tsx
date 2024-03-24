@@ -4,7 +4,6 @@ import React from "react";
 import axios from "axios";
 import { Noto_Sans } from "next/font/google";
 import MCard from "./MCard";
-import FarFromCrowdImg from "../assets/images/farfrommaddingcrowd.jpg";
 import {
   Grid,
   Typography,
