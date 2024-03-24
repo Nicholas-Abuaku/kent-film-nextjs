@@ -31,8 +31,8 @@ interface LatestScreeningInfo {
 
 const Home = async () => {
   const response = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { next: { revalidate: 21600 } }
+    "https://picayune-belief-production.up.railway.app/api/featured-content"
+    // { next: { revalidate: 21600 } }
   );
   console.log(response);
   const latestInfo: LatestScreeningInfo[] = await response.json();
