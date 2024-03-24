@@ -194,9 +194,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 alt={props.title + " latest screening"}
                 title={props.title}
                 className={styles.latestscreening}
-                unoptimized={true}
                 loading="eager"
-                sizes="(max-width: 1024px) 100vw"
+                sizes="(min-width: 1040px) 50vw, 100vw"
                 style={{
                   width: "100%",
 
