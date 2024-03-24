@@ -27,7 +27,6 @@ type MCardProps = {
   description: string;
   date: string;
   time: string;
-  link: string;
   img: string;
 };
 const MCard = (props: MCardProps) => {
