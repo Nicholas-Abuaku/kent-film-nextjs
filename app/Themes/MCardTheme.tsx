@@ -27,13 +27,13 @@ MCardTheme.typography.h5["@media (max-width:900px)"] = {
   fontSize: "0.75rem", //heading
 };
 MCardTheme.typography.h6["@media (max-width:900px)"] = {
-  fontSize: "0.69rem",
+  fontSize: "0.75rem",
 };
 MCardTheme.typography.body1["@media (max-width:900px)"] = {
-  fontSize: "0.7rem",
+  fontSize: "0.75rem",
 };
 MCardTheme.typography.subtitle1["@media (max-width:900px)"] = {
-  fontSize: "0.7rem",
+  fontSize: "0.75rem",
 };
 
 export default MCardTheme;
