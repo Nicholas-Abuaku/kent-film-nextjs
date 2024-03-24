@@ -87,7 +87,7 @@ const FilmClubs = async () => {
               loading="eager"
               width={1141}
               height={570}
-              sizes="100vw"
+              sizes="(min-width: 620px) 59.45vw, 80vw"
               style={{ height: "50%", width: "100%" }}
             />
 

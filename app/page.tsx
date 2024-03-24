@@ -1,5 +1,8 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import LatestScreeningCard from "./components/LatestScreeningCard";
+// import LatestScreeningCard from "./components/LatestScreeningCard";
+const LatestScreeningCard = dynamic(
+  () => import("./components/LatestScreeningCard")
+);
 // import CardGridPaginated from "./components/CardGridPaginated";
 import dynamic from "next/dynamic";
 const MailingListDialog = dynamic(

@@ -69,32 +69,17 @@ const Navigation = () => {
                 </Button>
               </Link>
               <Link href={"/press"}>
-                <Button
-                  variant="text"
-                  color="inherit"
-                  // component={Link}
-                  // to={"/press"}
-                >
+                <Button variant="text" color="inherit">
                   Press
                 </Button>
               </Link>
               <Link href={"/about"}>
-                <Button
-                  variant="text"
-                  color="inherit"
-                  // component={Link}
-                  // to={"/about"}
-                >
+                <Button variant="text" color="inherit">
                   About
                 </Button>
               </Link>
               <Link href={"/contact-us"}>
-                <Button
-                  variant="text"
-                  color="inherit"
-                  // component={Link}
-                  // to={"/contact"}
-                >
+                <Button variant="text" color="inherit">
                   Contact Us
                 </Button>
               </Link>
