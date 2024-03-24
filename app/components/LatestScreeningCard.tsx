@@ -71,6 +71,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               unoptimized
               loading="eager"
               title={props.title}
+              sizes="100vw"
               style={{
                 objectFit: "fill",
                 width: "100%",
@@ -176,6 +177,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   className="latest-screening-image"
                   unoptimized={true}
                   loading="eager"
+                  sizes="100vw"
                   style={{
                     width: "100%",
 

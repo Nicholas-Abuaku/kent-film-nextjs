@@ -6,19 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 
 import {
   Box,
-  IconButton,
   Stack,
   Typography,
-  Icon,
-  CardActionArea,
-  Skeleton,
-  useTheme,
   useMediaQuery,
   createTheme,
   ThemeProvider,
-  Button,
 } from "@mui/material";
-import Link from "next/link";
+
 import MCardTheme from "../Themes/MCardTheme";
 import Image from "next/image";
 
@@ -34,8 +28,6 @@ const MCard = (props: MCardProps) => {
   console.log(props.time);
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
-      {/* <Link href={props.link} target="_blank" rel="noopener noreferrer"> */}
-      {/* <CardActionArea> */}
       {isMobile ? (
         <Card
           sx={{
@@ -70,12 +62,7 @@ const MCard = (props: MCardProps) => {
             }}
           >
             <Stack direction={"row"} spacing={2}>
-              <Typography
-                fontWeight={"bold"}
-                variant="h5"
-                component="h3"
-                // fontFamily={"Open Sans, arial, sans-serif"}
-              >
+              <Typography fontWeight={"bold"} variant="h5" component="h3">
                 {props.title}
               </Typography>
             </Stack>
@@ -126,12 +113,7 @@ const MCard = (props: MCardProps) => {
             }}
           >
             <Stack direction={"row"} spacing={10}>
-              <Typography
-                fontWeight={"bold"}
-                variant="h6"
-                component="h3"
-                // fontFamily={`${inter.style.fontFamily}, Helvetica, Arial, sans-serif`}
-              >
+              <Typography fontWeight={"bold"} variant="h6" component="h3">
                 {props.title}
               </Typography>
             </Stack>
@@ -142,28 +124,9 @@ const MCard = (props: MCardProps) => {
             <Typography sx={{ marginTop: "4px" }}>
               {props.description}
             </Typography>
-            {/* <Link href={props.link}> */}
-            {/* <Button
-                    variant="contained"
-                    sx={{
-                      borderRadius: "70px",
-                      backgroundColor: "#339465",
-                      position: "absolute",
-                      bottom: "10px",
-                      right: "10px;",
-                      "@media screen and (max-width: 1505px)": {
-                        visibility: "hidden",
-                      },
-                    }}
-                  >
-                    Click here
-                  </Button> */}
-            {/* </Link> */}
           </Box>
         </Card>
       )}
-      {/* </CardActionArea> */}
-      {/* </Link> */}
     </ThemeProvider>
   );
 };
