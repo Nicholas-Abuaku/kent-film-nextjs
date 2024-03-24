@@ -106,11 +106,11 @@ const MCard = (props: MCardProps) => {
             src={props.img}
             alt={props.title + " image"}
             title={props.title}
-            width={0}
-            height={0}
+            width={200}
+            height={300}
             sizes="100vw"
             style={{
-              width: "200px",
+              width: "10.416666666666666vw",
               height: "auto",
               objectFit: "fill",
               marginRight: "5px",

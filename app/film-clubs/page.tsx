@@ -85,8 +85,8 @@ const FilmClubs = async () => {
               alt="Free Youth Clubs Every Monday"
               title="Free Youth Clubs Every Monday"
               loading="eager"
-              width={0}
-              height={0}
+              width={1141}
+              height={570}
               sizes="100vw"
               style={{ height: "50%", width: "100%" }}
             />

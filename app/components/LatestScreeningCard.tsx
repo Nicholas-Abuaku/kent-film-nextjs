@@ -64,32 +64,25 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           }}
         >
           <Box maxWidth={"100%"} maxHeight={"50%"}>
-            <CardMedia
-              component={"img"}
-              // width={"100%"}
-              // maxHeight={"2px"}
+            <Image
+              alt={props.title}
+              width={465}
+              height={348.7}
+              unoptimized
               loading="eager"
               title={props.title}
+              style={{
+                objectFit: "fill",
+                width: "100%",
+                height: "auto",
+                maxHeight: "350px",
+              }}
               src={
                 props.edit
                   ? props.img
                   : "https://picayune-belief-production.up.railway.app/storage/" +
                     props.img
               }
-              sx={{
-                objectFit: "cover",
-                width: "100%",
-                height: "auto",
-                maxHeight: "350px",
-
-                "@media (min-width: 500px)": {
-                  // width: "100%",
-                  // height: "100%",
-                  // maxHeight: "350px",
-                  objectFit: "fill",
-                },
-              }}
-              alt={props.title}
             />
           </Box>
           <CardContent
@@ -176,8 +169,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                       : "https://picayune-belief-production.up.railway.app/storage/" +
                         props.img
                   }
-                  width={0}
-                  height={0}
+                  width={960}
+                  height={682}
                   alt={props.title + " latest screening"}
                   title={props.title}
                   className="latest-screening-image"
