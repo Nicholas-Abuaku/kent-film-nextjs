@@ -46,7 +46,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           "@media (max-width: 900px)": { fontSize: "0.4rem" },
           "@media (max-width: 956px)": { fontSize: "5rem" },
           "@media (max-width: 1024px)": {
-            fontSize: "1rem",
+            fontSize: "2rem",
           },
         }}
       >
@@ -252,7 +252,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   overflow: "auto",
                   "@media (max-width: 1024px)": {
                     paddingBottom: "0px",
-                    fontSize: "0.9rem",
+                    fontSize: "1.7rem",
                   },
                 }}
               >
