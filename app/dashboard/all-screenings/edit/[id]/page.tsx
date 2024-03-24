@@ -125,7 +125,7 @@ const page = () => {
       <Grid container justifyContent={"center"} alignItems={"center"}>
         <Grid item xs={12}>
           <Stack direction={"row"} spacing={2}>
-            <Link href={"/dashboard/all-events"}>
+            <Link href={"/dashboard/all-screenings"}>
               <IconButton>
                 <ArrowBackIcon />
               </IconButton>
