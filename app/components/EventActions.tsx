@@ -29,7 +29,7 @@ const EventActions = (props: EventActions) => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete("/api/events/delete/" + props.id);
+      const response = await axios.delete("/api/all-events/delete/" + props.id);
       console.log(response.data);
       setTableUpdate(true);
       props.onDelete();

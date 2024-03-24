@@ -62,7 +62,7 @@ const page = () => {
     }
 
     try {
-      const response = await axios.post("/api/film-clubs/add/", formData);
+      const response = await axios.post("/api/all-events/add/", formData);
       console.log(response.data);
       if (response.status === 200) {
         setShowSuccessAlert(true);
