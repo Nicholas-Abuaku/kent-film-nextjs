@@ -15,10 +15,10 @@ export async function POST(
     "Content-Type": "multipart/form-data",
   };
   // const formData = await request.formData();
-  // const heading = formData.get("heading");
+  // const heading = formData.get("title");
   try {
     const formData = await request.formData();
-    console.log("formData:", formData); // Log for debugging
+    // console.log("formDataDebug:", formData); // Log for debugging
 
     const axiosRes = await axios.post(
       "https://picayune-belief-production.up.railway.app/api/events/",
@@ -26,13 +26,16 @@ export async function POST(
     );
 
     if (axiosRes.status === 200) {
+      console.log(axiosRes.data);
       return NextResponse.json({ success: axiosRes.data });
     } else {
+      console.log(axiosRes.data);
       return NextResponse.json({ error: axiosRes.status });
     }
   } catch (err) {
+    console.log(err);
     return NextResponse.json({ message: err });
   }
 
-  return NextResponse.json({ message: "something went horribly wrong" });
+  return NextResponse.json({ message: "bad" });
 }

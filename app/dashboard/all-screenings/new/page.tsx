@@ -15,33 +15,37 @@ import axios from "axios";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
-const FilmClubCard = dynamic(() => import("@/app/components/FilmClubCard"), {
+const MovieCard = dynamic(() => import("@/app/components/MCard"), {
   ssr: false,
 });
-interface FilmClubData {
+interface MovieCardData {
   id: number;
   title: string;
   description: string;
-  img_Url: string;
+  image: string;
+  date: string;
+  time: string;
 }
 
 const page = () => {
   const params = useParams();
-  const clubId = params.id;
+  const eventID = params.id;
   const [imageFile, setImageFile] = useState<File>();
   const [fileUrl, setFileUrl] = useState<string | null>(null);
-  const [clubData, setClubData] = useState<FilmClubData | null>(null);
+  const [cardData, setCardData] = useState<MovieCardData | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [title, setTitle] = useState<string>(" ");
   const [description, setDescription] = useState<string>("");
+  const [date, setDate] = useState<string>("");
+  const [time, setTime] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const fetchClubData = async () => {
+  const fetchCardData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
-          clubId
+        "https://picayune-belief-production.up.railway.app/api/events/" +
+          eventID
       );
-      setClubData(response.data);
+      setCardData(response.data);
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -50,13 +54,15 @@ const page = () => {
   const handleNew = async () => {
     const formData = new FormData();
     formData.append("title", title);
+    formData.append("time", time);
+    formData.append("date", date);
     formData.append("description", description);
     if (imageFile) {
-      formData.append("img_Url", imageFile, fileName);
+      formData.append("image", imageFile, fileName);
     }
 
     try {
-      const response = await axios.post("/api/all-events/add/", formData);
+      const response = await axios.post("/api/film-clubs/add/", formData);
       console.log(response.data);
       if (response.status === 200) {
         setShowSuccessAlert(true);
@@ -65,9 +71,8 @@ const page = () => {
       console.log(err);
     }
   };
-
   function handleSubmit() {
-    if (clubId) {
+    if (eventID) {
       console.log("there is id");
       // handlePost();
     } else {
@@ -75,7 +80,7 @@ const page = () => {
       handleNew();
     }
   }
-  //file handler
+
   async function fileHandler(event: React.FormEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement & {
       files: FileList;
@@ -85,7 +90,7 @@ const page = () => {
     setFileUrl(URL.createObjectURL(target.files[0]));
     console.log(imageFile);
   }
-  //field inputs
+
   function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
     setTitle(event.target.value);
@@ -96,22 +101,29 @@ const page = () => {
     setDescription(event.target.value);
   }
 
+  function handleTimeChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setTime(event.target.value);
+  }
+  function handleDateChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setDate(event.target.value);
+  }
   useEffect(() => {
-    fetchClubData();
+    fetchCardData();
   }, []);
 
-  //handleNew
   return (
     <>
       <Grid container justifyContent={"center"} alignItems={"center"}>
         <Grid item xs={12}>
           <Stack direction={"row"} spacing={2}>
-            <Link href={"/dashboard/film-clubs"}>
+            <Link href={"/dashboard/all-screenings"}>
               <IconButton>
                 <ArrowBackIcon />
               </IconButton>
             </Link>
-            <h1>{clubId ? "Edit" : "New"}</h1>
+            <h1>{eventID ? "Edit" : "New"}</h1>
           </Stack>
         </Grid>
         <Grid item xs={6}>
@@ -129,18 +141,20 @@ const page = () => {
                 onChange={handleTitleChange}
                 sx={{ width: "100%" }}
               />
-              <TextField
-                name="date"
-                label="Date"
-                onChange={handleTitleChange}
-                sx={{ width: "100%" }}
-              />
-              <TextField
-                name="time"
-                label="Time"
-                onChange={handleTitleChange}
-                sx={{ width: "100%" }}
-              />
+              <Stack direction={"row"}>
+                <TextField
+                  name="date"
+                  label="date"
+                  onChange={handleDateChange}
+                  sx={{ width: "50%" }}
+                />
+                <TextField
+                  name="time"
+                  label="time"
+                  onChange={handleTimeChange}
+                  sx={{ width: "50%" }}
+                />
+              </Stack>
               <TextField
                 name="description"
                 label="Description"
@@ -165,7 +179,7 @@ const page = () => {
             </Stack>
             {showSuccessAlert && (
               <Alert severity="success">
-                {clubId
+                {eventID
                   ? "Film Club Successfully Updated!"
                   : "Film Club Added Successfully"}
               </Alert>
@@ -181,18 +195,22 @@ const page = () => {
             >
               Preview
             </Typography>
-            {/* {
-              <FilmClubCard
-                title={title ? title : clubData?.title || ""}
-                desc={description ? description : clubData?.description || ""}
+            {
+              <MovieCard
+                title={title ? title : cardData?.title || ""}
+                description={
+                  description ? description : cardData?.description || ""
+                }
+                date={date ? date : cardData?.date || ""}
+                time={time ? time : cardData?.time || ""}
                 img={
                   fileUrl
                     ? fileUrl
-                    : "https://kentfilm.up.railway.app/storage/" +
-                      clubData?.img_Url
+                    : "https://picayune-belief-production.up.railway.app/storage/" +
+                      cardData?.image
                 }
               />
-            } */}
+            }
           </Stack>
         </Grid>
       </Grid>

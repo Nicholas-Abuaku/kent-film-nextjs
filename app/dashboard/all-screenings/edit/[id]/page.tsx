@@ -15,33 +15,37 @@ import axios from "axios";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
-const FilmClubCard = dynamic(() => import("@/app/components/FilmClubCard"), {
+const MovieCard = dynamic(() => import("@/app/components/MCard"), {
   ssr: false,
 });
-interface FilmClubData {
+interface MovieCardData {
   id: number;
-  heading: string;
+  title: string;
   description: string;
-  img_Url: string;
+  image: string;
+  date: string;
+  time: string;
 }
 
 const page = () => {
   const params = useParams();
-  const clubId = params.id;
+  const eventID = params.id;
   const [imageFile, setImageFile] = useState<File>();
   const [fileUrl, setFileUrl] = useState<string | null>(null);
-  const [clubData, setClubData] = useState<FilmClubData | null>(null);
+  const [cardData, setCardData] = useState<MovieCardData | null>(null);
   const [fileName, setFileName] = useState<string>("");
-  const [heading, setHeading] = useState<string>(" ");
+  const [title, setTitle] = useState<string>(" ");
   const [description, setDescription] = useState<string>("");
+  const [date, setDate] = useState<string>("");
+  const [time, setTime] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const fetchClubData = async () => {
+  const fetchCardData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
-          clubId
+        "https://picayune-belief-production.up.railway.app/api/events/" +
+          eventID
       );
-      setClubData(response.data);
+      setCardData(response.data);
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -49,14 +53,14 @@ const page = () => {
   };
   const handlePost = async () => {
     const formData = new FormData();
-    if (!heading) {
-      formData.append("heading", clubData?.heading || "no heading supplied");
+    if (!title) {
+      formData.append("title", cardData?.title || "no title supplied");
     } else {
-      formData.append("heading", heading);
+      formData.append("title", title);
     }
 
     if (!description) {
-      formData.append("description", clubData?.description || "no description");
+      formData.append("description", cardData?.description || "no description");
     } else {
       formData.append("description", description);
     }
@@ -65,7 +69,7 @@ const page = () => {
       formData.append("img_Url", imageFile, fileName);
     }
     try {
-      const response = await axios.post("/api/events/" + clubId, formData);
+      const response = await axios.post("/api/events/" + eventID, formData);
       console.log(response.data);
       if (response.status === 200) {
         setShowSuccessAlert(true);
@@ -76,7 +80,7 @@ const page = () => {
   };
 
   function handleSubmit() {
-    if (clubId) {
+    if (eventID) {
       console.log("there is id");
       handlePost();
     } else {
@@ -94,9 +98,9 @@ const page = () => {
     console.log(imageFile);
   }
 
-  function handleHeadingChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
-    setHeading(event.target.value);
+    setTitle(event.target.value);
   }
 
   function handleDescriptionChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -104,8 +108,16 @@ const page = () => {
     setDescription(event.target.value);
   }
 
+  function handleTimeChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setTime(event.target.value);
+  }
+  function handleDateChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setDate(event.target.value);
+  }
   useEffect(() => {
-    fetchClubData();
+    fetchCardData();
   }, []);
 
   return (
@@ -113,12 +125,12 @@ const page = () => {
       <Grid container justifyContent={"center"} alignItems={"center"}>
         <Grid item xs={12}>
           <Stack direction={"row"} spacing={2}>
-            <Link href={"/dashboard/film-clubs"}>
+            <Link href={"/dashboard/all-events"}>
               <IconButton>
                 <ArrowBackIcon />
               </IconButton>
             </Link>
-            <h1>{clubId ? "Edit" : "New"}</h1>
+            <h1>{eventID ? "Edit" : "New"}</h1>
           </Stack>
         </Grid>
         <Grid item xs={6}>
@@ -131,11 +143,25 @@ const page = () => {
               marginRight={0}
             >
               <TextField
-                name="heading"
-                label="heading"
-                onChange={handleHeadingChange}
+                name="title"
+                label="title"
+                onChange={handleTitleChange}
                 sx={{ width: "100%" }}
               />
+              <Stack direction={"row"}>
+                <TextField
+                  name="date"
+                  label="date"
+                  onChange={handleDateChange}
+                  sx={{ width: "50%" }}
+                />
+                <TextField
+                  name="time"
+                  label="time"
+                  onChange={handleTimeChange}
+                  sx={{ width: "50%" }}
+                />
+              </Stack>
               <TextField
                 name="description"
                 label="Description"
@@ -160,7 +186,7 @@ const page = () => {
             </Stack>
             {showSuccessAlert && (
               <Alert severity="success">
-                {clubId
+                {eventID
                   ? "Film Club Successfully Updated!"
                   : "Film Club Added Successfully"}
               </Alert>
@@ -177,14 +203,18 @@ const page = () => {
               Preview
             </Typography>
             {
-              <FilmClubCard
-                heading={heading ? heading : clubData?.heading || ""}
-                desc={description ? description : clubData?.description || ""}
+              <MovieCard
+                title={title ? title : cardData?.title || ""}
+                description={
+                  description ? description : cardData?.description || ""
+                }
+                date={date ? date : cardData?.date || ""}
+                time={time ? time : cardData?.time || ""}
                 img={
                   fileUrl
                     ? fileUrl
                     : "https://picayune-belief-production.up.railway.app/storage/" +
-                      clubData?.img_Url
+                      cardData?.image
                 }
               />
             }
