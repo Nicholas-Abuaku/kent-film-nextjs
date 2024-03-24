@@ -94,7 +94,6 @@ const CardGridPaginated = () => {
                   description={event.description}
                   date={event.date}
                   time={event.start}
-                  link={event.url ? event.url : "/"}
                   img={
                     "https://picayune-belief-production.up.railway.app/storage/" +
                     event.image
