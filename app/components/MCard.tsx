@@ -28,7 +28,7 @@ const MCard = (props: MCardProps) => {
 
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
-      {isMobile ? (
+      {/* {isMobile ? (
         <Card
           sx={{
             width: "35vw",
@@ -40,21 +40,7 @@ const MCard = (props: MCardProps) => {
           }}
           elevation={10}
         >
-          {/* <Image
-                src={props.img}
-                height={0}
-                width={0}
-                title={props.title}
-                alt={"Movie poster for " + props.title}
-                loading="lazy"
-                style={{
-                  width: "8.5vw",
-                  height: "30vh",
-                  objectFit: "scale-down",
-                  marginRight: "5px",
-                }}
-              /> */}
-          {/* <Skeleton variant='rectangular' width={400} height={274.05}/> */}
+     
           <Box
             sx={{
               wordWrap: "break-word",
@@ -68,7 +54,7 @@ const MCard = (props: MCardProps) => {
             </Stack>
 
             <Typography fontWeight={"bold"} variant="h6" component={"h4"}>
-              {props.date} <br /> {props.time}
+              {props.date} <br/> {props.time}
             </Typography>
 
             <Typography sx={{ marginTop: "10px", marginLeft: "1px" }}>
@@ -76,25 +62,27 @@ const MCard = (props: MCardProps) => {
             </Typography>
           </Box>
         </Card>
-      ) : (
-        <Card
-          sx={{
-            width: "29.59vw",
-            height: "300px",
-            // height: "29vh",
-            display: "flex",
-            backgroundColor: "#F0F0ED ",
-            color: "black",
-          }}
-          elevation={10}
-        >
+      ) : ( */}
+      <Card
+        sx={{
+          width: "29.59vw",
+          height: "300px",
+          // height: "29vh",
+          display: "flex",
+          backgroundColor: "#F0F0ED ",
+          color: "black",
+        }}
+        elevation={10}
+      >
+        {isMobile ? (
+          <h1 style={{ display: "none" }}>Hi</h1>
+        ) : (
           <Image
             src={props.img}
             alt={props.title + " image"}
             title={props.title}
             width={200}
             height={300}
-            sizes="100vw"
             style={{
               width: "10.416666666666666vw",
               height: "auto",
@@ -104,29 +92,31 @@ const MCard = (props: MCardProps) => {
             }}
             loading="lazy"
           />
+        )}
 
-          <Box
-            sx={{
-              wordWrap: "break-word",
-              overflow: "auto",
-              height: "300px",
-            }}
-          >
-            <Stack direction={"row"} spacing={10}>
-              <Typography fontWeight={"bold"} variant="h6" component="h3">
-                {props.title}
-              </Typography>
-            </Stack>
-            <Typography fontWeight={"bold"} variant="subtitle1" component="h4">
-              {props.date} <br /> {props.time}
+        <Box
+          sx={{
+            wordWrap: "break-word",
+            overflow: "auto",
+            height: "300px",
+            "@media (max-width: 1024px)": {
+              overflowY: "scroll",
+            },
+          }}
+        >
+          <Stack direction={"row"} spacing={isMobile ? 2 : 10}>
+            <Typography fontWeight={"bold"} variant="h6" component="h3">
+              {props.title}
             </Typography>
+          </Stack>
+          <Typography fontWeight={"bold"} variant="subtitle1" component="h4">
+            {props.date} <br /> {props.time}
+          </Typography>
 
-            <Typography sx={{ marginTop: "4px" }}>
-              {props.description}
-            </Typography>
-          </Box>
-        </Card>
-      )}
+          <Typography sx={{ marginTop: "4px" }}>{props.description}</Typography>
+        </Box>
+      </Card>
+      {/* )} */}
     </ThemeProvider>
   );
 };

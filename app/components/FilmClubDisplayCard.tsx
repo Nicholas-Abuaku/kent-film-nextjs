@@ -51,6 +51,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           title={props.heading}
           unoptimized={true}
           loading="eager"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ height: "20.98635886673662vh", width: "100%" }}
           quality={80}
         />

@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, Typography, ThemeProvider } from "@mui/material";
-// import PressCardGrid from "";
 import dynamic from "next/dynamic";
 const PressCardGrid = dynamic(() => import("../components/PressCardGrid"), {
   ssr: true,

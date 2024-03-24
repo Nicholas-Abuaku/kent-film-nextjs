@@ -23,13 +23,16 @@ let MCardTheme = createTheme({
   },
 });
 MCardTheme = responsiveFontSizes(MCardTheme);
-MCardTheme.typography.h5["@media (max-width:600px)"] = {
+MCardTheme.typography.h5["@media (max-width:900px)"] = {
   fontSize: "0.75rem", //heading
 };
-MCardTheme.typography.h6["@media (max-width:600px)"] = {
+MCardTheme.typography.h6["@media (max-width:900px)"] = {
   fontSize: "0.69rem",
 };
-MCardTheme.typography.body1["@media (max-width:600px)"] = {
+MCardTheme.typography.body1["@media (max-width:900px)"] = {
+  fontSize: "0.7rem",
+};
+MCardTheme.typography.subtitle1["@media (max-width:900px)"] = {
   fontSize: "0.7rem",
 };
 
