@@ -25,6 +25,7 @@ interface Event {
   id: string;
   title: string;
   start: string;
+  time: string;
   date: string;
   url?: string;
   image?: string;
@@ -71,7 +72,7 @@ const CardGridPaginated = () => {
                   title={event.title}
                   description={event.description}
                   date={event.date}
-                  time={event.start}
+                  time={event.time}
                   img={
                     "https://picayune-belief-production.up.railway.app/storage/" +
                     event.image

@@ -25,7 +25,7 @@ type MCardProps = {
 };
 const MCard = (props: MCardProps) => {
   const isMobile = useMediaQuery(MCardTheme.breakpoints.down("md"));
-  console.log(props.time);
+
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
       {isMobile ? (
@@ -68,7 +68,7 @@ const MCard = (props: MCardProps) => {
             </Stack>
 
             <Typography fontWeight={"bold"} variant="h6" component={"h4"}>
-              {props.date + " " + props.time}
+              {props.date} <br /> {props.time}
             </Typography>
 
             <Typography sx={{ marginTop: "10px", marginLeft: "1px" }}>
