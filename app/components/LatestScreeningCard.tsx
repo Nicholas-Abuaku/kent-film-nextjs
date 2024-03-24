@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-
+import styles from "../styles/Latestscreening.module.css";
 import {
   Box,
   CardActionArea,
@@ -43,8 +43,11 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
         key={index}
         component={"h2"}
         sx={{
-          "@media (max-width: 900px)": { fontSize: "4rem" },
+          "@media (max-width: 900px)": { fontSize: "0.4rem" },
           "@media (max-width: 956px)": { fontSize: "5rem" },
+          "@media (max-width: 1024px)": {
+            fontSize: "1rem",
+          },
         }}
       >
         {paragraph}
@@ -53,7 +56,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   };
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
-      {isMobile ? (
+      {/* {isMobile ? (
         <Card
           sx={{
             display: "inline",
@@ -133,135 +136,192 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             </Stack>
           </CardContent>
         </Card>
-      ) : (
-        <Card
-          sx={{
-            display: "flex",
-            minHeight: "682px",
+      ) : ( */}
+      <Card
+        sx={{
+          display: "flex",
+          minHeight: "682px",
+          borderRadius: "0px",
+          width: "100vw",
+          height: "63.49vh",
+          "@media (max-width: 1024px)": {
+            display: "inline",
+            width: "100%",
+            minHeight: "464.2px",
+            maxHeight: "682px",
             borderRadius: "0px",
-            width: "100vw",
-            height: "63.49vh",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width: "50%",
+            height: "auto",
+            "@media (max-width: 1024px)": {
+              width: "100%",
+              height: "50%",
+            },
           }}
         >
-          <Box sx={{ width: "50%", height: "auto" }}>
-            {props.img && typeof props.img === "object" ? (
-              <Skeleton
-                variant="rectangular"
-                animation="wave"
-                width={962}
-                height={465}
-              />
-            ) : (
-              <Box
-                sx={{
-                  flex: "1",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  maxHeight: "auto",
+          {props.img && typeof props.img === "object" ? (
+            <Skeleton
+              variant="rectangular"
+              animation="wave"
+              width={962}
+              height={465}
+            />
+          ) : (
+            <Box
+              sx={{
+                flex: "1",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                maxHeight: "auto",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <Image
+                src={
+                  props.edit
+                    ? props.img
+                    : "https://picayune-belief-production.up.railway.app/storage/" +
+                      props.img
+                }
+                width={960}
+                height={682}
+                alt={props.title + " latest screening"}
+                title={props.title}
+                className={styles.latestscreening}
+                unoptimized={true}
+                loading="eager"
+                sizes="@media (max-width: 1024px)"
+                style={{
                   width: "100%",
-                  height: "100%",
-                }}
-              >
-                <Image
-                  src={
-                    props.edit
-                      ? props.img
-                      : "https://picayune-belief-production.up.railway.app/storage/" +
-                        props.img
-                  }
-                  width={960}
-                  height={682}
-                  alt={props.title + " latest screening"}
-                  title={props.title}
-                  className="latest-screening-image"
-                  unoptimized={true}
-                  loading="eager"
-                  sizes="(max-width:500px) 100vw"
-                  style={{
-                    width: "100%",
 
-                    marginRight: "0px",
-                    height: "100%",
-                    objectFit: "fill",
-                  }}
-                />
-              </Box>
-            )}
-          </Box>
-          <CardContent
-            sx={{
+                  marginRight: "0px",
+                  height: "100%",
+                  objectFit: "fill",
+                }}
+              />
+            </Box>
+          )}
+        </Box>
+        <CardContent
+          sx={{
+            backgroundColor: "#1A1A1A",
+            color: "white",
+            wordBreak: "break-word",
+            width: "50%",
+            height: "100%",
+            position: "relative",
+            "@media (max-width: 1024px)": {
               backgroundColor: "#1A1A1A",
               color: "white",
               wordBreak: "break-word",
-              width: "50%",
-              height: "100%",
-              position: "relative",
-            }}
+              minHeight: "400px",
+              width: "100%",
+            },
+          }}
+        >
+          <Stack
+            direction={"column"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            spacing={1}
           >
-            <Stack
-              direction={"column"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              spacing={1}
+            <Box
+              minHeight={150}
+              paddingBottom={4}
+              sx={{
+                "@media (max-width: 1024px)": {
+                  paddingBottom: "0px",
+                  minHeight: "0px",
+                },
+              }}
             >
-              <Box minHeight={150} paddingBottom={4}>
-                {renderTitle()}
-                <Typography
-                  color={"white"}
-                  paddingBottom={4}
-                  textAlign={"center"}
-                  variant="h4"
-                  component="h3"
-                >
-                  {props.date}
-                </Typography>
-              </Box>
-              <Box
+              {renderTitle()}
+              <Typography
+                color={"white"}
+                paddingBottom={4}
+                textAlign={"center"}
+                variant="h4"
+                component="h3"
                 sx={{
-                  maxHeight: "400px",
-
-                  minHeight: "200px",
-                  maxWidth: "98%",
-
                   overflow: "auto",
+                  "@media (max-width: 1024px)": {
+                    paddingBottom: "0px",
+                    fontSize: "0.9rem",
+                  },
                 }}
               >
-                <Typography
-                  maxHeight={"100%"}
-                  maxWidth={"75%"}
-                  textAlign={"center"}
-                  margin={"auto"}
-                >
-                  {props.description}
-                </Typography>
-              </Box>
-              <Link
-                href={
-                  props.url ||
-                  "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
+                {props.date}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                maxHeight: "400px",
+                minHeight: "200px",
+                maxWidth: "98%",
+                overflow: "auto",
+                "@media (max-width: 1024px)": {
+                  // maxHeight: "100%",
+                  minHeight: "100%",
+                  maxWidth: "98%",
+                  overflow: "auto",
+                },
+              }}
+            >
+              <Typography
+                maxHeight={"100%"}
+                maxWidth={"75%"}
+                textAlign={"center"}
+                margin={"auto"}
+                sx={{
+                  "@media (max-width: 1024px)": {
+                    marginBottom: "0px",
+                    maxHeight: "15vh",
+                    overflow: "scroll",
+                  },
+                }}
               >
-                <Button
-                  variant="contained"
-                  sx={{
-                    borderRadius: "20px",
-                    height: "50px",
-                    width: "160px",
-                    color: "black",
-                    marginTop: "5px",
-                    "&:hover": { backgroundColor: "#808080" },
-                  }}
-                >
-                  Tickets
-                </Button>
-              </Link>
-            </Stack>
-          </CardContent>
-        </Card>
-      )}
+                {props.description}
+              </Typography>
+            </Box>
+            <Link
+              href={
+                props.url ||
+                "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  borderRadius: "20px",
+                  height: "50px",
+                  width: "160px",
+                  color: "black",
+                  marginTop: "0px",
+                  "&:hover": { backgroundColor: "#808080" },
+                  "@media (max-width: 1024px)": {
+                    marginTop: "0px",
+                    paddingTop: "0px",
+                    width: "90px",
+                    height: "25px",
+                    fontSize: "0.6rem",
+                  },
+                }}
+              >
+                Tickets
+              </Button>
+            </Link>
+          </Stack>
+        </CardContent>
+      </Card>
+      {/* )} */}
     </ThemeProvider>
   );
 };

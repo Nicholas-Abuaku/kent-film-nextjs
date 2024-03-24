@@ -19,4 +19,7 @@ let LatestScreeningTheme = createTheme(theme, {
 });
 
 LatestScreeningTheme = responsiveFontSizes(LatestScreeningTheme);
+LatestScreeningTheme.typography.body1["@media (max-width:600px)"] = {
+  fontSize: "0.8rem",
+};
 export default LatestScreeningTheme;
