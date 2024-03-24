@@ -196,7 +196,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 className={styles.latestscreening}
                 unoptimized={true}
                 loading="eager"
-                sizes="@media (max-width: 1024px)"
+                sizes="(max-width: 1024px) 100vw"
                 style={{
                   width: "100%",
 
@@ -305,6 +305,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                   width: "160px",
                   color: "black",
                   marginTop: "0px",
+                  // display: "none",
                   "&:hover": { backgroundColor: "#808080" },
                   "@media (max-width: 1024px)": {
                     marginTop: "0px",
@@ -312,6 +313,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                     width: "90px",
                     height: "25px",
                     fontSize: "0.6rem",
+                    display: "none",
                   },
                 }}
               >
