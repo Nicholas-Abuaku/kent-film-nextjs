@@ -1,7 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
-import axios from "axios";
 import { Noto_Sans } from "next/font/google";
 import MCard from "./MCard";
 import {
@@ -37,17 +36,15 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const itemsPerPage = isMobile ? 2 : 3;
-  const checkLoading = async () => {};
   const handlePageChange = (event: any, newPage: number) => {
     setPage(newPage);
   };
-  // console.log(allEvents[0]);
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
   return (
     <>
-      {allEvents ? (
+      {allEvents.length > 0 ? (
         allEvents.length > 0 ? (
           allEvents.slice(startIndex, endIndex).map((event: Event) => {
             return (
