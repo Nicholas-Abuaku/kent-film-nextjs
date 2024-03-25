@@ -46,8 +46,7 @@ interface FilmClubInfo {
 }
 const FilmClubs = async () => {
   const response = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/film-clubs",
-    { cache: "no-cache" }
+    "https://picayune-belief-production.up.railway.app/api/film-clubs"
   );
   const filmClubs: FilmClubInfo[] = await response.json();
   return (
