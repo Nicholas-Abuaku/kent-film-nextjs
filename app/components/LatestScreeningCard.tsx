@@ -187,12 +187,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               }}
             >
               <Image
-                src={
-                  props.edit
-                    ? props.img
-                    : "https://picayune-belief-production.up.railway.app/storage/" +
-                      props.img
-                }
+                src={props.edit ? props.img : props.img}
                 width={960}
                 height={682}
                 alt={props.title + " latest screening"}
