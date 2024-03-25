@@ -31,18 +31,32 @@ interface LatestScreeningInfo {
   description: string;
   eventUrl: string;
 }
-
+interface Event {
+  id: string;
+  title: string;
+  time: string;
+  date: string;
+  url?: string;
+  image?: string;
+  description: string;
+}
 const Home = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
     { cache: "force-cache", next: { revalidate: 21600 } }
   );
-  console.log(response);
+  const fetchEvents = await fetch(
+    "https://picayune-belief-production.up.railway.app/api/events",
+    { cache: "force-cache", next: { revalidate: 10800 } }
+  );
+
   const latestInfo: LatestScreeningInfo[] = await response.json();
+  const allEvents: Event[] = await fetchEvents.json();
+
   const latestImage =
     "https://picayune-belief-production.up.railway.app/storage/" +
     latestInfo[0].img_Url;
-  console.log(latestImage);
+
   const newDate = new Date(latestInfo[0].date);
   const dateString = newDate.toDateString();
   return (
@@ -109,7 +123,7 @@ const Home = async () => {
               What's On
             </Typography>
           </Grid>
-          <CardGridPaginated />
+          <CardGridPaginated response={allEvents} />
         </Grid>
         <Grid item xs={12}>
           <PayPalDonate />
