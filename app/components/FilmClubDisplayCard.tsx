@@ -1,13 +1,9 @@
-"use client";
 import React from "react";
 import {
   Card,
-  CardMedia,
   CardContent,
   Stack,
   Typography,
-  useTheme,
-  useMediaQuery,
   ThemeProvider,
   createTheme,
 } from "@mui/material";
@@ -19,7 +15,6 @@ type FilmClubDisplayCardProps = {
 import FilmCardTheme from "../Themes/FilmCardTheme";
 import Image from "next/image";
 const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
-  const isMobile = useMediaQuery(FilmCardTheme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={createTheme(FilmCardTheme)}>
       <Card
@@ -49,7 +44,6 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           width={0}
           alt={props.heading}
           title={props.heading}
-          unoptimized={true}
           loading="eager"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ height: "20.98635886673662vh", width: "100%" }}

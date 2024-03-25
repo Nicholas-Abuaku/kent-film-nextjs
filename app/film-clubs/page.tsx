@@ -16,6 +16,7 @@ const FilmClubDisplayCard = dynamic(
 import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
 import Image from "next/image";
+import FilmClubDisplayGrid from "../components/FilmClubDisplayGrid";
 export const metadata: Metadata = {
   title: "Film Clubs",
 
@@ -45,11 +46,12 @@ interface FilmClubInfo {
   description: string;
 }
 const FilmClubs = async () => {
-  const response = await fetch(
+  const fetchFilmClubs = await fetch(
     "https://picayune-belief-production.up.railway.app/api/film-clubs",
-    { cache: "force-cache", next: { revalidate: 172800 } }
+    { next: { revalidate: 172800 } }
   );
-  const filmClubs: FilmClubInfo[] = await response.json();
+  const filmClubs: FilmClubInfo[] = await fetchFilmClubs.json();
+
   return (
     <ThemeProvider theme={FilmClubTheme}>
       <Grid
@@ -109,16 +111,9 @@ const FilmClubs = async () => {
             </CardContent>
           </Card>
         </Grid>
-
-        {filmClubs.map((club: FilmClubInfo) => (
-          <Grid item xl={3} md={4} xs={12} key={club.id}>
-            <FilmClubDisplayCard
-              heading={club.heading}
-              description={club.description}
-              img={club.img_Url}
-            />
-          </Grid>
-        ))}
+        <Grid item xs={12}>
+          <FilmClubDisplayGrid response={filmClubs} />
+        </Grid>
       </Grid>
     </ThemeProvider>
   );

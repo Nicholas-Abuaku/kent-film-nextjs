@@ -43,11 +43,11 @@ interface Event {
 const Home = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { cache: "force-cache", next: { revalidate: 21600 } }
+    { next: { revalidate: 21600 } }
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
-    { cache: "force-cache", next: { revalidate: 10800 } }
+    { next: { revalidate: 10800 } }
   );
 
   const latestInfo: LatestScreeningInfo[] = await response.json();
