@@ -46,12 +46,11 @@ interface FilmClubInfo {
   description: string;
 }
 const FilmClubs = async () => {
-  const fetchFilmClubs = await fetch(
+  const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/film-clubs",
-    { next: { revalidate: 172800 } }
+    { cache: "force-cache", next: { revalidate: 172800 } }
   );
-  const filmClubs: FilmClubInfo[] = await fetchFilmClubs.json();
-
+  const filmClubs: FilmClubInfo[] = await response.json();
   return (
     <ThemeProvider theme={FilmClubTheme}>
       <Grid
@@ -111,9 +110,16 @@ const FilmClubs = async () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}>
-          <FilmClubDisplayGrid response={filmClubs} />
-        </Grid>
+
+        {filmClubs.map((club: FilmClubInfo) => (
+          <Grid item xl={3} md={4} xs={12} key={club.id}>
+            <FilmClubDisplayCard
+              heading={club.heading}
+              description={club.description}
+              img={club.img_Url}
+            />
+          </Grid>
+        ))}
       </Grid>
     </ThemeProvider>
   );
