@@ -35,10 +35,14 @@ interface LatestScreeningInfo {
 const Home = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { next: { revalidate: 21600 } }
+    { cache: "force-cache", next: { revalidate: 21600 } }
   );
   console.log(response);
   const latestInfo: LatestScreeningInfo[] = await response.json();
+  const latestImage =
+    "https://picayune-belief-production.up.railway.app/storage/" +
+    latestInfo[0].img_Url;
+  console.log(latestImage);
   const newDate = new Date(latestInfo[0].date);
   const dateString = newDate.toDateString();
   return (
@@ -65,7 +69,7 @@ const Home = async () => {
             title={latestInfo[0].heading}
             date={dateString}
             description={latestInfo[0].description}
-            img={latestInfo[0].img_Url}
+            img={latestImage}
             url={"/"}
             edit={false}
           />
