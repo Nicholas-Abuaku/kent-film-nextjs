@@ -28,41 +28,6 @@ const MCard = (props: MCardProps) => {
 
   return (
     <ThemeProvider theme={createTheme(MCardTheme)}>
-      {/* {isMobile ? (
-        <Card
-          sx={{
-            width: "35vw",
-            height: "29vh",
-            display: "flex",
-
-            backgroundColor: "#F0F0ED ",
-            color: "black",
-          }}
-          elevation={10}
-        >
-     
-          <Box
-            sx={{
-              wordWrap: "break-word",
-              overflowY: "scroll",
-            }}
-          >
-            <Stack direction={"row"} spacing={2}>
-              <Typography fontWeight={"bold"} variant="h5" component="h3">
-                {props.title}
-              </Typography>
-            </Stack>
-
-            <Typography fontWeight={"bold"} variant="h6" component={"h4"}>
-              {props.date} <br/> {props.time}
-            </Typography>
-
-            <Typography sx={{ marginTop: "10px", marginLeft: "1px" }}>
-              {props.description}
-            </Typography>
-          </Box>
-        </Card>
-      ) : ( */}
       <Card
         sx={{
           width: "29.59vw",
