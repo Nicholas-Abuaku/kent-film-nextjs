@@ -7,5 +7,5 @@ interface ManageTableContextProps {
 
 export const ManageTableContext = createContext<ManageTableContextProps>({
   tableUpdate: false,
-  setTableUpdate: () => {}, // Placeholder for actual implementation
+  setTableUpdate: () => {},
 });
