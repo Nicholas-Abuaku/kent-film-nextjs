@@ -58,7 +58,16 @@ const page = () => {
     } else {
       formData.append("title", title);
     }
-
+    if (!date) {
+      formData.append("date", cardData?.date || "no date");
+    } else {
+      formData.append("date", date);
+    }
+    if (!time) {
+      formData.append("time", cardData?.time || "no time");
+    } else {
+      formData.append("time", time);
+    }
     if (!description) {
       formData.append("description", cardData?.description || "no description");
     } else {
@@ -66,10 +75,11 @@ const page = () => {
     }
 
     if (imageFile) {
-      formData.append("img_Url", imageFile, fileName);
+      formData.append("image", imageFile, fileName);
     }
     try {
-      const response = await axios.post("/api/events/" + eventID, formData);
+      const response = await axios.post("/api/all-events/" + eventID, formData);
+
       console.log(response.data);
       if (response.status === 200) {
         setShowSuccessAlert(true);

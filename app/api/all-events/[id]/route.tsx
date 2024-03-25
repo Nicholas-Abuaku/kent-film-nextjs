@@ -20,12 +20,12 @@ export async function POST(
     console.log("formData:", formData); // Log for debugging
 
     const axiosRes = await axios.post(
-      "https://picayune-belief-production.up.railway.app/api/events" +
+      "https://picayune-belief-production.up.railway.app/api/events/" +
         params.id,
       formData,
       { headers }
     );
-
+    console.log(axiosRes);
     if (axiosRes.status === 200) {
       return NextResponse.json({ success: axiosRes.data });
     } else {
