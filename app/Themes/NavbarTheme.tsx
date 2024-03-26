@@ -10,5 +10,11 @@ let NavbarTheme = createTheme({
   },
 });
 
+NavbarTheme.typography.body1["@media (max-width:1024px)"] = {
+  fontSize: "1rem",
+};
+NavbarTheme.typography.h5["@media (max-width:1024px)"] = {
+  fontSize: "1rem",
+};
 NavbarTheme = responsiveFontSizes(NavbarTheme);
 export default NavbarTheme;
