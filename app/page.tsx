@@ -47,7 +47,7 @@ const Home = async () => {
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
-    {cache:'no-cache'}
+    {next:{revalidate: 0}}
   );
 
   const latestInfo: LatestScreeningInfo[] = await response.json();
