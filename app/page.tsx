@@ -46,8 +46,8 @@ const Home = async () => {
     { next: { revalidate: 21600 } }
   );
   const fetchEvents = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/events"
-    
+    "https://picayune-belief-production.up.railway.app/api/events",
+    {cache:'no-cache'}
   );
 
   const latestInfo: LatestScreeningInfo[] = await response.json();
