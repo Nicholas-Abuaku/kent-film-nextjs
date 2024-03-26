@@ -13,17 +13,17 @@ const SocialMediaLinks = () => {
       justifyContent={"center"}
       marginBottom={5}
     >
-      <Link href={"https://www.facebook.com/KentFilmFoundation/"}>
+      <Link href={"https://www.facebook.com/KentFilmFoundation/"} target="_blank" rel="noopener noreferrer">
         <IconButton sx={{ backgroundColor: "#339465", color: "white" }}>
           <FacebookIcon />
         </IconButton>
       </Link>
-      <Link href={"https://www.instagram.com/ramsgatecommunitycinema/"}>
+      <Link href={"https://www.instagram.com/ramsgatecommunitycinema/"} target="_blank" rel="noopener noreferrer">
         <IconButton sx={{ backgroundColor: "#339465", color: "white" }}>
           <InstagramIcon />
         </IconButton>
       </Link>
-      <Link href={"https://twitter.com/kentfilm_uk?lang=en-GB"}>
+      <Link href={"https://twitter.com/kentfilm_uk?lang=en-GB"} target="_blank" rel="noopener noreferrer">
         <IconButton sx={{ backgroundColor: "#339465", color: "white" }}>
           <XIcon />
         </IconButton>
