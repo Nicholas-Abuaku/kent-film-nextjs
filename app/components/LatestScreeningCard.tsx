@@ -151,8 +151,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           "@media (max-width: 1024px)": {
             display: "inline",
             width: "100%",
-            minHeight: "464.2px",
-            maxHeight: "682px",
+            height: "682px",
+            // maxHeight: "682px",
             borderRadius: "0px",
           },
         }}
@@ -234,7 +234,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               paddingBottom={4}
               sx={{
                 "@media (max-width: 1024px)": {
-                  paddingBottom: "0px",
+                  paddingBottom: "3rem",
                   minHeight: "0px",
                 },
               }}
@@ -270,13 +270,14 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
+                  
                   maxWidth: "98%",
                   overflow: "auto",
                 },
               }}
             >
               <Typography
-                maxHeight={"100%"}
+                height={"100%"}
                 maxWidth={"75%"}
                 textAlign={"center"}
                 margin={"auto"}
