@@ -43,7 +43,7 @@ interface Event {
 const Home = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { next: { revalidate: 0 } }
+    { next: { revalidate: 30 } }
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
@@ -53,7 +53,7 @@ const Home = async () => {
   const latestInfo: LatestScreeningInfo[] = await response.json();
   const allEvents: Event[] = await fetchEvents.json();
 
-  const latestImage =
+  let latestImage =
     "https://picayune-belief-production.up.railway.app/storage/" +
     latestInfo[0].img_Url;
 
