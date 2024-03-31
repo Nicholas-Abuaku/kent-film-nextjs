@@ -60,87 +60,6 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   };
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
-      {/* {isMobile ? (
-        <Card
-          sx={{
-            display: "inline",
-            width: "100%",
-            minHeight: "464.2px",
-            maxHeight: "682px",
-            borderRadius: "0px",
-          }}
-        >
-          <Box maxWidth={"100%"} maxHeight={"50%"}>
-            <Image
-              alt={props.title}
-              width={465}
-              height={348.7}
-              unoptimized
-              loading="eager"
-              title={props.title}
-              sizes="100vw"
-              style={{
-                objectFit: "fill",
-                width: "100%",
-                height: "auto",
-                maxHeight: "350px",
-              }}
-              src={
-                props.edit
-                  ? props.img
-                  : "https://picayune-belief-production.up.railway.app/storage/" +
-                    props.img
-              }
-            />
-          </Box>
-          <CardContent
-            sx={{
-              backgroundColor: "#1A1A1A",
-              color: "white",
-              wordBreak: "break-word",
-              minHeight: "400px",
-            }}
-          >
-            <Stack direction={"column"} alignItems={"center"} spacing={1}>
-              <Typography textAlign={"center"} variant="h2">
-                {props.title}
-              </Typography>
-
-              <Typography
-                color={"white"}
-                paddingBottom={0}
-                textAlign={"center"}
-                variant="h4"
-                component={"h2"}
-              >
-                {props.date}
-              </Typography>
-              <Typography textAlign={"center"}>{props.description}</Typography>
-              <Link
-                href={
-                  props.url ||
-                  "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  sx={{
-                    borderRadius: "20px",
-                    color: "black",
-                    height: "50px",
-                    width: "160px",
-                  }}
-                >
-                  Tickets
-                </Button>
-              </Link>
-            </Stack>
-          </CardContent>
-        </Card>
-      ) : ( */}
       <Card
         sx={{
           display: "flex",
@@ -190,8 +109,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 src={props.edit ? props.img : props.img}
                 width={960}
                 height={682}
-                alt={props.title + " latest screening"}
-                title={props.title}
+                alt={props.title }
+                title={"Ramsgate Community Cinema Latest Screening: "+props.title }
                 className={styles.latestscreening}
                 loading="eager"
                 sizes="(min-width: 1040px) 50vw, 100vw"
