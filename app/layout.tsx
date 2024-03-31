@@ -12,19 +12,19 @@ import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Kent Film Foundation | Film & Workshops",
+    default: "Kent Film Foundation | Ramsgate Community Cinema",
     template: "%s - Kent Film Foundation",
   },
   description:
     "Free film clubs, screenings, & workshops in Ramsgate. Explore the world of film with Kent Film Foundation! Learn More",
   keywords: [
-    "Ramsgate",
-    "Ramsgate Cinema",
-    "Ramsgate Film",
-    "Ramsgate Cinemas",
-    "Kent Film",
     "Kent Film Foundation",
     "Ramsgate Community Cinema",
+    "Ramsgate Cinema",
+    "Free film workshops",
+    "Community cinema screenings Thanet",
+    "Ramsgate Film",
+    "Ramsgate Cinemas",
     "Cinemas in Ramsgate",
     "Cinemas in Kent",
     "Cinemas in Thanet",
