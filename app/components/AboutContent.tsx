@@ -69,6 +69,9 @@ const AboutContent = () => {
                   prestigious nomination in the Colyer Fergusson 50th
                   Anniversary Awards in the category "Unlocking Opportunities"
                 </Typography>
+                <Typography variant="body1">
+                The Kent Film Foundation hosts regular film clubs and screenings at the Ramsgate Community Cinema in the heart of Ramsgate, Kent. This cozy cinema offers a delightful experience for movie enthusiasts, showcasing a diverse array of films, from beloved classics to thought-provoking independent productions. Ramsgate Community Cinema has become a beloved gathering place for cinephiles and locals alike, fostering a vibrant sense of community through the shared love of cinema. Whether you're a seasoned film buff or simply looking for a unique cultural experience, we promise an unforgettable dose of cinematic magic.
+                </Typography>
               </Stack>
             ) : (
               <Stack
@@ -103,6 +106,9 @@ const AboutContent = () => {
                   record in achieving its outcomes. It recently received a
                   prestigious nomination in the Colyer Fergusson 50th
                   Anniversary Awards in the category "Unlocking Opportunities"
+                </Typography>
+                <Typography variant="h5">
+                The Kent Film Foundation hosts regular film clubs and screenings at the Ramsgate Community Cinema in the heart of Ramsgate, Kent. This cozy cinema offers a delightful experience for movie enthusiasts, showcasing a diverse array of films, from beloved classics to thought-provoking independent productions. Ramsgate Community Cinema has become a beloved gathering place for cinephiles and locals alike, fostering a vibrant sense of community through the shared love of cinema. Whether you're a seasoned film buff or simply looking for a unique cultural experience, we promise an unforgettable dose of cinematic magic.
                 </Typography>
               </Stack>
             )}
