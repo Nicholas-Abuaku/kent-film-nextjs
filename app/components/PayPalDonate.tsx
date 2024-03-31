@@ -10,6 +10,7 @@ const PayPalDonate = () => {
       href={"https://www.paypal.com/uk/fundraiser/charity/3207559"}
       target="_blank"
       rel="noopener noreferrer"
+      title="Support Ramsgate Community cinema"
     >
       <Button
         endIcon={<PaidIcon />}
