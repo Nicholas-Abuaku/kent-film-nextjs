@@ -89,7 +89,12 @@ const PressCard = (props: PressCardProps) => {
               justifyContent={"center"}
               marginTop={2}
             >
-              <Link href={articleUrl}>
+              <Link
+                href={articleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Learn More"
+              >
                 <Button variant="outlined" color="inherit">
                   Learn More
                 </Button>
