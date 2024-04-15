@@ -32,7 +32,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
             width: "90%",
           },
           "@media (max-width: 899px)": {
-            width: "70%",
+            width: "80%",
           },
         }}
       >
@@ -47,7 +47,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           title={props.heading}
           loading="eager"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ height: "20.98635886673662vh", width: "100%" }}
+          style={{ height: "auto", width: "100%" }}
           quality={80}
         />
 
