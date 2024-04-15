@@ -109,8 +109,10 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 src={props.edit ? props.img : props.img}
                 width={960}
                 height={682}
-                alt={props.title }
-                title={"Ramsgate Community Cinema Latest Screening: "+props.title }
+                alt={props.title}
+                title={
+                  "Ramsgate Community Cinema Latest Screening: " + props.title
+                }
                 className={styles.latestscreening}
                 loading="eager"
                 sizes="(min-width: 1040px) 50vw, 100vw"
@@ -153,7 +155,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
               paddingBottom={4}
               sx={{
                 "@media (max-width: 1024px)": {
-                  paddingBottom: "3rem",
+                  paddingBottom: "1rem",
                   minHeight: "0px",
                 },
               }}
@@ -189,7 +191,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
-                  
+
                   maxWidth: "98%",
                   overflow: "auto",
                 },
@@ -203,7 +205,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 sx={{
                   "@media (max-width: 1024px)": {
                     marginBottom: "0px",
-                    maxHeight: "14vh",
+                    maxHeight: "90%",
                     overflow: "auto",
                   },
                 }}
