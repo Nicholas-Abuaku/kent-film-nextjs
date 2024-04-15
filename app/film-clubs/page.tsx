@@ -67,17 +67,16 @@ const FilmClubs = async () => {
           alignItems={"center"}
         >
           <Card
-            // height={"65.18vh"}
             sx={{
               backgroundColor: "#127346",
-              width: "59.46875vw",
+              // width: "59.46875vw",
               height: "100%",
               margin: "auto",
               marginTop: "40px",
               marginBottom: "30px",
-              maxWidth: "80%",
-              "@media (max-width: 600px)": {
-                width: "100%",
+              width: "60%",
+              "@media (max-width: 899px)": {
+                width: "95%",
               },
             }}
             elevation={24}
