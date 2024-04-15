@@ -34,6 +34,11 @@ const Partners = () => {
             variant="h4"
             marginTop={0}
             marginBottom={0}
+            sx={{
+              "@media (max-width: 1024px)": {
+                fontSize: "1.2rem",
+              },
+            }}
           >
             A HUGE THANKS to our Partners
           </Typography>
@@ -42,9 +47,11 @@ const Partners = () => {
           {isMobile ? (
             <Stack
               direction={"row"}
-              spacing={1}
+              spacing={0.5}
               justifyContent={"center"}
               alignItems={"center"}
+              width={"90%"}
+              marginLeft={"auto"}
             >
               <Image
                 src={GarfieldWestonIcon.src}
