@@ -65,22 +65,54 @@ const Navigation = () => {
             <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
               <NavHome />
               <Link href={"/film-clubs"}>
-                <Button variant="text" color="inherit">
+                <Button
+                  variant="text"
+                  color="inherit"
+                  sx={{
+                    "@media (max-width: 1024px)": {
+                      display: "none",
+                    },
+                  }}
+                >
                   Film Clubs
                 </Button>
               </Link>
               <Link href={"/press"}>
-                <Button variant="text" color="inherit">
+                <Button
+                  variant="text"
+                  color="inherit"
+                  sx={{
+                    "@media (max-width: 1024px)": {
+                      display: "none",
+                    },
+                  }}
+                >
                   Press
                 </Button>
               </Link>
               <Link href={"/about"}>
-                <Button variant="text" color="inherit">
+                <Button
+                  variant="text"
+                  color="inherit"
+                  sx={{
+                    "@media (max-width: 1024px)": {
+                      display: "none",
+                    },
+                  }}
+                >
                   About
                 </Button>
               </Link>
               <Link href={"/contact-us"}>
-                <Button variant="text" color="inherit">
+                <Button
+                  variant="text"
+                  color="inherit"
+                  sx={{
+                    "@media (max-width: 1024px)": {
+                      display: "none",
+                    },
+                  }}
+                >
                   Contact Us
                 </Button>
               </Link>
