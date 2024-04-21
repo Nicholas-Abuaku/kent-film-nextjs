@@ -88,8 +88,8 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           <Grid item key={index}>
             <Skeleton
               variant="rectangular"
-              width={isMobile ? "35vw" : 576.13}
-              height={isMobile ? "29vh" : 275.06}
+              width={isMobile ? "29.5vw" : 576.13}
+              height={isMobile ? "300px" : 275.06}
             />
           </Grid>
         ))
