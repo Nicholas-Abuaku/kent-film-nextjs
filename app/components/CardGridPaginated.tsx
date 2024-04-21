@@ -35,7 +35,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const itemsPerPage = isMobile ? 2 : 3;
+  const itemsPerPage = isMobile ? 3 : 3;
   const handlePageChange = (event: any, newPage: number) => {
     setPage(newPage);
   };
