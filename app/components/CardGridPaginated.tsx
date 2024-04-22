@@ -31,7 +31,7 @@ type CardGridPaginatedProps = {
 };
 const CardGridPaginated = (props: CardGridPaginatedProps) => {
   const [page, setPage] = useState(1);
-  const allEvents = props.response;
+  const allEvents = props.response.slice();
   const [isLoading, setIsLoading] = useState(true);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -41,18 +41,27 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   };
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-
+  allEvents.sort((event1: Event, event2: Event) => {
+    const date1 = new Date(event1.date);
+    const date2 = new Date(event2.date);
+    date1.setHours(0, 0, 0, 0);
+    date2.setHours(0, 0, 0, 0);
+    return date1.getTime() - date2.getTime();
+  });
   return (
     <>
       {allEvents.length > 0 ? (
         allEvents.length > 0 ? (
           allEvents.slice(startIndex, endIndex).map((event: Event) => {
+            const date = new Date(event.date);
+            let day = date.toDateString();
+            console.log(day);
             return (
               <Grid item key={event.id}>
                 <MCard
                   title={event.title}
                   description={event.description}
-                  date={event.date}
+                  date={day}
                   time={event.time}
                   img={
                     "https://picayune-belief-production.up.railway.app/storage/" +
