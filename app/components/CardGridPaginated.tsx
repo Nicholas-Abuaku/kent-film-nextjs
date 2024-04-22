@@ -41,7 +41,14 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   };
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  allEvents.sort((event1: Event, event2: Event) => {
+  const today = new Date();
+  const upcomingEvents = allEvents.filter((event: Event) => {
+    const eventDate = new Date(event.date);
+    eventDate.setHours(0, 0, 0, 0);
+
+    return eventDate >= today;
+  });
+  upcomingEvents.sort((event1: Event, event2: Event) => {
     const date1 = new Date(event1.date);
     const date2 = new Date(event2.date);
     date1.setHours(0, 0, 0, 0);
@@ -50,9 +57,9 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   });
   return (
     <>
-      {allEvents.length > 0 ? (
-        allEvents.length > 0 ? (
-          allEvents.slice(startIndex, endIndex).map((event: Event) => {
+      {upcomingEvents.length > 0 ? (
+        upcomingEvents.length > 0 ? (
+          upcomingEvents.slice(startIndex, endIndex).map((event: Event) => {
             const date = new Date(event.date);
             let day = date.toDateString();
             let year = date.getFullYear().toLocaleString();
