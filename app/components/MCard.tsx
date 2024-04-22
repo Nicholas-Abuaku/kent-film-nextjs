@@ -45,7 +45,9 @@ const MCard = (props: MCardProps) => {
           <Image
             src={props.img}
             alt={props.title + " poster"}
-            title={"Screening of "+props.title + " at Ramsgate Community Cinema"}
+            title={
+              "Screening of " + props.title + " at Ramsgate Community Cinema"
+            }
             width={200}
             height={300}
             style={{
