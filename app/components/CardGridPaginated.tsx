@@ -55,7 +55,10 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           allEvents.slice(startIndex, endIndex).map((event: Event) => {
             const date = new Date(event.date);
             let day = date.toDateString();
-            console.log(day);
+            let year = date.getFullYear().toLocaleString();
+            year = year.replace(",", "");
+            day = day.replace(year, "");
+            console.log("String " + year);
             return (
               <Grid item key={event.id}>
                 <MCard
