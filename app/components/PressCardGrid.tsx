@@ -86,6 +86,15 @@ const PressCardGrid = () => {
                   width={360}
                   height={600}
                   animation="wave"
+                  sx={{
+                    "@media (max-width: 1024px)": {
+                      height: "auto",
+                      width: "90%",
+                      margin: "auto",
+                      marginBottom: "30px",
+                      borderRadius: "0px",
+                    },
+                  }}
                 />
               </Grid>
             ))}
