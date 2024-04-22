@@ -160,11 +160,12 @@ const page = () => {
               />
               <Stack direction={"row"}>
                 <TextField
+                  type="date"
                   name="date"
-                  label="date"
                   onChange={handleDateChange}
                   sx={{ width: "50%" }}
                 />
+
                 <TextField
                   name="time"
                   label="time"
