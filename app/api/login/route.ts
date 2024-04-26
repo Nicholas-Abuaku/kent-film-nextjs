@@ -16,11 +16,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
     const data = axiosRes.data;
     if (data.status === true) {
       cookies().set({ name: "isLoggedIn", value: "true" });
-      return NextResponse.json({ message: "success" });
+      return NextResponse.json({ message: "success" }, { status: 200 });
     }
   } catch (err) {
-    return NextResponse.json({
-      eror: err,
-    });
+    return NextResponse.json(
+      {
+        eror: "Error",
+      },
+      { status: 401 }
+    );
   }
 }
