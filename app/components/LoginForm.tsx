@@ -1,13 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { TextField, Typography, Stack, Grid, Button } from "@mui/material";
+import { TextField, Typography, Stack, Alert, Button } from "@mui/material";
 import { ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
+import LoginAlert from "./LoginAlert";
 import axios from "axios";
 const LoginForm = () => {
   const { push } = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
 
   function handleUsernameChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,16 +28,25 @@ const LoginForm = () => {
   const handleSubmit = async (event: React.MouseEvent<HTMLElement>) => {
     try {
       const formData = new FormData();
+      if (showErrorAlert) {
+        setShowErrorAlert(false);
+      }
+
+      if (showSuccessAlert) {
+        setShowSuccessAlert(false);
+      }
       formData.append("name", username);
       formData.append("password", password);
       event.preventDefault();
       const response = await axios.post("/api/login", formData);
       console.log(response.data);
       if (response.status === 200) {
+        setShowSuccessAlert(true);
         push("/dashboard");
       }
     } catch (err) {
       console.log(err);
+      setShowErrorAlert(true);
     }
   };
   return (
@@ -63,6 +75,16 @@ const LoginForm = () => {
         <Button variant="contained" onClick={handleSubmit}>
           Login
         </Button>
+        {showSuccessAlert && (
+          <Alert severity="success" variant="outlined">
+            Successs
+          </Alert>
+        )}
+        {showErrorAlert && (
+          <Alert severity="error" variant="outlined">
+            Invalid Login Credentials
+          </Alert>
+        )}
       </Stack>
     </form>
   );
