@@ -48,7 +48,6 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // Check if event date is after today OR is the same day
     return eventDate >= today;
   });
   upcomingEvents.sort((event1: Event, event2: Event) => {
