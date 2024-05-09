@@ -103,7 +103,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           )}
         </Grid>
       )}
-      {upcomingEvents.length > 0 && ( // Only show pagination if there are events
+      {upcomingEvents.length > 0 && (
         <Grid item xs={12}>
           <Pagination
             count={Math.ceil(upcomingEvents.length / itemsPerPage)}
