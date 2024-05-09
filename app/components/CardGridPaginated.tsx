@@ -58,8 +58,8 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
   return (
     <>
       {upcomingEvents.length > 0 ? (
-        upcomingEvents.length > 0 ? (
-          upcomingEvents.slice(startIndex, endIndex).map((event: Event) => {
+        <>
+          {upcomingEvents.slice(startIndex, endIndex).map((event: Event) => {
             const date = new Date(event.date);
             let day = date.toDateString();
             let year = date.getFullYear().toLocaleString();
@@ -80,47 +80,39 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
                 />
               </Grid>
             );
-          })
-        ) : (
-          <Grid item>
-            {isMobile ? (
-              <Typography
-                variant="h5"
-                color={"black"}
-                sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
-              >
-                Nothing Scheduled yet, check back again later!
-              </Typography>
-            ) : (
-              <Typography
-                variant="h3"
-                color={"black"}
-                sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
-              >
-                Nothing Scheduled yet, check back again later!
-              </Typography>
-            )}
-          </Grid>
-        )
+          })}
+        </>
       ) : (
-        Array.from({ length: itemsPerPage }).map((_, index) => (
-          <Grid item key={index}>
-            <Skeleton
-              variant="rectangular"
-              width={isMobile ? "29.5vw" : 576.13}
-              height={isMobile ? "300px" : 275.06}
-            />
-          </Grid>
-        ))
+        <Grid item>
+          {isMobile ? (
+            <Typography
+              variant="h5"
+              color={"black"}
+              sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
+            >
+              Nothing Scheduled yet, check back again later!
+            </Typography>
+          ) : (
+            <Typography
+              variant="h3"
+              color={"black"}
+              sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
+            >
+              Nothing Scheduled yet, check back again later!
+            </Typography>
+          )}
+        </Grid>
       )}
-      <Grid item xs={12}>
-        <Pagination
-          count={Math.ceil(allEvents.length / itemsPerPage)}
-          page={page}
-          onChange={handlePageChange}
-          sx={{ mt: 2, justifyContent: "center" }}
-        />
-      </Grid>
+      {upcomingEvents.length > 0 && ( // Only show pagination if there are events
+        <Grid item xs={12}>
+          <Pagination
+            count={Math.ceil(upcomingEvents.length / itemsPerPage)}
+            page={page}
+            onChange={handlePageChange}
+            sx={{ mt: 2, justifyContent: "center" }}
+          />
+        </Grid>
+      )}
     </>
   );
 };
