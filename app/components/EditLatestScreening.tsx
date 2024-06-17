@@ -5,6 +5,7 @@ import { Alert, Button, Stack, TextField } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { ChangeEvent } from "react";
 import axios from "axios";
+import { revalidateLatestScreening } from "../actions";
 
 interface LatestScreeningInfo {
   heading: string;
@@ -72,6 +73,7 @@ const EditLatestScreening = () => {
       if (response.status === 200) {
         setShowSuccessAlert(true);
       }
+      revalidateLatestScreening();
     } catch (err) {
       console.log(err);
     }
@@ -83,7 +85,7 @@ const EditLatestScreening = () => {
         title={heading ? heading : "Title"}
         date={date ? date : "2024-04-04"}
         url={"NonePlease"}
-        img={fileUrl ? fileUrl : "No"}
+        img={fileUrl ? fileUrl : "/"}
         description={description}
         edit={true}
       />
