@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { revalidateAllEvents } from "@/app/actions";
 import { useParams } from "next/navigation";
 import {
   Stack,
@@ -93,6 +94,7 @@ const page = () => {
     if (eventID) {
       console.log("there is id");
       handlePost();
+      revalidateAllEvents();
     } else {
       console.log("No id");
     }

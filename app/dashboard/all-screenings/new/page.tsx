@@ -15,6 +15,7 @@ import axios from "axios";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
+import { revalidateAllEvents } from "@/app/actions";
 const MovieCard = dynamic(() => import("@/app/components/MCard"), {
   ssr: false,
 });
@@ -78,6 +79,7 @@ const page = () => {
     } else {
       console.log("No id");
       handleNew();
+      revalidateAllEvents();
     }
   }
 
