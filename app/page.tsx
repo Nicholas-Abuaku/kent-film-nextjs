@@ -47,7 +47,7 @@ const Home = async () => {
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
-    { next: { tags: ["all-events"] } }
+    { next: { tags: ["all-events"] }, cache: "default" }
     // { next: { revalidate: 3600 }  }
   );
 
