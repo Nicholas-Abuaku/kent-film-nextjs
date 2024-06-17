@@ -8,6 +8,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { ManageTableContext } from "../contexts/ManageTableContext";
 import Link from "next/link";
 import axios from "axios";
+import { revalidateAllEvents } from "../actions";
 type EventActions = {
   id: number;
   onDelete: Function;
@@ -34,6 +35,7 @@ const EventActions = (props: EventActions) => {
       setTableUpdate(true);
       props.onDelete();
       setOpenSnack(true);
+      revalidateAllEvents();
     } catch (error) {
       console.log(error);
     }
