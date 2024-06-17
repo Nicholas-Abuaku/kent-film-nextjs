@@ -43,7 +43,7 @@ interface Event {
 const Home = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { next: { tags: ["latest-screening"] } }
+    { next: { tags: ["latest-screening"] }, cache: "default" }
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
