@@ -47,8 +47,7 @@ const Home = async () => {
   );
   const fetchEvents = await fetch(
     "https://picayune-belief-production.up.railway.app/api/events",
-    { next: { tags: ["all-events"] }, cache: "default" }
-    // { next: { revalidate: 3600 }  }
+    { next: { tags: ["all-events"] } }
   );
 
   const latestInfo: LatestScreeningInfo[] = await response.json();
@@ -85,7 +84,9 @@ const Home = async () => {
             date={dateString}
             description={latestInfo[0].description}
             img={latestImage}
-            url={"/"}
+            url={
+              "https://filmfreeway.com/RamsgateInternationalFilmFestival/tickets"
+            }
             edit={false}
           />
         </Grid>
