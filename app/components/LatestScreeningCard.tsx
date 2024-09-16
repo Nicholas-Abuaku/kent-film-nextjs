@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import LatestScreeningTheme from "../Themes/LatestScreeningTheme";
 import Image from "next/image";
+import TicketButton from "./TicketButton";
 type LatestScreeningCardProps = {
   title: string;
   date: string;
@@ -203,47 +204,17 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 textAlign={"center"}
                 margin={"auto"}
                 sx={{
+                  overFlow: "scroll",
                   "@media (max-width: 1024px)": {
                     marginBottom: "0px",
                     maxHeight: "90%",
-                    overflow: "auto",
                   },
                 }}
               >
                 {props.description}
               </Typography>
             </Box>
-            <Link
-              href={
-                props.url ||
-                "https://www.eventbrite.co.uk/o/ramsgate-community-cinema-77759501783"
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="contained"
-                sx={{
-                  borderRadius: "20px",
-                  height: "50px",
-                  width: "160px",
-                  color: "black",
-                  marginTop: "0px",
-                  // display: "none",
-                  "&:hover": { backgroundColor: "#808080" },
-                  "@media (max-width: 1024px)": {
-                    marginTop: "0px",
-                    paddingTop: "0px",
-                    width: "90px",
-                    height: "25px",
-                    fontSize: "0.6rem",
-                    display: "none",
-                  },
-                }}
-              >
-                Tickets
-              </Button>
-            </Link>
+            <TicketButton />
           </Stack>
         </CardContent>
       </Card>
