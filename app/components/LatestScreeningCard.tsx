@@ -158,7 +158,6 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   paddingBottom: "1rem",
                   minHeight: "0px",
-                  overFlowY: "scroll",
                 },
               }}
             >
@@ -189,7 +188,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 maxHeight: "400px",
                 minHeight: "200px",
                 maxWidth: "98%",
-                overflowY: "scroll",
+
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
@@ -205,7 +204,6 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
                 textAlign={"center"}
                 margin={"auto"}
                 sx={{
-                  overflowY: "scroll",
                   "@media (max-width: 1024px)": {
                     marginBottom: "0px",
                     maxHeight: "90%",
