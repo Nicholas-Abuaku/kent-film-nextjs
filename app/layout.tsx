@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
-// import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
