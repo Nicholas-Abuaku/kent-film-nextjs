@@ -1,3 +1,4 @@
+"use client";
 import { Grid, Stack, ThemeProvider, Typography } from "@mui/material";
 import React from "react";
 import Partners from "./Partners";
@@ -86,6 +87,9 @@ const About3 = () => {
               </Stack>
             </Stack>
           </Stack>
+        </Grid>
+        <Grid item xs={12} marginTop={10}>
+          <Partners />
         </Grid>
       </Grid>
     </ThemeProvider>
