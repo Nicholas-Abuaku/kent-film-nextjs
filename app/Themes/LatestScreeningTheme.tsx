@@ -1,9 +1,15 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material";
+import { Montagu_Slab } from "next/font/google";
+const montaguu = Montagu_Slab({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
 let theme = createTheme();
 let LatestScreeningTheme = createTheme(theme, {
   typography: {
-    fontFamily: "'Open Sans', arial, sans-serif",
+    fontFamily: `${montaguu.style.fontFamily}`,
     h1: {
       fontSize: "4.5rem",
     },
