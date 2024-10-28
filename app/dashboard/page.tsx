@@ -6,6 +6,7 @@ const ButtonGrid = dynamic(() => import("../components/ButtonGrid"), {
 });
 import { Alexandria } from "next/font/google";
 import DashboardScreeningsButton from "../components/DashboardScreeningsButton";
+import ScreeningsPage from "../components/ScreeningsPage";
 
 const inter = Alexandria({
   subsets: ["latin"],
@@ -25,12 +26,15 @@ const page = () => {
           Welcome!
         </Typography>
       </Grid>
-      <Grid item xs={3} sx={{ justifyContent: "center", alignItems: "center" }}>
+      {/* <Grid item xs={3} sx={{ justifyContent: "center", alignItems: "center" }}>
         <ButtonGrid />
       </Grid>
 
       <Grid item xs={12}>
         <DashboardScreeningsButton />
+      </Grid> */}
+      <Grid item xs={12}>
+        <ScreeningsPage />
       </Grid>
     </Grid>
   );
