@@ -14,23 +14,23 @@ import Link from "next/link";
 const DashboardManageNewsButton = () => {
   return (
     <Link href={"/dashboard/press"}>
-      <CardActionArea sx={{ width: "300px", height: "140px" }}>
+      <CardActionArea sx={{ width: "401px", height: "189px" }}>
         <Card
           sx={{
-            width: "300px",
-            height: "140px",
-            // background:
-            //   "linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(43,125,74,1) 50%)",
-            backgroundImage: "linear-gradient(62deg, #289ae2 0%, #171fb7 100%)",
-            color: "white",
+            width: "401px",
+            height: "189px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            borderRadius: "10px",
+            alignItems: "flex-start",
+            backgroundColor: "#D9D9D9",
+            color: "black",
           }}
         >
           <CardContent>
             <Stack direction={"row"} spacing={1}>
-              <Typography variant="h4">Manage Press Articles</Typography>
-              <Icon sx={{ height: "40px" }}>
-                <ManageHistoryIcon />
-              </Icon>
+              <Typography variant="h6">Manage Press Articles</Typography>
             </Stack>
           </CardContent>
         </Card>

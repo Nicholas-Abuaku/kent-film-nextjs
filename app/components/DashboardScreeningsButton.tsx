@@ -14,25 +14,22 @@ import Link from "next/link";
 const DashboardScreeningsButton = () => {
   return (
     <Link href={"/dashboard/all-screenings"}>
-      <CardActionArea
-        sx={{ width: "300px", height: "140px" }}
-        //   component={Link}
-        //   to={"/dashboard/edit-latest-screening"}
-      >
+      <CardActionArea sx={{ width: "401px", height: "189px" }}>
         <Card
           sx={{
-            width: "300px",
-            height: "140px",
-            backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-            color: "white",
+            width: "401px",
+            height: "189px",
+            borderRadius: "10px",
+            backgroundColor: "#D9D9D9",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
           }}
         >
           <CardContent>
             <Stack direction={"row"} spacing={1}>
-              <Typography variant="h4">Manage Screenings</Typography>
-              <Icon sx={{ height: "40px" }}>
-                <ManageHistoryIcon />
-              </Icon>
+              <Typography variant="h6">All Screenings</Typography>
             </Stack>
           </CardContent>
         </Card>

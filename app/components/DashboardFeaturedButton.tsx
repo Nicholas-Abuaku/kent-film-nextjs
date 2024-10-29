@@ -14,29 +14,23 @@ import Link from "next/link";
 const DashboardFeaturedButton = () => {
   return (
     <Link href={"/dashboard/edit-latest-screening"}>
-      <CardActionArea
-        sx={{ width: "300px", height: "140px" }}
-        //   component={Link}
-        //   to={"/dashboard/edit-latest-screening"}
+      {/* <CardActionArea sx={{ width: "190px", height: "160px" }}> */}
+      <Card
+        sx={{
+          width: "210px",
+          height: "200px",
+          backgroundColor: "#D9D9D9",
+          color: "black",
+          borderRadius: "30px",
+        }}
       >
-        <Card
-          sx={{
-            width: "300px",
-            height: "140px",
-            backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-            color: "white",
-          }}
-        >
-          <CardContent>
-            <Stack direction={"row"} spacing={1}>
-              <Typography variant="h4">Edit Latest Screening</Typography>
-              <Icon sx={{ height: "40px" }}>
-                <ManageHistoryIcon />
-              </Icon>
-            </Stack>
-          </CardContent>
-        </Card>
-      </CardActionArea>
+        <CardContent sx={{ textAlign: "center" }}>
+          <Stack direction={"row"} spacing={1}>
+            <Typography variant="h6">New Press Article </Typography>
+          </Stack>
+        </CardContent>
+      </Card>
+      {/* </CardActionArea> */}
     </Link>
   );
 };
