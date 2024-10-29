@@ -1,5 +1,13 @@
 "use client";
-import { Card, Box, Typography, Stack, Button, TextField } from "@mui/material";
+import {
+  Card,
+  Box,
+  Typography,
+  Stack,
+  Button,
+  TextField,
+  Paper,
+} from "@mui/material";
 import React, { useState } from "react";
 import TicketButton from "./TicketButton";
 import Image from "next/image";
@@ -20,25 +28,48 @@ const EditScreeningCard = () => {
     console.log(file);
   }
   return (
-    <>
-      <Card sx={{ minHeight: "320px", minWidth: "50%", display: "flex" }}>
+    <Paper
+      sx={{
+        paddingTop: "20px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+        backgroundColor: "#D9D9D9",
+      }}
+    >
+      <Typography variant="h6">Latest Screening:</Typography>
+      <Card
+        sx={{
+          minHeight: "551px",
+          height: "551px",
+          width: "100%",
+          display: "flex",
+        }}
+        elevation={24}
+      >
         <Box
           sx={{
-            minWidth: "50%",
-            border: "solid 1px black",
+            width: "100vw",
             textAlign: "center",
             display: "flex",
           }}
         >
           {fileUrl ? (
-            <Image
-              src={fileUrl ? fileUrl : placeHolderImage.src}
-              alt="ok"
-              width={"100"}
-              height={"100"}
-              objectFit="cover"
-              style={{ flex: "1", objectFit: "cover" }}
-            />
+            <>
+              <Image
+                src={fileUrl ? fileUrl : placeHolderImage.src}
+                alt="ok"
+                width={"100"}
+                height={"100"}
+                objectFit="cover"
+                style={{ flex: "1", objectFit: "cover" }}
+              />
+              <Button
+                onClick={() => setFileUrl("")}
+                sx={{ width: "5px", height: "5px", position: "absolute" }}
+              >
+                Erase
+              </Button>
+            </>
           ) : (
             <Button component="label">
               Upload Image
@@ -48,8 +79,8 @@ const EditScreeningCard = () => {
         </Box>
         <Box
           sx={{
-            width: "50%",
-            border: "solid 1px red",
+            width: "100vw",
+
             textAlign: "center",
             backgroundColor: "black",
             height: "auto",
@@ -110,7 +141,7 @@ const EditScreeningCard = () => {
           Submit
         </Button>
       </Stack>
-    </>
+    </Paper>
   );
 };
 
