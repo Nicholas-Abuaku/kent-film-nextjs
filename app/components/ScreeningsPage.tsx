@@ -1,38 +1,27 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import LatestScreeningCard from "./LatestScreeningCard";
-import EditLatestScreening from "./EditLatestScreening";
 import EditScreeningCard from "./EditScreeningCard";
 
 const ScreeningsPage = () => {
   return (
-    <Grid
-      container
-      justifyContent={"center"}
-      alignItems={"center"}
-      margin={"auto"}
-    >
+    <Grid container>
       <Grid
         item
         container
-        xs={6}
-        textAlign={"center"}
+        xs={12}
+        textAlign={"left"}
         sx={{
-          backgroundColor: "#E0C9C9",
-          minHeight: "60vh",
-          borderRadius: "10px",
+          borderRadius: "5px",
+          backgroundColor: "#D9D9D9",
         }}
       >
         <Grid item xs={12}>
-          <Typography variant="h6">Latest Screening</Typography>
+          <Typography variant="h6" marginBottom={4}>
+            Latest Screening:
+          </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} marginLeft={4}>
           <EditScreeningCard />
-        </Grid>
-      </Grid>
-      <Grid item container xs={6}>
-        <Grid item xs={12}>
-          <Typography>Hello</Typography>
         </Grid>
       </Grid>
     </Grid>
