@@ -6,9 +6,12 @@ const DashboardFeaturedButton = dynamic(
   { ssr: false }
 );
 
-const DashboardManageButton = dynamic(() => import("./DashboardManageButton"), {
-  ssr: false,
-});
+const DashboardManageButton = dynamic(
+  () => import("./DashboardManageFilmClubs"),
+  {
+    ssr: false,
+  }
+);
 const DashboardManageNewsButton = dynamic(
   () => import("./DashboardManageNewsButton"),
   { ssr: false }
