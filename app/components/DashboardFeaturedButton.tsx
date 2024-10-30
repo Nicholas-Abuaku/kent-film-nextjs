@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import {
   Card,
   CardMedia,
@@ -7,30 +9,39 @@ import {
   Typography,
   Icon,
   CardActionArea,
+  ThemeProvider,
 } from "@mui/material";
 import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import Link from "next/link";
+import DashboardButtonTheme from "../Themes/DashboardButtonTheme";
 
-const DashboardFeaturedButton = () => {
+type DashboardFeatureProps = {
+  heading: string;
+  linkto: string;
+};
+const DashboardFeaturedButton = (props: DashboardFeatureProps) => {
   return (
-    <Link href={"/dashboard/edit-latest-screening"}>
-      {/* <CardActionArea sx={{ width: "190px", height: "160px" }}> */}
-      <Card
-        sx={{
-          width: "210px",
-          height: "200px",
-          backgroundColor: "#D9D9D9",
-          color: "black",
-          borderRadius: "30px",
-        }}
-      >
-        <CardContent sx={{ textAlign: "center" }}>
-          <Stack direction={"row"} spacing={1}>
-            <Typography variant="h6">New Press Article </Typography>
-          </Stack>
-        </CardContent>
-      </Card>
-      {/* </CardActionArea> */}
+    <Link href={props.linkto}>
+      <CardActionArea sx={{ width: "161.65px", height: "163px" }}>
+        <ThemeProvider theme={DashboardButtonTheme}>
+          <Card
+            sx={{
+              width: "161.65px",
+              height: "163px",
+              backgroundColor: "#FF8A00",
+              color: "white",
+              borderRadius: "30px",
+            }}
+          >
+            <CardContent sx={{ textAlign: "center" }}>
+              <Stack direction={"column"} spacing={1} alignItems={"center"}>
+                <Typography variant="h6">{props.heading} </Typography>
+                <AddBoxOutlinedIcon fontSize="large" />
+              </Stack>
+            </CardContent>
+          </Card>
+        </ThemeProvider>
+      </CardActionArea>
     </Link>
   );
 };

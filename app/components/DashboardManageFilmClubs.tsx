@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Card,
@@ -7,34 +8,38 @@ import {
   Typography,
   Icon,
   CardActionArea,
+  ThemeProvider,
 } from "@mui/material";
-import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
+
 import Link from "next/link";
+import DashboardButtonTheme from "../Themes/DashboardButtonTheme";
 
 const DashboardManageFilmClubsButton = () => {
   return (
     <Link href={"/dashboard/film-clubs"}>
-      <CardActionArea sx={{ width: "401px", height: "189px" }}>
-        <Card
-          sx={{
-            width: "401px",
-            height: "189px",
-            display: "flex",
-            borderRadius: "10px",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            backgroundColor: "#D9D9D9",
-            color: "black",
-          }}
-        >
-          <CardContent>
-            <Stack direction={"row"} spacing={1}>
-              <Typography variant="h6">Manage Film Clubs</Typography>
-            </Stack>
-          </CardContent>
-        </Card>
-      </CardActionArea>
+      <ThemeProvider theme={DashboardButtonTheme}>
+        <CardActionArea sx={{ width: "374px", height: "120px" }}>
+          <Card
+            sx={{
+              width: "374px",
+              height: "120px",
+              display: "flex",
+              borderRadius: "5px",
+              flexDirection: "column",
+              color: "white",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              backgroundColor: "#2F4F75",
+            }}
+          >
+            <CardContent>
+              <Stack direction={"row"} spacing={1}>
+                <Typography variant="h6">Manage Film Clubs</Typography>
+              </Stack>
+            </CardContent>
+          </Card>
+        </CardActionArea>
+      </ThemeProvider>
     </Link>
   );
 };
