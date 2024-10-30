@@ -4,7 +4,7 @@ import { Noto_Sans } from "next/font/google";
 
 const inter = Noto_Sans({
   subsets: ["latin"],
-  weight: ["300"],
+  weight: ["500"],
 });
 let AboutTheme = createTheme({
   typography: {
