@@ -6,17 +6,45 @@ import {
   Stack,
   Button,
   TextField,
-  Paper,
+  Alert,
 } from "@mui/material";
 import React, { useState } from "react";
-import TicketButton from "./TicketButton";
 import Image from "next/image";
 import placeHolderImage from "../assets/images/1ColyerFerguson.png";
-
-const EditScreeningCard = () => {
+import axios from "axios";
+import CheckIcon from "@mui/icons-material/Check";
+import { revalidateLatestScreening } from "../actions";
+type EditScreeningProps = {
+  title: string;
+  date: Date;
+  desc: string;
+  image: string;
+};
+const EditScreeningCard = (props: EditScreeningProps) => {
   const [file, setFile] = useState<File>();
-  const [fileUrl, setFileUrl] = useState<string | null>(null);
+  const [fileUrl, setFileUrl] = useState<string | null>(props.image);
   const [fileName, setFileName] = useState<string>("");
+  const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(false);
+  //
+  const [heading, setHeading] = useState<string>("");
+  const [date, setDate] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [eventUrl, setEventUrl] = useState<string>("");
+
+  function handleHeadingChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value);
+    setHeading(e.target.value);
+  }
+
+  function handleDescriptionChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value);
+    setDescription(e.target.value);
+  }
+
+  function handleDateChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value);
+    setDate(e.target.value);
+  }
 
   async function fileHandler(event: React.FormEvent<HTMLInputElement>) {
     const target = event.target as HTMLInputElement & {
@@ -27,15 +55,32 @@ const EditScreeningCard = () => {
     setFileUrl(URL.createObjectURL(target.files[0]));
     console.log(file);
   }
+
+  const handlePost = async () => {
+    const formData = new FormData();
+    formData.append("heading", heading);
+    formData.append("date", date);
+    formData.append("description", description);
+    if (file) {
+      formData.append("img_Url", file, fileName);
+    } else {
+      console.log("Image Required");
+    }
+    console.log(formData.get("img_Url"));
+    formData.append("eventUrl", eventUrl);
+    try {
+      const response = await axios.post("/api/edit-latest-screening", formData);
+      console.log(response.data);
+      if (response.status === 200) {
+        setShowSuccessAlert(true);
+      }
+      revalidateLatestScreening();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
-    <Paper
-      sx={{
-        paddingTop: "20px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
-        backgroundColor: "#D9D9D9",
-      }}
-    >
+    <>
       <Typography variant="h6">Latest Screening:</Typography>
       <Card
         sx={{
@@ -60,7 +105,8 @@ const EditScreeningCard = () => {
                 alt="ok"
                 width={"100"}
                 height={"100"}
-                objectFit="cover"
+                objectFit="fill"
+                unoptimized
                 style={{ flex: "1", objectFit: "cover" }}
               />
               <Button
@@ -99,28 +145,44 @@ const EditScreeningCard = () => {
               name="title"
               label="Title"
               multiline={true}
+              onChange={handleHeadingChange}
+              defaultValue={props.title}
               rows={4}
               sx={{
                 "& .MuiInputLabel-root": { color: "white" },
-                "& .MuiOutlinedInput-input": { color: "white" },
+                "& .MuiOutlinedInput-input": {
+                  color: "white",
+                  textAlign: "center",
+                },
+                width: "80%",
               }}
             />
             <TextField
               type="date"
               name="date"
+              onChange={handleDateChange}
+              defaultValue={props.date}
               sx={{
                 "& .MuiInputLabel-root": { color: "white" },
-                "& .MuiOutlinedInput-input": { color: "white" },
+                "& .MuiOutlinedInput-input": {
+                  color: "white",
+                },
               }}
             />
             <TextField
               name="description"
               label="Description"
               multiline={true}
+              onChange={handleDescriptionChange}
+              defaultValue={props.desc}
               rows={4}
               sx={{
                 "& .MuiInputLabel-root": { color: "white" },
-                "& .MuiOutlinedInput-input": { color: "white" },
+                "& .MuiOutlinedInput-input": {
+                  color: "white",
+                  textAlign: "center",
+                },
+                width: "80%",
               }}
             />
             <Button
@@ -137,14 +199,17 @@ const EditScreeningCard = () => {
         </Box>
       </Card>
       <Stack justifyContent={"center"} direction={"row"} marginTop={1}>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" onClick={handlePost}>
           Submit
         </Button>
       </Stack>
-    </Paper>
+      {showSuccessAlert && (
+        <Alert icon={<CheckIcon />} severity="success">
+          Screening Successfully Updated!
+        </Alert>
+      )}
+    </>
   );
 };
 
 export default EditScreeningCard;
-//Need a way to remove the image and get back to upload screen
-//Otherwise not too fussed, get started on the next tab
