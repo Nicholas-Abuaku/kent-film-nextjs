@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import Image from "next/image";
-import placeHolderImage from "../assets/images/1ColyerFerguson.png";
+import placeHolderImage from "../assets/images/PlaceHolderImage.jpg";
 import axios from "axios";
 import CheckIcon from "@mui/icons-material/Check";
 import { revalidateLatestScreening } from "../actions";
@@ -102,7 +102,7 @@ const EditScreeningCard = (props: EditScreeningProps) => {
             <>
               <Image
                 src={fileUrl ? fileUrl : placeHolderImage.src}
-                alt="ok"
+                alt="Latest Screening Image"
                 width={"100"}
                 height={"100"}
                 objectFit="fill"
