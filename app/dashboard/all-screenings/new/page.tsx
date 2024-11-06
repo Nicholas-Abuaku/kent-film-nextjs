@@ -117,7 +117,12 @@ const page = () => {
 
   return (
     <>
-      <Grid container justifyContent={"center"} alignItems={"center"}>
+      <Grid
+        container
+        justifyContent={"center"}
+        alignItems={"center"}
+        sx={{ display: "flex", flexDirection: "row" }}
+      >
         <Grid item xs={12}>
           <Stack direction={"row"} spacing={2}>
             <Link href={"/dashboard/all-screenings"}>
@@ -128,6 +133,7 @@ const page = () => {
             <h1>{eventID ? "Edit" : "New"}</h1>
           </Stack>
         </Grid>
+
         <Grid item xs={6}>
           <form>
             <Stack

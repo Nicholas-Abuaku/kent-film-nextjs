@@ -8,12 +8,14 @@ import {
   TableHead,
   TableRow,
   Button,
+  Paper,
 } from "@mui/material";
 import FilmClubActions from "./FilmClubActions";
 import { ManageTableContext } from "../contexts/ManageTableContext";
 import Link from "next/link";
 import axios from "axios";
 import EventActions from "./EventActions";
+
 interface FilmClubData {
   id: number;
   title: string;
@@ -59,47 +61,61 @@ const AllScreeningTable = () => {
         <Button
           variant="contained"
           color="success"
-          sx={{ marginTop: "5px", marginRight: "5px", float: "right" }}
+          sx={{
+            marginTop: "5px",
+            marginRight: "5px",
+            float: "right",
+            marginBottom: "10px",
+          }}
         >
           Add
         </Button>
       </Link>
-      <TableContainer>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Event Title</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell>Event Date</TableCell>
-              <TableCell>Event Time</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((club: FilmClubData) => (
-              <TableRow key={club.id}>
-                <TableCell>{club.title}</TableCell>
-                <TableCell>{club.description}</TableCell>
-                <TableCell>{club.date}</TableCell>
-                <TableCell>{club.time}</TableCell>
-                <TableCell>
-                  <img
-                    src={
-                      "https://picayune-belief-production.up.railway.app/storage/" +
-                      club.image
-                    }
-                    style={{ maxWidth: "50px", maxHeight: "50px" }}
-                  />
-                </TableCell>
-                <TableCell>
-                  <EventActions id={club.id} onDelete={forceTableRefresh} />
-                </TableCell>
+      <div
+        className="table-container"
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+        }}
+      >
+        <TableContainer component={Paper} sx={{ width: "90%" }}>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>Event Title</TableCell>
+                <TableCell>Description</TableCell>
+                <TableCell>Event Date</TableCell>
+                <TableCell>Event Time</TableCell>
+                <TableCell>Image</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {data.map((club: FilmClubData) => (
+                <TableRow key={club.id}>
+                  <TableCell>{club.title}</TableCell>
+                  <TableCell>{club.description}</TableCell>
+                  <TableCell>{club.date}</TableCell>
+                  <TableCell>{club.time}</TableCell>
+                  <TableCell>
+                    <img
+                      src={
+                        "https://picayune-belief-production.up.railway.app/storage/" +
+                        club.image
+                      }
+                      style={{ maxWidth: "50px", maxHeight: "50px" }}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <EventActions id={club.id} onDelete={forceTableRefresh} />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </>
   );
 };

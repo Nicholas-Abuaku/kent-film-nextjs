@@ -8,6 +8,7 @@ import {
   TableRow,
   Button,
   Typography,
+  Paper,
 } from "@mui/material";
 import React, { useEffect, useState, useContext } from "react";
 import { ManageTableContext } from "../contexts/ManageTableContext";
@@ -48,53 +49,62 @@ const PressArticleTable = () => {
     setTableUpdate(false);
   };
   return (
-    <TableContainer>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>News Source</TableCell>
-            <TableCell>Article Title</TableCell>
-            <TableCell>Article Url</TableCell>
-            <TableCell>Image</TableCell>
-            <TableCell>Actions</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {pressData.map((article: PressArticleData) => (
-            <TableRow key={article.id}>
-              <TableCell>{article.id}</TableCell>
-              <TableCell>{article.news_source}</TableCell>
-              <TableCell>{article.article_title}</TableCell>
-              <TableCell>
-                {
-                  <Link href={article.article_url}>
-                    <Typography>Article</Typography>
-                  </Link>
-                }
-              </TableCell>
-              <TableCell>
-                {
-                  <img
-                    src={
-                      "https://picayune-belief-production.up.railway.app/storage/" +
-                      article.image
-                    }
-                    style={{ width: "50px", height: "50px" }}
-                  />
-                }
-              </TableCell>
-              <TableCell>
-                <PressActionsButton
-                  id={article.id}
-                  onDelete={forceTableRefresh}
-                />
-              </TableCell>
+    <div
+      className="table-container"
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+      }}
+    >
+      <TableContainer component={Paper} sx={{ width: "90%" }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>News Source</TableCell>
+              <TableCell>Article Title</TableCell>
+              <TableCell>Article Url</TableCell>
+              <TableCell>Image</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {pressData.map((article: PressArticleData) => (
+              <TableRow key={article.id}>
+                <TableCell>{article.id}</TableCell>
+                <TableCell>{article.news_source}</TableCell>
+                <TableCell>{article.article_title}</TableCell>
+                <TableCell>
+                  {
+                    <Link href={article.article_url}>
+                      <Typography color="blue">Article</Typography>
+                    </Link>
+                  }
+                </TableCell>
+                <TableCell>
+                  {
+                    <img
+                      src={
+                        "https://picayune-belief-production.up.railway.app/storage/" +
+                        article.image
+                      }
+                      style={{ width: "50px", height: "50px" }}
+                    />
+                  }
+                </TableCell>
+                <TableCell>
+                  <PressActionsButton
+                    id={article.id}
+                    onDelete={forceTableRefresh}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 

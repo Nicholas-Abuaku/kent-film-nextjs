@@ -12,15 +12,19 @@ const PressArticleTable = dynamic(
 const page = () => {
   const [tableUpdate, setTableUpdate] = useState(false);
   return (
-    <Grid container>
+    <Grid
+      container
+      minHeight={"90vh"}
+      sx={{ display: "flex", flexDirection: "column" }}
+    >
       <Grid item xs={12}>
-        <Stack direction={"row"} spacing={2}>
+        <Stack direction={"row"} spacing={2} sx={{ justifyContent: "center" }}>
           <Link href={"/dashboard"}>
             <IconButton>
               <ArrowBackIcon />
             </IconButton>
           </Link>
-          <Typography variant="h3">Press Articles</Typography>
+          <Typography variant="h4">Press Articles</Typography>
         </Stack>
         <Link href={"/dashboard/press/new"}>
           <Button variant="contained" color="success" sx={{ float: "right" }}>
