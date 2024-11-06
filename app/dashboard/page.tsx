@@ -24,7 +24,7 @@ interface LatestScreeningInfo {
 const page = async () => {
   const response = await fetch(
     "https://picayune-belief-production.up.railway.app/api/featured-content",
-    { next: { tags: ["latest-screening"] }, cache: "default" }
+    { next: { tags: ["latest-screening"] }, cache: "no-store" }
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
   let latestImage =
@@ -85,11 +85,4 @@ const page = async () => {
   );
 };
 
-function TopNavCards() {
-  return (
-    <>
-      <h1>Hello card</h1>
-    </>
-  );
-}
 export default page;
