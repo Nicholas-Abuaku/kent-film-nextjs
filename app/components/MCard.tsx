@@ -72,11 +72,11 @@ const MCard = (props: MCardProps) => {
           }}
         >
           <Stack direction={"row"} spacing={isMobile ? 2 : 10}>
-            <Typography fontWeight={"bold"} variant="h6" component="h3">
+            <Typography  variant="h6" component="h3">
               {props.title}
             </Typography>
           </Stack>
-          <Typography fontWeight={"bold"} variant="subtitle1" component="h4">
+          <Typography  variant="subtitle1" component="h4">
             {props.date} <br /> {props.time}
           </Typography>
 
