@@ -1,21 +1,30 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { Montagu_Slab } from "next/font/google";
-const montaguu = Montagu_Slab({
+import { Noto_Sans } from "next/font/google";
+const inter = Noto_Sans({
   subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
+  weight: ["500"],
 });
-let theme = createTheme();
-let LatestScreeningTheme = createTheme(theme, {
+
+let LatestScreeningTheme = createTheme( {
   typography: {
-    fontFamily: `${montaguu.style.fontFamily}`,
+    
+    fontFamily: `${inter.style.fontFamily}`,
+ 
     h1: {
-      fontSize: "4.5rem",
+      fontSize: "5.2rem",
+      color:'#1E2A38',
+
     },
     body1: {
       fontSize: "1rem",
+       color:'#1E2A38',
     },
+
+    h4:{
+      color:'#1E2A38'
+    }
+    
   },
   palette: {
     primary: {
