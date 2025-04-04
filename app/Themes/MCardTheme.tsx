@@ -8,17 +8,21 @@ const inter = Noto_Sans({
 });
 let MCardTheme = createTheme({
   typography: {
+    
     fontFamily: `${inter.style.fontFamily}`,
     subtitle1: {
       fontSize: "1rem",
-      fontWeight: 0,
+      fontWeight: 400,
+      color:'#1E2A38',
     },
     h6: {
       fontSize: "1.25rem",
-      fontWeight: 600,
+      fontWeight: 500,
+      color:'#1E2A38',
     },
     body1: {
       fontSize: "1rem",
+      color:'#1E2A38',
     },
   },
 });
