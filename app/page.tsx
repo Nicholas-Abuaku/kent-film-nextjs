@@ -18,6 +18,7 @@ import { Grid, Typography } from "@mui/material";
 import PayPalDonate from "./components/PayPalDonate";
 
 import { Noto_Sans } from "next/font/google";
+import LatestScreeningCard2 from "./components/LatestScreeningCard2";
 
 const inter = Noto_Sans({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ const Home = async () => {
   );
 
   const latestInfo: LatestScreeningInfo[] = await response.json();
+
   const allEvents: Event[] = await fetchEvents.json();
 
   let latestImage =
@@ -79,7 +81,7 @@ const Home = async () => {
           marginBottom={6}
           marginTop={0}
         >
-          <LatestScreeningCard
+          <LatestScreeningCard2
             title={latestInfo[0].heading}
             date={dateString}
             description={latestInfo[0].description}
@@ -99,7 +101,7 @@ const Home = async () => {
           marginBottom={3}
           paddingLeft={"3%"}
           sx={{
-            backgroundColor: "#339465",
+            backgroundColor: "#2F7D3D",
             width: "100%",
             maxHeight: "723px",
             display: "flex",
@@ -112,9 +114,10 @@ const Home = async () => {
               variant="h2"
               fontFamily={`${inter.style.fontFamily}`}
               sx={{
-                border: "2px solid",
-                borderLeft: "0px",
-                borderRight: "0px",
+                // border: "2px solid",
+                // borderBottom:'0px',
+                // borderLeft: "0px",
+                // borderRight: "0px",
                 marginRight: "40px",
                 color: "white",
                 "@media (max-width: 1024px)": {
