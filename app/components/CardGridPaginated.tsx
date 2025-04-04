@@ -44,11 +44,12 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
 
   const upcomingEvents = allEvents.filter((event: Event) => {
     const eventDate = new Date(event.date);
-    eventDate.setHours(0, 0, 0, 0);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    eventDate.setHours(22, 0, 0, 0);
+    // const today = new Date();
+    // today.setHours(0, 0, 0, 0);
+    const now = new Date();
 
-    return eventDate >= today;
+    return eventDate  >= now;
   });
   upcomingEvents.sort((event1: Event, event2: Event) => {
     const date1 = new Date(event1.date);
