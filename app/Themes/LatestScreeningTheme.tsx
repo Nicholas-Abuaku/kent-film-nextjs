@@ -12,7 +12,7 @@ let LatestScreeningTheme = createTheme( {
     fontFamily: `${inter.style.fontFamily}`,
  
     h1: {
-      fontSize: "5.2rem",
+      fontSize: "4.5rem",
       color:'#1E2A38',
 
     },
