@@ -28,8 +28,7 @@ const page = async () => {
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
   let latestImage =
-    "https://picayune-belief-production.up.railway.app/storage/" +
-    latestInfo[0].img_Url;
+    "https://picayune-belief-production.up.railway.app/storage/"+ latestInfo[0].img_Url;
 
   return (
     <Grid container>
