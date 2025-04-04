@@ -7,7 +7,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  ThemeProvider,
 } from "@mui/material";
+import ButtonTheme from "../Themes/ButtonTheme";
 const TicketButton = () => {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -18,18 +20,20 @@ const TicketButton = () => {
     setOpen(false);
   };
   return (
-    <>
+    <ThemeProvider theme={ButtonTheme}>
       <Button
         variant="contained"
         onClick={handleClickOpen}
         sx={{
-          borderRadius: "20px",
+          borderRadius: "50px",
           height: "50px",
-          width: "160px",
-          color: "black",
+          width: "180px",
+          fontSize:'20px',
+          color: "white",
+          backgroundColor:'#237A2B',
           marginTop: "0px",
           // display: "none",
-          "&:hover": { backgroundColor: "#808080" },
+          "&:hover": { backgroundColor: "#3FA74A" },
           "@media (max-width: 1024px)": {
             marginTop: "0px",
             paddingTop: "0px",
@@ -51,7 +55,7 @@ const TicketButton = () => {
           </DialogContentText>
         </DialogContent>
       </Dialog>
-    </>
+    </ThemeProvider>
   );
 };
 
