@@ -26,14 +26,14 @@ const Navigation = () => {
     <ThemeProvider theme={NavbarTheme}>
       <AppBar position="static" elevation={0}>
         <Toolbar
-          sx={{ backgroundColor: "#339465", width: "100%", height: "100px" }}
+          sx={{ backgroundColor: "#254D32", width: "100%", height: "100px" }}
         >
           <Link href={"/"}>
-            <IconButton sx={{ float: "left" }} disableRipple>
+            <IconButton sx={{ float: "left",  marginRight:'20px' }} disableRipple>
               <Image
                 src={KentFilmLogo.src}
-                width={80}
-                height={80}
+                width={65}
+                height={65}
                 loading="eager"
                 sizes="(min-width: 420px) 80px, calc(29vw - 36px)"
                 title="Kent Film Foundation Logo"
@@ -48,6 +48,7 @@ const Navigation = () => {
 
                 fontWeight: "bold",
                 flexBasis: "100%",
+                color:'#FFFFFF',
               }}
               variant="h5"
               component="h1"
@@ -55,14 +56,14 @@ const Navigation = () => {
               {" "}
               Kent Film Foundation
             </Typography>
-            <Typography>Ramsgate Community Cinema</Typography>
+            <Typography sx={{color:'#FFFFFF'}}>Ramsgate Community Cinema</Typography>
           </Stack>
           {isMobile ? (
             <Stack sx={{ flexGrow: 1, justifyContent: "flex-end" }}>
               <NavDrawer />
             </Stack>
           ) : (
-            <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto" }}>
+            <Stack direction={"row"} spacing={2} sx={{ marginLeft: "auto", color:'#FFFFFF'}}>
               <NavHome />
               <Link href={"/film-clubs"}>
                 <Button
