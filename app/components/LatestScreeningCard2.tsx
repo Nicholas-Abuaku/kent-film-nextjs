@@ -194,7 +194,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
-                  display:'none',
+                  
                   maxWidth: "98%",
                   overflowY: "scroll",
                 },
@@ -223,7 +223,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 {props.description} 
               </Typography>
             </Box>
-            <TicketButton />
+            <TicketButton/>
           </Stack>
         </CardContent>
         
