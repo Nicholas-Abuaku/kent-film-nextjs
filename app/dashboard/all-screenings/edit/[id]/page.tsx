@@ -43,7 +43,7 @@ const page = () => {
   const fetchCardData = async () => {
     try {
       const response = await axios.get(
-        "https://kentfilm2025-production.up.railway.app/api/allscreenings" +
+        "https://kentfilm2025-production.up.railway.app/api/allscreenings/" +
           eventID
       );
       setCardData(response.data);
@@ -226,7 +226,7 @@ const page = () => {
                 img={
                   fileUrl
                     ? fileUrl
-                    : "https://picayune-belief-production.up.railway.app/storage/" +
+                    : "https://kentfilm2025-production.up.railway.app/storage/" +
                       cardData?.image
                 }
               />

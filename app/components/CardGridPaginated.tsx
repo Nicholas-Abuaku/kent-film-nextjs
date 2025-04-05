@@ -22,7 +22,7 @@ interface Event {
   title: string;
   time: string;
   date: string;
-  url?: string;
+  img_Url?: string;
   image?: string;
   description: string;
 }
@@ -69,6 +69,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
             year = year.replace(",", "");
             day = day.replace(year, "");
             console.log("String " + year);
+            
             return (
               <Grid item key={event.id}>
                 <MCard
@@ -77,8 +78,8 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
                   date={day}
                   time={event.time}
                   img={
-                    "https://picayune-belief-production.up.railway.app/storage/" +
-                    event.image
+                    "https://kentfilm2025-production.up.railway.app/storage/" +
+                    event.img_Url
                   }
                 />
               </Grid>

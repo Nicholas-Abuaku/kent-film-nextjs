@@ -43,7 +43,7 @@ const AllScreeningTable = () => {
   const fetchFilmClubs = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/events"
+        "https://kentfilm2025-production.up.railway.app/api/allscreenings"
       );
       setData(response.data);
     } catch (err) {
@@ -98,10 +98,11 @@ const AllScreeningTable = () => {
                   <TableCell>{club.description}</TableCell>
                   <TableCell>{club.date}</TableCell>
                   <TableCell>{club.time}</TableCell>
+                  
                   <TableCell>
                     <img
                       src={
-                        "https://picayune-belief-production.up.railway.app/storage/" +
+                        "https://kentfilm2025-production.up.railway.app/storage/" +
                         club.image
                       }
                       style={{ maxWidth: "50px", maxHeight: "50px" }}

@@ -43,7 +43,7 @@ interface Event {
 }
 const Home = async () => {
   const response = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/featured-content",
+    "https://kentfilm2025-production.up.railway.app/api/featured-content",
     { next: { tags: ["latest-screening"] }, cache: "default" }
   );
   const fetchEvents = await fetch(
@@ -56,7 +56,7 @@ const Home = async () => {
   const allEvents: Event[] = await fetchEvents.json();
 
   let latestImage =
-    "https://picayune-belief-production.up.railway.app/storage/" +
+    "https://kentfilm2025-production.up.railway.app/storage/" +
     latestInfo[0].img_Url;
 
   const newDate = new Date(latestInfo[0].date);

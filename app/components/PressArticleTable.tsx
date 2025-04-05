@@ -21,7 +21,7 @@ interface PressArticleData {
   news_source: string;
   article_title: string;
   article_url: string;
-  image: string;
+  image_Url: string;
 }
 const PressArticleTable = () => {
   const [pressData, setPressData] = useState([]);
@@ -30,7 +30,7 @@ const PressArticleTable = () => {
   const fetchPressData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/press"
+        "https://kentfilm2025-production.up.railway.app/api/press"
       );
       console.log(response.data);
       setPressData(response.data);
@@ -65,7 +65,7 @@ const PressArticleTable = () => {
               <TableCell>News Source</TableCell>
               <TableCell>Article Title</TableCell>
               <TableCell>Article Url</TableCell>
-              <TableCell>Image</TableCell>
+              
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -82,17 +82,7 @@ const PressArticleTable = () => {
                     </Link>
                   }
                 </TableCell>
-                <TableCell>
-                  {
-                    <img
-                      src={
-                        "https://picayune-belief-production.up.railway.app/storage/" +
-                        article.image
-                      }
-                      style={{ width: "50px", height: "50px" }}
-                    />
-                  }
-                </TableCell>
+               
                 <TableCell>
                   <PressActionsButton
                     id={article.id}
