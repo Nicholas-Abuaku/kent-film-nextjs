@@ -47,7 +47,7 @@ const Home = async () => {
     { next: { tags: ["latest-screening"] }, cache: "default" }
   );
   const fetchEvents = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/events",
+    "https://kentfilm2025-production.up.railway.app/api/allscreenings",
     { next: { tags: ["all-events"] } }
   );
 
