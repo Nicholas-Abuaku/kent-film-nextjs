@@ -6,6 +6,7 @@ const PressCardGrid = dynamic(() => import("../components/PressCardGrid"), {
 });
 import PressTheme from "../Themes/PressTheme";
 import { Metadata } from "next";
+import PressCard2 from "../components/PressCard2";
 export const metadata: Metadata = {
   title: "Press",
   description:
@@ -41,6 +42,7 @@ function Press() {
         <Grid item xs={12}>
           <PressCardGrid />
         </Grid>
+        
       </Grid>
     </ThemeProvider>
   );

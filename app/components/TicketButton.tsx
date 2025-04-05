@@ -40,7 +40,7 @@ const TicketButton = () => {
             width: "90px",
             height: "25px",
             fontSize: "0.6rem",
-            display: "none",
+            
           },
         }}
       >
