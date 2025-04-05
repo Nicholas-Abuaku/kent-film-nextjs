@@ -8,6 +8,7 @@ interface PressArticle {
   news_source: string;
   article_title: string;
   article_url: string;
+  article_date:string;
   image: string;
   article_desc: string;
 }
@@ -67,7 +68,7 @@ const PressCardGrid = () => {
                     articleUrl={article.article_url}
                     image={article.image}
                   /> */}
-                  <PressCard2 newsSource={article.news_source} articleTitle={article.article_title} articleUrl={article.article_url}  date="5 February 2024" articleDesc= {"A hub offering free film screenings to its memebrs has secured a new long-term home following a successful trial"}/>
+                  <PressCard2 newsSource={article.news_source} articleTitle={article.article_title} articleUrl={article.article_url}  date={article.article_date} articleDesc= {"A hub offering free film screenings to its memebrs has secured a new long-term home following a successful trial"}/>
                   
                 </Grid>
               ))
