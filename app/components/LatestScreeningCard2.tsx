@@ -139,7 +139,9 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
               backgroundColor: "#F8F5F0",
               color: "white",
               wordBreak: "break-word",
-              minHeight: "500px",
+              height:'10x',
+              // minHeight: "500px",
+              
               width: "100%",
             },
           }}
@@ -192,7 +194,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
-
+                  display:'none',
                   maxWidth: "98%",
                   overflowY: "scroll",
                 },
@@ -206,11 +208,15 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 textAlign={"center"}
                 margin={"auto"}
                 sx={{
+                  
                   "@media (max-width: 1024px)": {
                     marginBottom: "0px",
                     maxHeight: "90%",
                     overflowY: "scroll",
+                    
+                    
                   },
+                  
                
                 }}
               >
