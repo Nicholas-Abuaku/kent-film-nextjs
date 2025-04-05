@@ -2,18 +2,20 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Skeleton, Pagination } from "@mui/material";
 import PressCard from "./PressCard";
+import PressCard2 from "./PressCard2";
 interface PressArticle {
   id: number;
   news_source: string;
   article_title: string;
   article_url: string;
   image: string;
+  article_desc: string;
 }
 const PressCardGrid = () => {
   const [pressData, setPressData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 3
 
   const fetchPressData = async () => {
     try {
@@ -65,6 +67,8 @@ const PressCardGrid = () => {
                     articleUrl={article.article_url}
                     image={article.image}
                   />
+                  {/* <PressCard2 newsSource={article.news_source} articleTitle={article.article_title} articleUrl={article.article_url} image={article.image} date="" articleDesc= {article.article_desc}/> */}
+                  
                 </Grid>
               ))
           : Array.from({ length: 3 }).map((_, index) => (
@@ -83,8 +87,8 @@ const PressCardGrid = () => {
               >
                 <Skeleton
                   variant="rectangular"
-                  width={360}
-                  height={600}
+                  width={480}
+                  height={395}
                   animation="wave"
                   sx={{
                     "@media (max-width: 1024px)": {
