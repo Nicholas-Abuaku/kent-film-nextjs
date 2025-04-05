@@ -14,14 +14,12 @@ export async function POST(
     Authorization: `Bearer ${API_KEY}`,
     "Content-Type": "multipart/form-data",
   };
-  // const formData = await request.formData();
-  // const heading = formData.get("heading");
   try {
     const formData = await request.formData();
     console.log("formData:", formData); // Log for debugging
 
     const axiosRes = await axios.post(
-      "https://picayune-belief-production.up.railway.app/api/press/",
+      "https://kentfilm2025-production.up.railway.app/api/press",
       formData,
       { headers }
     );
@@ -29,7 +27,7 @@ export async function POST(
     if (axiosRes.status === 201) {
       return NextResponse.json({ success: axiosRes.data });
     } else {
-      return NextResponse.json({ error: axiosRes.status });
+      return NextResponse.json({ error: axiosRes.data });
     }
   } catch (err) {
     return NextResponse.json({ message: err });

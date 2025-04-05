@@ -14,16 +14,22 @@ let PressCardTheme = createTheme({
     },
 
     body1:{
-      fontWeight: 'bold',
+      
+      color:'#2F7D3D',
     },
 
+    body2:{
+      fontSize:'1rem',
+      color:'#444444'
+    },
     caption:{
       fontSize:'0.9rem'
     },
 
     h6:{
-      color:'#1d3fae',
-      fontWeight:'900'
+      color:'#1F1F1F',
+      fontWeight:'900',
+      fontSize:'1.4rem'
     }
   },
 });

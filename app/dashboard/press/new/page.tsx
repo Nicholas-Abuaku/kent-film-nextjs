@@ -31,11 +31,13 @@ const page = () => {
   const [newsSource, setNewsSource] = useState<string>(" ");
   const [articleTitle, setArticleTitle] = useState<string>("");
   const [articleUrl, setArticleUrl] = useState<string>("");
+  const [description, setArticleDescription] = useState<string>("");
+  const [articleDate, setArticleDate] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/press/" +
+        "https://kentfilm2025-production.up.railway.app/api/press/" +
           articleId
       );
       setArticleData(response.data);
@@ -49,10 +51,10 @@ const page = () => {
     formData.append("news_source", newsSource);
     formData.append("article_title", articleTitle);
     formData.append("article_url", articleUrl);
+    formData.append("article_description", description);
+    formData.append("article_date", articleDate);
 
-    if (imageFile) {
-      formData.append("image", imageFile, fileName);
-    }
+    
 
     try {
       const response = await axios.post("/api/press/add/", formData);
@@ -96,6 +98,14 @@ const page = () => {
   function handleUrlChange(event: React.ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
     setArticleUrl(event.target.value);
+  }
+  function handleDescriptionChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setArticleDescription(event.target.value);
+  }
+  function handleDateChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event.target.value);
+    setArticleDate(event.target.value);
   }
 
   useEffect(() => {
@@ -141,6 +151,22 @@ const page = () => {
           rows={8}
           sx={{ width: "80%" }}
           onChange={handleTitleChange}
+          required
+        />
+         <TextField
+          name="description"
+          label="article desc"
+          rows={8}
+          sx={{ width: "80%" }}
+          onChange={handleDescriptionChange}
+          required
+        />
+        <TextField
+          name="date"
+          label="article date"
+          rows={8}
+          sx={{ width: "80%" }}
+          onChange={handleDateChange}
           required
         />
         <TextField

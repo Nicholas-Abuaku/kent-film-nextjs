@@ -43,7 +43,7 @@ const page = () => {
   const fetchCardData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/events/" +
+        "https://kentfilm2025-production.up.railway.app/api/allscreenings" +
           eventID
       );
       setCardData(response.data);

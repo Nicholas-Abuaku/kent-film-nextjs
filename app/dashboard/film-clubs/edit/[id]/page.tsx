@@ -38,7 +38,7 @@ const page = () => {
   const fetchClubData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/film-clubs/" +
+        "https://kentfilm2025-production.up.railway.app/api/film-clubs/" +
           clubId
       );
       setClubData(response.data);
@@ -183,7 +183,7 @@ const page = () => {
                 img={
                   fileUrl
                     ? fileUrl
-                    : "https://picayune-belief-production.up.railway.app/storage/" +
+                    : "https://kentfilm2025-production.up.railway.app/storage/" +
                       clubData?.img_Url
                 }
               />

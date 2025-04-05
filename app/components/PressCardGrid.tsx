@@ -20,7 +20,7 @@ const PressCardGrid = () => {
   const fetchPressData = async () => {
     try {
       const response = await fetch(
-        "https://picayune-belief-production.up.railway.app/api/press",
+        "https://kentfilm2025-production.up.railway.app/api/press",
         { next: { revalidate: 86400 } }
       );
       if (!response.ok) {
@@ -61,13 +61,13 @@ const PressCardGrid = () => {
               .reverse()
               .map((article: PressArticle) => (
                 <Grid item md={5} xs={12} lg={4} xl={3} key={article.id}>
-                  <PressCard
+                  {/* <PressCard
                     newsSource={article.news_source}
                     articleTitle={article.article_title}
                     articleUrl={article.article_url}
                     image={article.image}
-                  />
-                  {/* <PressCard2 newsSource={article.news_source} articleTitle={article.article_title} articleUrl={article.article_url} image={article.image} date="" articleDesc= {article.article_desc}/> */}
+                  /> */}
+                  <PressCard2 newsSource={article.news_source} articleTitle={article.article_title} articleUrl={article.article_url}  date="5 February 2024" articleDesc= {"A hub offering free film screenings to its memebrs has secured a new long-term home following a successful trial"}/>
                   
                 </Grid>
               ))

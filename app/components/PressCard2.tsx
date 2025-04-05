@@ -20,40 +20,49 @@ import RamsgateRecordLogo from '../assets/images/rgaterecord.png';
 
 type PressCardProps = {
   newsSource: string;
-  date:string;
   articleTitle: string;
+  date:string;
   articleDesc: string;
   articleUrl: string;
-  image: any;
   
 };
 const PressCard2 = (props: PressCardProps) => {
-  const { newsSource, articleTitle, articleUrl, image } = props;
+  const { newsSource, articleTitle, articleUrl } = props;
   const isMobile = useMediaQuery(PressCardTheme.breakpoints.down("md"));
   return (
     <ThemeProvider theme={PressCardTheme}>
-        <Card sx={{border:'1px solid blue', borderRadius:'10px', display:'flex', flexDirection:'column',  "@media (max-width: 1024px)": {
+        <Card sx={{display:'flex', flexDirection:'column',  borderRadius:'16px',  padding:'2px',backgroundColor:'#FFFFF',  "@media (max-width: 1024px)": {
             height: "auto",
-            width: "90%",
+            width: "100%",
+            maxWidth:'320px',
             margin: "auto",
+           
             marginBottom: "30px",
             borderRadius: "15px",
             
           },width:'400px', height:'42.23864836325237vh',  }}>
-            <Box sx={ {borderRadius:'5px',   flexGrow:'1', width:'398px', height:'28px', position:'relative', overflow:'hidden' }}>
-                <Image src={"https://picayune-belief-production.up.railway.app/storage/" +props.image} alt="wt" width={398} height={28} objectFit="fill" />
-            </Box>
-            <Box sx={{display:'flex', flexDirection:'column', justifyContent:'left', alignItems:'left', textAlign:'left', flexGrow:'1'}}>
+          
+            <Box sx={{ justifyContent:'left', alignItems:'left', textAlign:'left', paddingLeft:'10px' }}>
             <Stack sx={{  textAlign:'left'}}>
                 <Typography variant="body1">{props.newsSource}</Typography>
-                <Typography variant="caption">{props.date}</Typography>
+                
             </Stack>
             </Box>
-            <Box sx={{flexGrow:'1', overflowY:'scroll',textAlign:'left'}} >
-            <Stack  spacing={3}>
-                <Typography variant="h6">{props.articleTitle}</Typography>
-                <Typography variant="body2">{props.articleDesc} </Typography>
-            </Stack>
+            <Box sx={{ overflowY:'scroll',textAlign:'left', height:'100%', }} >
+            {/* <Stack  spacing={1}> */}
+            <Box sx={{ height:'33%', paddingLeft:'10px'}}>
+              <Stack spacing={0}>
+              <Typography variant="h6">{props.articleTitle}</Typography>
+              <Typography variant="caption">{props.date}</Typography>
+              </Stack>
+            
+            </Box>
+            
+            <Box sx={{ height:'50%', marginTop:'40px', textAlign:'left', paddingLeft:'10px'}}>
+            <Typography variant="body2" maxWidth={400}>{props.articleDesc} </Typography>
+            </Box>
+            
+            {/* </Stack> */}
             </Box>
             <Link
                 href={articleUrl}
@@ -62,11 +71,12 @@ const PressCard2 = (props: PressCardProps) => {
                 title="Learn More"
               >
             <Box sx={{
-          flexGrow: 0, // Button section doesn't grow
+          flexGrow: 0, 
           padding: '10px 0 15px 0', 
           display: 'flex',           
           justifyContent: 'center', 
-          alignItems: 'center'       
+          alignItems: 'center',
+          mt:'auto'       
         }}>
             
             <Button variant="contained" sx={{backgroundColor:'#15803d', width:'90%'}}>Read More</Button>

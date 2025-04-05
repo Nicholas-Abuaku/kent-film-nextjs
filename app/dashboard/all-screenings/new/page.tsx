@@ -43,7 +43,7 @@ const page = () => {
   const fetchCardData = async () => {
     try {
       const response = await axios.get(
-        "https://picayune-belief-production.up.railway.app/api/events/" +
+        "https://kentfilm2025-production.up.railway.app/api/allscreenings/" +
           eventID
       );
       setCardData(response.data);
@@ -55,11 +55,11 @@ const page = () => {
   const handleNew = async () => {
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("time", time);
     formData.append("date", date);
+    formData.append("time", time);
     formData.append("description", description);
     if (imageFile) {
-      formData.append("image", imageFile, fileName);
+      formData.append("img_Url", imageFile, fileName);
     }
 
     try {

@@ -10,7 +10,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   try {
     const axiosRes = await axios.post(
-      "https://picayune-belief-production.up.railway.app/api/login",
+      "https://kentfilm2025-production.up.railway.app/api/login",
       formData
     );
     const data = axiosRes.data;
