@@ -32,14 +32,15 @@ const TicketButton = () => {
           color: "white",
           backgroundColor:'#237A2B',
           marginTop: "0px",
-          display: "none",
+          // display: "none",
           "&:hover": { backgroundColor: "#3FA74A" },
           "@media (max-width: 1024px)": {
             marginTop: "0px",
             paddingTop: "0px",
-            width: "90px",
-            height: "25px",
-            fontSize: "0.6rem",
+            width: "100px",
+            height: "40px",
+            fontSize: "1rem",
+            
             
           },
         }}

@@ -50,6 +50,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
           "@media (max-width: 400px)": {
             paddingBottom: "0px",
             fontSize: "1.5rem",
+            textAlign:'left'
           },
         }}
       >
@@ -69,7 +70,8 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
           "@media (max-width: 1024px)": {
             display: "inline",
             width: "100%",
-            height: "682px",
+            minHeight:'400px',
+            maxHeight: "682px",
             // maxHeight: "682px",
             borderRadius: "0px",
           },
@@ -151,6 +153,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
             alignItems={"center"}
             justifyContent={"center"}
             spacing={1}
+           
           >
             <Box
               minHeight={150}
@@ -164,7 +167,10 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
               }}
             >
               {renderTitle()}
-              <Typography
+             
+            </Box>
+            <Box sx={{"@media (max-width: 1024px)": { justifyContent:'left', alignItems:'left'},}}>
+               <Typography
                 
                 paddingBottom={4}
                 textAlign={"center"}
@@ -179,6 +185,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                   "@media (max-width: 400px)": {
                     paddingBottom: "0px",
                     fontSize: "1rem",
+                    textAlign:'left'
                   },
                 }}
               >
@@ -194,7 +201,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 "@media (max-width: 1024px)": {
                   // maxHeight: "100%",
                   minHeight: "100%",
-                  
+                  display:'none',
                   maxWidth: "98%",
                   overflowY: "scroll",
                 },
@@ -213,6 +220,7 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                     marginBottom: "0px",
                     maxHeight: "90%",
                     overflowY: "scroll",
+                    display:'none'
                     
                     
                   },
@@ -223,7 +231,9 @@ const LatestScreeningCard2 = (props: LatestScreeningCardProps) => {
                 {props.description} 
               </Typography>
             </Box>
+            <Box>
             <TicketButton/>
+            </Box>
           </Stack>
         </CardContent>
         
