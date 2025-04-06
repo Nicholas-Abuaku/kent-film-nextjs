@@ -58,7 +58,7 @@ const Partners = () => {
                 src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
                 title="Garfield Weston Foundation"
-                width={0}
+                width={50}
                 height={60}
               />
               <Image
