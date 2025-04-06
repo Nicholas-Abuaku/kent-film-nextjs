@@ -23,7 +23,7 @@ const Footer = () => {
       <Grid item xs={12}>
         <SocialMediaLinks />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} >
         {isMobile ? (
           <Typography textAlign={"center"} variant="caption" component={"h4"}>
             COPYRIGHT © 2024 KENT FILM FOUNDATION - ALL RIGHTS RESERVED.
