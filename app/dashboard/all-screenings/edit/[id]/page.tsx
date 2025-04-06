@@ -23,7 +23,7 @@ interface MovieCardData {
   id: number;
   title: string;
   description: string;
-  image: string;
+  img_Url: string;
   date: string;
   time: string;
 }
@@ -227,7 +227,7 @@ const page = () => {
                   fileUrl
                     ? fileUrl
                     : "https://kentfilm2025-production.up.railway.app/storage/" +
-                      cardData?.image
+                      cardData?.img_Url
                 }
               />
             }
