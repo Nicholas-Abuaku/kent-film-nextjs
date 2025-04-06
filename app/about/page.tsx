@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 function About() {
   return (
     <>
-      {/* <AboutContent2 /> */}
-      <About3 />
+      <AboutContent2 />
+      {/* <About3 /> */}
     </>
   );
 }
