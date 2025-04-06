@@ -25,6 +25,6 @@ AboutTheme.typography.caption["@media (max-width:600px)"] = {
   fontSize: "0.6rem",
 };
 AboutTheme.typography.body1["@media (max-width:600px)"] = {
-  fontSize: "0.7rem",
+  fontSize: "0.9rem",
 };
 export default AboutTheme;
