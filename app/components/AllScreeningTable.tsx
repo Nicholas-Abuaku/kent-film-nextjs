@@ -22,7 +22,7 @@ interface FilmClubData {
   date: string;
   time: string;
   description: string;
-  image: string;
+  img_Url: string;
 }
 
 const AllScreeningTable = () => {
@@ -103,7 +103,7 @@ const AllScreeningTable = () => {
                     <img
                       src={
                         "https://kentfilm2025-production.up.railway.app/storage/" +
-                        club.image
+                        club.img_Url
                       }
                       style={{ maxWidth: "50px", maxHeight: "50px" }}
                     />
