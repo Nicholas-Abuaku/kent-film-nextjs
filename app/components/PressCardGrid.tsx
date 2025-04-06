@@ -88,16 +88,17 @@ const PressCardGrid = () => {
               >
                 <Skeleton
                   variant="rectangular"
-                  width={480}
+                  width={400}
                   height={395}
                   animation="wave"
                   sx={{
+                    borderRadius: "15px",
                     "@media (max-width: 1024px)": {
                       height: "auto",
                       width: "90%",
                       margin: "auto",
                       marginBottom: "30px",
-                      borderRadius: "0px",
+                      
                     },
                   }}
                 />

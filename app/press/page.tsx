@@ -39,7 +39,7 @@ function Press() {
             Kent Film Foundation Press and Media Coverage
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} marginTop={4}>
           <PressCardGrid />
         </Grid>
         
