@@ -9,7 +9,7 @@ export const NavDrawer = () => {
     <>
       <IconButton
         onClick={() => setOpenDrawer(true)}
-        sx={{ marginLeft: "auto" }}
+        sx={{ marginLeft: "auto",color:'white' }}
       >
         <MenuIcon />
       </IconButton>
