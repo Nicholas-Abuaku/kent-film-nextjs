@@ -16,10 +16,11 @@ import ShiftKeyFilms from "../assets/images/1Shiftkey.png";
 import VioletPictures from "../assets/images/1VioletPictures.png";
 import RamsgateFilm from "../assets/images/3RamsgateInternationalFilm.png";
 import Image from "next/image";
+import PartnerTheme from "../Themes/PartnerTheme";
 const Partners = () => {
   const isMobile = useMediaQuery(AboutTheme.breakpoints.down("md"));
   return (
-    <ThemeProvider theme={AboutTheme}>
+    <ThemeProvider theme={PartnerTheme}>
       <Grid
         item
         container
@@ -28,7 +29,7 @@ const Partners = () => {
         alignItems={"center"}
         marginBottom={0}
       >
-        <Grid item md={12}>
+        <Grid item xs={12}>
           <Typography
             textAlign={"center"}
             variant="h4"
@@ -43,7 +44,7 @@ const Partners = () => {
             A HUGE THANKS to our Partners
           </Typography>
         </Grid>
-        <Grid item md={12}>
+        <Grid item xs={12}>
           {isMobile ? (
             <Stack
               direction={"row"}
@@ -57,12 +58,12 @@ const Partners = () => {
                 src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
                 title="Garfield Weston Foundation"
-                width={60}
+                width={0}
                 height={60}
               />
               <Image
                 src={ColyerFergusonIcon.src}
-                width={60}
+                width={30}
                 height={60}
                 alt="Colyer Ferguson Chartiable Trust"
                 title="Colyer Ferguson Chartiable Trust"
@@ -72,14 +73,14 @@ const Partners = () => {
                 alt="Kent Community Foundation"
                 title="Kent Community Foundation"
                 loading="lazy"
-                width={60}
+                width={30}
                 height={60}
               />
               <Image
                 src={RamsgateCouncil.src}
                 alt="Ramsgate Town Council"
                 title="Ramsgate Town Council"
-                width={60}
+                width={50}
                 height={60}
                 loading="lazy"
               />
@@ -89,15 +90,15 @@ const Partners = () => {
                 title="Ramsgate International Film & TV Festival"
                 alt="Ramsgate International Film & TV Festival"
                 loading="lazy"
-                width={60}
-                height={60}
+                width={20}
+                height={30}
                 quality={100}
               />
               <Image
                 src={ShiftKeyFilms.src}
                 alt="ShiftKey Films"
                 title="ShiftKey Films"
-                width={60}
+                width={40}
                 height={60}
               />
               <Image
@@ -119,12 +120,12 @@ const Partners = () => {
                 src={GarfieldWestonIcon.src}
                 alt="Garfield Weston Foundation"
                 title="Garfield Weston Foundation"
-                width={130}
+                width={120}
                 height={130}
               />
               <Image
                 src={ColyerFergusonIcon.src}
-                width={80}
+                width={70}
                 height={80}
                 alt="Colyer Ferguson Chartiable Trust"
                 title="Colyer Ferguson Chartiable Trust"
@@ -134,14 +135,14 @@ const Partners = () => {
                 alt="Kent Community Foundation"
                 title="Kent Community Foundation"
                 loading="lazy"
-                width={65}
+                width={55}
                 height={65}
               />
               <Image
                 src={RamsgateCouncil.src}
                 alt="Ramsgate Town Council"
                 title="Ramsgate Town Council"
-                width={125}
+                width={100}
                 height={125}
                 loading="lazy"
               />
@@ -151,7 +152,7 @@ const Partners = () => {
                 title="Ramsgate International Film & TV Festival"
                 alt="Ramsgate International Film & TV Festival"
                 loading="lazy"
-                width={70}
+                width={60}
                 height={70}
                 quality={100}
               />
@@ -159,14 +160,14 @@ const Partners = () => {
                 src={ShiftKeyFilms.src}
                 alt="ShiftKey Films"
                 title="ShiftKey Films"
-                width={150}
+                width={100}
                 height={150}
               />
               <Image
                 src={VioletPictures.src}
                 alt="Violet Pictures"
                 title="Violet Pictures"
-                width={290}
+                width={200}
                 height={290}
               />
             </Stack>
