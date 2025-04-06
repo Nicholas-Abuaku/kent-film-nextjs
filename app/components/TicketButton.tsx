@@ -51,7 +51,7 @@ const TicketButton = () => {
         <DialogTitle id="aler-dialog-title">Ticket Info!</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Tickets are available at the door. All tickets are pay what you can
+            Doors Open 30 mins before screening, no booking required. All tickets are Pay-What-You-Can can and available at the door
             with a suggested donation of £3.50
           </DialogContentText>
         </DialogContent>
