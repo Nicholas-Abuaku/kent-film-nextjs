@@ -14,7 +14,7 @@ export const NavDrawer = () => {
         <MenuIcon />
       </IconButton>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
-        <List sx={{ backgroundColor: "#339465", height: "100%" }}>
+        <List sx={{ backgroundColor: "#254D32", height: "100%" }}>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <Link href={"/"}>
               <Button sx={{ color: "white" }}>Home</Button>
