@@ -16,7 +16,7 @@ const FilmClubDisplayCard = dynamic(
 import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
 import Image from "next/image";
-import FilmClubDisplayGrid from "../components/FilmClubDisplayGrid";
+
 import Link from "next/link";
 export const metadata: Metadata = {
   title: "Film Clubs",
