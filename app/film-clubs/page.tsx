@@ -55,7 +55,6 @@ const FilmClubs = async () => {
   );
   const filmClubs: FilmClubInfo[] = await response.json();
 
-  console.log("Film clubs api data: ", filmClubs)
   return (
     <ThemeProvider theme={FilmClubTheme}>
       
@@ -102,7 +101,7 @@ const FilmClubs = async () => {
               ageRange={club.age_range}
               details={club.details}
               description={club.description}
-              img={"https://kentfilm2025-production.up.railway.app/storage/"+club.img_Url}
+              img={club.img_Url?"https://kentfilm2025-production.up.railway.app/storage/"+club.img_Url : "fallback"}
             />
           </Grid>
         ))}
