@@ -15,14 +15,14 @@ import axios from "axios";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
-const FilmClubCard = dynamic(() => import("@/app/components/FilmClubCard"), {
-  ssr: false,
-});
+import FilmClubDisplayCard from "@/app/components/FilmClubDisplayCard";
 interface FilmClubData {
   id: number;
   heading: string;
   description: string;
   img_Url: string;
+  age_range:string;
+  details:string;
 }
 
 const page = () => {
@@ -33,6 +33,8 @@ const page = () => {
   const [clubData, setClubData] = useState<FilmClubData | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [heading, setHeading] = useState<string>(" ");
+   const [ageRange, setAgeRange] = useState<string>(" ");
+    const [details, setDetails] = useState<string>(" ");
   const [description, setDescription] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const fetchClubData = async () => {
@@ -48,7 +50,10 @@ const page = () => {
     }
   };
   const handlePost = async () => {
+   
     const formData = new FormData();
+    formData.append("age_range", ageRange);
+    formData.append("details", details);
     if (!heading) {
       formData.append("heading", clubData?.heading || "no heading supplied");
     } else {
@@ -60,7 +65,7 @@ const page = () => {
     } else {
       formData.append("description", description);
     }
-
+   
     if (imageFile) {
       formData.append("img_Url", imageFile, fileName);
     }
@@ -103,6 +108,14 @@ const page = () => {
     console.log(event.target.value);
     setDescription(event.target.value);
   }
+    function handleAgeRangeChange(event: React.ChangeEvent<HTMLInputElement>) {
+      console.log(event.target.value);
+      setAgeRange(event.target.value);
+    }
+    function handleDetailsChange(event: React.ChangeEvent<HTMLInputElement>) {
+      console.log(event.target.value);
+      setDetails(event.target.value);
+    }
 
   useEffect(() => {
     fetchClubData();
@@ -135,6 +148,18 @@ const page = () => {
                 label="heading"
                 onChange={handleHeadingChange}
                 sx={{ width: "100%" }}
+              />
+              <TextField
+                  name="Age Range"
+                  label="Age Range"
+                  onChange={handleAgeRangeChange}
+                  sx={{ width: "100%" }}
+              />
+              <TextField
+                  name="Details"
+                  label="Details"
+                  onChange={handleDetailsChange}
+                  sx={{ width: "100%" }}
               />
               <TextField
                 name="description"
@@ -177,16 +202,13 @@ const page = () => {
               Preview
             </Typography>
             {
-              <FilmClubCard
-                heading={heading ? heading : clubData?.heading || ""}
-                desc={description ? description : clubData?.description || ""}
-                img={
-                  fileUrl
-                    ? fileUrl
-                    : "https://kentfilm2025-production.up.railway.app/storage/" +
-                      clubData?.img_Url
-                }
-              />
+             <FilmClubDisplayCard
+             heading={heading ? heading : clubData?.heading || ""}
+             ageRange={ageRange}
+             description={description ? description : clubData?.description || ""}
+             details={details}
+             img={"club.img_Url"}
+           />
             }
           </Stack>
         </Grid>
