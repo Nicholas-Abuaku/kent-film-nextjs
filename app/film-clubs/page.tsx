@@ -75,7 +75,7 @@ const FilmClubs = async () => {
          
           
         >
-          <Typography variant="h3" >Film Flubs</Typography>
+          <Typography variant="h3" >Film Clubs</Typography>
         </Grid>
         <Grid item xs={12} md={12} display={'flex'} justifyContent={'center'}  >
           <Card sx={{backgroundColor:'rgb(240 253 244)', border:'1px solid', borderColor:'rgb(187 247 208)', width:'90%', height:'250px', textAlign:'center', justifyContent:'center', alignItems:'center'}} elevation={0}>
