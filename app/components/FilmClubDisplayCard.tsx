@@ -7,11 +7,16 @@ import {
   Typography,
   ThemeProvider,
   createTheme,
+  Button,
+  Box,
 } from "@mui/material";
+import KidsFilmClb from '../assets/images/KidsFilmClub.png'
 type FilmClubDisplayCardProps = {
-  heading: string;
   img: string;
+  heading: string;
+  ageRange: string;
   description: string;
+  details: string;
 };
 import FilmCardTheme from "../Themes/FilmCardTheme";
 import Image from "next/image";
@@ -21,13 +26,15 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
       <Card
         elevation={12}
         sx={{
-          width: "80%",
+          width: "351px",
+          maxHeight:'515px',
           // marginLeft: "0.875rem",
           marginLeft: "auto",
+          borderRadius:'10px',
           marginRight: "auto",
           marginTop: "40px",
-          backgroundColor: "#339465",
-          color: "white",
+          backgroundColor: "#FFFFF",
+          color: "black",
           "@media (max-width: 600px)": {
             width: "90%",
           },
@@ -36,29 +43,37 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           },
         }}
       >
+        
+
+        <Box sx={{ backgroundColor:'#15803d'}}>
         <Image
           src={
-            "https://picayune-belief-production.up.railway.app/storage/" +
-            props.img
-          }
-          height={0}
+            props.img}
           width={0}
+          height={0}
           alt={props.heading}
           title={props.heading}
           loading="eager"
+          objectFit="stetech"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ height: "auto", width: "100%" }}
+          style={{ height: "100%", maxHeight:'230px', maxWidth:'351px', width: "100%" }}
           quality={80}
         />
-
-        <CardContent>
-          <Stack spacing={2}>
-            <Typography textAlign={"center"} variant="h6" fontWeight={"bold"}>
+        </Box>
+        <CardContent >
+          <Stack spacing={0} sx={{marginBottom:'20px'}}>
+            <Typography textAlign={"left"} variant="h6" >
               {props.heading}
             </Typography>
-            <Typography textAlign={"center"} variant="subtitle1">
+            <Typography variant="caption">{"Ages: " + props.ageRange}</Typography>
+            <Typography textAlign={"left"} variant="subtitle1" sx={{height:'84px', overflowY:'scroll', }}>
               {props.description}
             </Typography>
+          </Stack>
+          <hr/>
+          <Stack>
+          <Typography variant="caption">{props.details}</Typography>
+          <Button variant="contained" sx={{backgroundColor:'#15803d', width:'40%'}}>Contact Us</Button>
           </Stack>
         </CardContent>
       </Card>
