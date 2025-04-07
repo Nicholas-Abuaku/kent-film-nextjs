@@ -4,16 +4,17 @@ import { Noto_Sans } from "next/font/google";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
-  weight: ["200"],
+  weight: ["500"],
 });
 let FilmCardTheme = createTheme({
+ 
   typography: {
+    fontFamily: `${notoSans.style.fontFamily}`,
     h6: {
-      fontFamily: `${notoSans.style.fontFamily}`,
-      fontSize: 19,
+      fontWeight:'300',
     },
     subtitle1: {
-      fontFamily: `${notoSans.style.fontFamily}`,
+     fontWeight:'100',
       fontSize: 17,
     },
   },
