@@ -51,7 +51,7 @@ interface FilmClubInfo {
 const FilmClubs = async () => {
   const response = await fetch(
     "https://kentfilm2025-production.up.railway.app/api/film-clubs",
-    { headers:{ Accept:'application/json'}, cache: "force-cache", next: { revalidate: 172800 } }
+    { headers:{ Accept:'application/json'}, cache: "force-cache",  }
   );
   const filmClubs: FilmClubInfo[] = await response.json();
 
