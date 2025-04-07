@@ -17,6 +17,7 @@ import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
 import Image from "next/image";
 import FilmClubDisplayGrid from "../components/FilmClubDisplayGrid";
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Film Clubs",
 
@@ -42,17 +43,22 @@ export const metadata: Metadata = {
 interface FilmClubInfo {
   id: number;
   heading: string;
-  img_Url: string;
   description: string;
+  img_Url: string;
+  age_range: string;
+  details:string;
 }
 const FilmClubs = async () => {
   const response = await fetch(
     "https://kentfilm2025-production.up.railway.app/api/film-clubs",
-    { cache: "force-cache", next: { revalidate: 172800 } }
+    { headers:{ Accept:'application/json'}, cache: "force-cache", next: { revalidate: 172800 } }
   );
   const filmClubs: FilmClubInfo[] = await response.json();
+
+  console.log("Film clubs api data: ", filmClubs)
   return (
     <ThemeProvider theme={FilmClubTheme}>
+      
       <Grid
         container
         spacing={1}
@@ -65,60 +71,42 @@ const FilmClubs = async () => {
           md={12}
           justifyContent={"center"}
           alignItems={"center"}
+          textAlign={'center'}
+          marginTop={4}
+         
+          
         >
-          <Card
-            sx={{
-              backgroundColor: "#127346",
-              // width: "59.46875vw",
-              height: "100%",
-              margin: "auto",
-              marginTop: "40px",
-              marginBottom: "30px",
-              width: "60%",
-              "@media (max-width: 899px)": {
-                width: "95%",
-              },
-            }}
-            elevation={24}
-          >
-            <Image
-              src={FilmClubMain.src}
-              alt="Free Youth Clubs Every Monday"
-              title="Free Youth Clubs Every Monday"
-              loading="eager"
-              width={1141}
-              height={570}
-              sizes="(min-width: 620px) 59.45vw, 80vw"
-              style={{ height: "50%", width: "100%" }}
-            />
-
+          <Typography variant="h3" >Film Flubs</Typography>
+        </Grid>
+        <Grid item xs={12} md={12} display={'flex'} justifyContent={'center'}  >
+          <Card sx={{backgroundColor:'rgb(240 253 244)', border:'1px solid', borderColor:'rgb(187 247 208)', width:'90%', height:'250px', textAlign:'center', justifyContent:'center', alignItems:'center'}} elevation={0}>
             <CardContent>
-              <Stack spacing={2}>
-                <Typography
-                  textAlign={"center"}
-                  variant="h5"
-                  color={"white"}
-                  component={"h2"}
-                >
-                  FREE YOUTH FILM CLUBS EVERY MONDAY (term time only) 6-8pm
-                </Typography>
-                <Typography textAlign={"center"} color={"white"}>
-                  For more information contact: kentfilmfoundation@gmail.com{" "}
-                </Typography>
+              <Stack spacing={5}>
+              <Typography variant="h5">FREE Youth Film Clubs Every Monday 6-8pm (Term Time Only)</Typography>
+              <Typography>Join our exciting film clubs in Ramsgate, led by award-winning mentors from professional arts and media backgrounds. We often invite guest speakers from the world of film and television!</Typography>
+              <Stack direction={'row'} spacing={1} textAlign={'center'} justifyContent={'center'}>
+              <Typography variant="caption">For more information contact: </Typography> 
+              <Typography variant="caption" component={'a'} href="mailto:kentfilmfoundation@gmail.com" sx={{color:'blue'}}> kentfilmfoundation@gmail.com</Typography>
+              </Stack>
+              
               </Stack>
             </CardContent>
           </Card>
         </Grid>
+  
 
         {filmClubs.map((club: FilmClubInfo) => (
           <Grid item xl={3} md={4} xs={12} key={club.id}>
             <FilmClubDisplayCard
               heading={club.heading}
+              ageRange={club.age_range}
+              details={club.details}
               description={club.description}
-              img={club.img_Url}
+              img={"https://kentfilm2025-production.up.railway.app/storage/"+club.img_Url}
             />
           </Grid>
         ))}
+       
       </Grid>
     </ThemeProvider>
   );
