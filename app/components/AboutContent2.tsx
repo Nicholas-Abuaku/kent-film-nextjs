@@ -9,7 +9,7 @@ const AboutContent2 = () => {
   return (
     <ThemeProvider theme={AboutTheme}>
       <Grid container justifyContent={'center'} xs={12} padding={'50px'}>
-        <Grid item xs={12} textAlign={'center'}>
+        <Grid item xs={12} textAlign={'center'} marginBottom={4}>
           <Typography variant="h3"  textAlign={'center'}>About Us</Typography>
         </Grid>
         <Grid item width={900}>
