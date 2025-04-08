@@ -19,7 +19,7 @@ export async function DELETE(
     console.log("formData:"); // Log for debugging
 
     const axiosRes = await axios.delete(
-      "https://kentfilm2025-production.up.railway.app/api/events/" +
+      "https://kentfilm2025-production.up.railway.app/api/allscreenings/" +
         params.id,
 
       { headers }
