@@ -15,9 +15,7 @@ const FilmClubDisplayCard = dynamic(
 );
 import FilmClubTheme from "../Themes/FilmClubTheme";
 import { Metadata } from "next";
-import Image from "next/image";
 
-import Link from "next/link";
 export const metadata: Metadata = {
   title: "Film Clubs",
 
@@ -77,8 +75,8 @@ const FilmClubs = async () => {
         >
           <Typography variant="h3" >Film Clubs</Typography>
         </Grid>
-        <Grid item xs={12} md={12} display={'flex'} justifyContent={'center'}  >
-          <Card sx={{backgroundColor:'rgb(240 253 244)', border:'1px solid', borderColor:'rgb(187 247 208)', width:'90%', height:'250px', textAlign:'center', justifyContent:'center', alignItems:'center'}} elevation={0}>
+        <Grid item xs={12} md={12} display={'flex'} justifyContent={'center'} sx={{}} >
+          <Card sx={{backgroundColor:'rgb(240 253 244)', border:'1px solid', borderColor:'rgb(187 247 208)', width:'90%', textAlign:'center', justifyContent:'center', alignItems:'center'}} elevation={0}>
             <CardContent>
               <Stack spacing={5}>
               <Typography variant="h5">FREE Youth Film Clubs Every Monday 6-8pm (Term Time Only)</Typography>
@@ -95,7 +93,7 @@ const FilmClubs = async () => {
   
 
         {filmClubs.map((club: FilmClubInfo) => (
-          <Grid item xl={3} md={4} xs={12} key={club.id}>
+          <Grid item xs={12} md={5} lg={4} xl={3}   key={club.id}>
             <FilmClubDisplayCard
               heading={club.heading}
               ageRange={club.age_range}

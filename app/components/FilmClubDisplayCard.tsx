@@ -28,24 +28,18 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
         sx={{
           width: "351px",
           maxHeight:'515px',
-          // marginLeft: "0.875rem",
+          
           marginLeft: "auto",
           borderRadius:'10px',
           marginRight: "auto",
           marginTop: "40px",
           backgroundColor: "#FFFFF",
           color: "black",
-          "@media (max-width: 600px)": {
-            width: "90%",
-          },
-          "@media (max-width: 899px)": {
-            width: "80%",
-          },
         }}
       >
         
 
-        <Box sx={{ backgroundColor:'#15803d'}}>
+        <Box sx={{ backgroundColor:'#15803d', maxWidth:'351px'}}>
         <Image
           src={
             props.img}
@@ -60,7 +54,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           quality={80}
         />
         </Box>
-        <CardContent >
+        <CardContent sx={{maxWidth:'351px'}}>
           <Stack spacing={0} sx={{marginBottom:'20px'}}>
             <Typography textAlign={"left"} variant="h6" >
               {props.heading}
@@ -73,7 +67,7 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           <hr/>
           <Stack>
           <Typography variant="caption">{props.details}</Typography>
-          <Button variant="contained" sx={{backgroundColor:'#15803d', width:'40%'}}>Contact Us</Button>
+          <Button variant="contained" sx={{backgroundColor:'#15803d', width:'40%'}} href={"mailto: kentfilmfoundation@gmail.com?subject="+props.heading}>Contact Us</Button>
           </Stack>
         </CardContent>
       </Card>
