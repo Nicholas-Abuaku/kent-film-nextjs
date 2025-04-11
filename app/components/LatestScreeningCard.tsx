@@ -35,13 +35,15 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const isMobile = useMediaQuery(LatestScreeningTheme.breakpoints.down("md"));
   const renderTitle = () => {
-    const titleText = props.title || "";
+    const titleText = props.title || "Ramsgate Community Cinema";
+
     return titleText.split("\n").map((paragraph, index) => (
+      <Box key={index} sx={{textAlign:'center'}}>
       <Typography
         textAlign={"center"}
         variant="h1"
         key={index}
-        component={"h2"}
+        component={"h1"}
         sx={{
           "@media (max-width: 900px)": { fontSize: "0.4rem" },
           "@media (max-width: 956px)": { fontSize: "5rem" },
@@ -57,6 +59,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
       >
         {paragraph}
       </Typography>
+      </Box>
     ));
   };
   return (
@@ -71,8 +74,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             
             height:'auto'
           },}}>
-          <Image objectFit="cover" src={props.img} height={682} width={960}alt={props.title} title={
-                  "Ramsgate Community Cinema Latest Screening: " + props.title} loading="eager"  style={{height:'auto', width:'100%', borderRadius:'5px', }}/>
+          <Image src={props.img} height={682} width={960}alt={props.title} title={
+                  "Ramsgate Community Cinema Latest Screening: " + props.title} loading="eager"  style={{height:'auto', width:'100%', borderRadius:'5px', objectFit:'cover' }}/>
         </Box>
         <CardContent sx={{justifyContent:'center', alignItems:'center',backgroundColor:'white', width:'100%', textAlign:'center', height:'100%', "@media (max-width: 1024px)": {
             width:'100%',

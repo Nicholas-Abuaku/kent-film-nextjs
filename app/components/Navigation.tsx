@@ -34,6 +34,7 @@ const Navigation = () => {
                 src={KentFilmLogo.src}
                 width={65}
                 height={65}
+                priority
                 loading="eager"
                 sizes="(min-width: 420px) 80px, calc(29vw - 36px)"
                 title="Kent Film Foundation Logo"

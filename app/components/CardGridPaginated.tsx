@@ -105,7 +105,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
             <Typography>Want to be the first to know?</Typography>
             <Stack spacing={0} direction={'row'}>
               
-              <Typography>{"Sign up to our "} {<a href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
+              <Typography>{"Sign up to our "} {<a rel="noopener noreferrer" target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
               
             </Stack>
             </>
@@ -117,7 +117,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
             <Typography>Want to be the first to know?</Typography>
             <Stack spacing={1} direction={'row'}>
               
-            <Typography>{"Sign up to our "} {<a href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
+            <Typography>{"Sign up to our "} {<a rel="noopener noreferrer" target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
             </Stack>
             
             </>

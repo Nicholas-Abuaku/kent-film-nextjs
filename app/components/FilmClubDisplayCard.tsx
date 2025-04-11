@@ -48,9 +48,9 @@ const FilmClubDisplayCard = (props: FilmClubDisplayCardProps) => {
           alt={props.heading}
           title={props.heading}
           loading="eager"
-          objectFit="stetech"
+          
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ height: "100%", maxHeight:'230px', maxWidth:'351px', width: "100%" }}
+          style={{ height: "100%", maxHeight:'230px', maxWidth:'351px', width: "100%", objectFit:'cover' }}
           quality={80}
         />
         </Box>

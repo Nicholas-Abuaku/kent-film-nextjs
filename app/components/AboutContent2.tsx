@@ -8,7 +8,7 @@ import Partners from "./Partners";
 const AboutContent2 = () => {
   return (
     <ThemeProvider theme={AboutTheme}>
-      <Grid container justifyContent={'center'} xs={12} padding={'50px'}>
+      <Grid container justifyContent={'center'}  padding={'50px'}>
         <Grid item xs={12} textAlign={'center'} marginBottom={4}>
           <Typography variant="h3"  textAlign={'center'}>About Us</Typography>
         </Grid>
@@ -33,7 +33,7 @@ Ramsgate Community Cinema has become a beloved gathering place for cinephiles an
        
       </Grid>
       <hr style={{marginBottom:'40px'}}/>
-      <Grid container xs={12}>
+      <Grid item container xs={12}>
         <Partners/>
       </Grid>
       

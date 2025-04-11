@@ -59,12 +59,14 @@ const Partners = () => {
                 alt="Garfield Weston Foundation"
                 title="Garfield Weston Foundation"
                 width={50}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={ColyerFergusonIcon.src}
                 width={30}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
                 alt="Colyer Ferguson Chartiable Trust"
                 title="Colyer Ferguson Chartiable Trust"
               />
@@ -74,14 +76,16 @@ const Partners = () => {
                 title="Kent Community Foundation"
                 loading="lazy"
                 width={30}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={RamsgateCouncil.src}
                 alt="Ramsgate Town Council"
                 title="Ramsgate Town Council"
                 width={50}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
                 loading="lazy"
               />
 
@@ -91,7 +95,8 @@ const Partners = () => {
                 alt="Ramsgate International Film & TV Festival"
                 loading="lazy"
                 width={20}
-                height={30}
+                height={0}
+                style={{height:'auto'}}
                 quality={100}
               />
               <Image
@@ -99,14 +104,16 @@ const Partners = () => {
                 alt="ShiftKey Films"
                 title="ShiftKey Films"
                 width={40}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={VioletPictures.src}
                 alt="Violet Pictures"
                 title="Violet Pictures"
                 width={60}
-                height={60}
+                height={0}
+                style={{height:'auto'}}
               />
             </Stack>
           ) : (
@@ -121,12 +128,14 @@ const Partners = () => {
                 alt="Garfield Weston Foundation"
                 title="Garfield Weston Foundation"
                 width={120}
-                height={130}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={ColyerFergusonIcon.src}
                 width={70}
-                height={80}
+                height={0}
+                style={{height:'auto'}}
                 alt="Colyer Ferguson Chartiable Trust"
                 title="Colyer Ferguson Chartiable Trust"
               />
@@ -136,14 +145,16 @@ const Partners = () => {
                 title="Kent Community Foundation"
                 loading="lazy"
                 width={55}
-                height={65}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={RamsgateCouncil.src}
                 alt="Ramsgate Town Council"
                 title="Ramsgate Town Council"
                 width={100}
-                height={125}
+                height={0}
+                style={{height:'auto'}}
                 loading="lazy"
               />
 
@@ -153,7 +164,8 @@ const Partners = () => {
                 alt="Ramsgate International Film & TV Festival"
                 loading="lazy"
                 width={60}
-                height={70}
+                height={0}
+                style={{height:'auto'}}
                 quality={100}
               />
               <Image
@@ -161,14 +173,16 @@ const Partners = () => {
                 alt="ShiftKey Films"
                 title="ShiftKey Films"
                 width={100}
-                height={150}
+                height={0}
+                style={{height:'auto'}}
               />
               <Image
                 src={VioletPictures.src}
                 alt="Violet Pictures"
                 title="Violet Pictures"
                 width={200}
-                height={290}
+                height={0}
+                style={{height:'auto'}}
               />
             </Stack>
           )}
