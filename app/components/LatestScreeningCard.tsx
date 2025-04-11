@@ -61,7 +61,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   };
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
-      <Card sx={{display:'flex', "@media (max-width: 1024px)": {
+      <Card elevation={0} sx={{display:'flex', "@media (max-width: 1024px)": {
             flexDirection:'column',
           },}}>
         <Box width={'100%'} maxHeight={'682px'} sx={{"@media (max-width: 1280px)": {
@@ -82,10 +82,13 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             textAlign:'left',
             marginBottom:'40px'
           }}}>
+            <Box width={'100%'}>
           <Typography variant="h1">{renderTitle()}</Typography>
-          
+          </Box>
+          <Box width={'100%'}>
           <Typography variant="h3" sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date}</Typography>
           <Typography variant="h3">{props.time.replaceAll(" ", "")}</Typography>
+          </Box>
           
           
           <Stack direction={'row'} spacing={3}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
