@@ -25,6 +25,7 @@ type LatestScreeningCardProps = {
   title: string;
   date: string;
   description: string;
+  time: string;
   img: string;
   url: string;
   edit: boolean;
@@ -46,6 +47,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           "@media (max-width: 956px)": { fontSize: "5rem" },
           "@media (max-width: 1024px)": {
             fontSize: "2rem",
+            textAlign:'left'
           },
           "@media (max-width: 400px)": {
             paddingBottom: "0px",
@@ -59,164 +61,52 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
   };
   return (
     <ThemeProvider theme={LatestScreeningTheme}>
-      <Card
-        sx={{
-          display: "flex",
-          minHeight: "682px",
-          borderRadius: "0px",
-          width: "100vw",
-          height: "63.49vh",
-          "@media (max-width: 1024px)": {
-            display: "inline",
-            width: "100%",
-            height: "682px",
-            // maxHeight: "682px",
-            borderRadius: "0px",
-          },
-        }}
-      >
-        <Box
-          sx={{
-            width: "50%",
-            height: "auto",
-            "@media (max-width: 1024px)": {
-              width: "100%",
-              height: "50%",
-            },
-          }}
-        >
-          {props.img && typeof props.img === "object" ? (
-            <Skeleton
-              variant="rectangular"
-              animation="wave"
-              width={962}
-              height={465}
-            />
-          ) : (
-            <Box
-              sx={{
-                flex: "1",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                maxHeight: "auto",
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Image
-                src={props.edit ? props.img : props.img}
-                width={960}
-                height={682}
-                alt={props.title}
-                title={
-                  "Ramsgate Community Cinema Latest Screening: " + props.title
-                }
-                className={styles.latestscreening}
-                loading="eager"
-                sizes="(min-width: 1040px) 50vw, 100vw"
-                style={{
-                  width: "100%",
-
-                  marginRight: "0px",
-                  height: "100%",
-                  objectFit: "fill",
-                }}
-              />
-            </Box>
-          )}
+      <Card sx={{display:'flex', "@media (max-width: 1024px)": {
+            flexDirection:'column',
+          },}}>
+        <Box width={960}  sx={{ "@media (max-width: 1024px)": {
+            width:'100%',
+            padding:'10px',
+            display:'block',
+            
+            height:'auto'
+          },}}>
+          <Image objectFit="cover" src={props.img} height={682} width={960}alt={props.title} title={
+                  "Ramsgate Community Cinema Latest Screening: " + props.title} loading="eager" sizes="(min-width: 1040px) 50vw, 100vw" style={{height:'auto', width:'100%', borderRadius:'5px', }}/>
         </Box>
-        <CardContent
-          sx={{
-            backgroundColor: "#1A1A1A",
-            color: "white",
-            wordBreak: "break-word",
-            width: "50%",
-            height: "100%",
-            position: "relative",
-            "@media (max-width: 1024px)": {
-              backgroundColor: "#1A1A1A",
-              color: "white",
-              wordBreak: "break-word",
-              minHeight: "500px",
-              width: "100%",
-            },
-          }}
-        >
-          <Stack
-            direction={"column"}
-            alignItems={"center"}
-            justifyContent={"center"}
-            spacing={1}
-          >
-            <Box
-              minHeight={150}
-              paddingBottom={4}
-              sx={{
-                "@media (max-width: 1024px)": {
-                  paddingBottom: "1rem",
-                  minHeight: "0px",
-                },
-              }}
-            >
-              {renderTitle()}
-              <Typography
-                color={"white"}
-                paddingBottom={4}
-                textAlign={"center"}
-                variant="h4"
-                component="h3"
-                sx={{
-                  overflow: "auto",
-                  "@media (max-width: 1024px)": {
-                    paddingBottom: "0px",
-                    fontSize: "1.7rem",
-                  },
-                  "@media (max-width: 400px)": {
-                    paddingBottom: "0px",
-                    fontSize: "1rem",
-                  },
-                }}
-              >
-                {props.date}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                maxHeight: "400px",
-                minHeight: "200px",
-                maxWidth: "98%",
-
-                "@media (max-width: 1024px)": {
-                  // maxHeight: "100%",
-                  minHeight: "100%",
-
-                  maxWidth: "98%",
-                  overflowY: "scroll",
-                },
-              }}
-            >
-              <Typography
-                height={"100%"}
-                maxWidth={"75%"}
-                textAlign={"center"}
-                margin={"auto"}
-                sx={{
-                  "@media (max-width: 1024px)": {
-                    marginBottom: "0px",
-                    maxHeight: "90%",
-                    overflowY: "scroll",
-                  },
-                }}
-              >
-                {props.description}
-              </Typography>
-            </Box>
-            <TicketButton />
+        <CardContent sx={{justifyContent:'center', alignItems:'center',backgroundColor:'white', width:'50%', textAlign:'center', height:'100%', "@media (max-width: 1024px)": {
+            width:'100%',
+            paddingTop:'0px',
+            height:'100%',
+            marginTop:'0px',
+            textAlign:'left',
+            marginBottom:'40px'
+          }}}>
+          <Typography variant="h1">{renderTitle()}</Typography>
+          
+          <Typography variant="h3" sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date}</Typography>
+          <Typography variant="h3">{props.time.replaceAll(" ", "")}</Typography>
+          
+          
+          <Stack direction={'row'} spacing={3}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
+          <Typography variant="h4" component="h3" maxWidth={250} paddingBottom={4}>{props.date}</Typography>
+          <Button variant="contained" sx={{borderRadius:'10px', backgroundColor:'#237A2B', color:'white', height:'40px'}}>Tickets</Button>
           </Stack>
+          <Box sx={{ maxWidth:'98%', "@media (max-width: 1024px)": { display:'none'}}}>
+          
+          {/* <Typography variant="h4" component={'h3'} marginBottom={4}>{props.date}</Typography> */}
+         
+          <Box sx={{overflowY:'scroll', width:'700px', textAlign:'center', margin:" auto", marginBottom:'00px', marginTop:'30px'}}>
+          <Typography sx={{ height:'200px',}}>{props.description}</Typography>
+          </Box>
+          <Box >
+          <TicketButton/>
+          </Box>
+          </Box>
         </CardContent>
+        
       </Card>
-      {/* )} */}
+      <hr/>
     </ThemeProvider>
   );
 };

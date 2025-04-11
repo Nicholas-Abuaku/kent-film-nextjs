@@ -44,7 +44,7 @@ interface Event {
 const Home = async () => {
   const response = await fetch(
     "https://kentfilm2025-production.up.railway.app/api/featured-content",
-    { next: { tags: ["latest-screening"] }, cache: "default" }
+    {  next: { tags: ["latest-screening"] }, cache: "default" }
   );
   const fetchEvents = await fetch(
     "https://kentfilm2025-production.up.railway.app/api/allscreenings",
@@ -54,12 +54,21 @@ const Home = async () => {
   const latestInfo: LatestScreeningInfo[] = await response.json();
 
   const allEvents: Event[] = await fetchEvents.json();
+  // const eventsJson = await fetchEvents.json();
+  // const allEvents: Event[] = eventsJson.map((event:any)=>({...event, date: new Date(event.date)}))
 
   let latestImage =
     "https://kentfilm2025-production.up.railway.app/storage/" +
     latestInfo[0].img_Url;
 
   const newDate = new Date(latestInfo[0].date);
+  let hours = newDate.getHours()
+  const minutes = newDate.getMinutes()
+  const amPM = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  const formattedTime = `${hours}: ${minutes < 10 ? '0' : ''} ${minutes} ${amPM}`
+  console.log(formattedTime.replaceAll(" ", ""));
   const dateString = newDate.toDateString();
   return (
     <main>
@@ -78,10 +87,11 @@ const Home = async () => {
           xs={12}
           container
           direction={"column"}
-          marginBottom={6}
-          marginTop={0}
+          marginBottom={4}
+          marginTop={1}
+       
         >
-          <LatestScreeningCard2
+          {/* <LatestScreeningCard2
             title={latestInfo[0].heading}
             date={dateString}
             description={latestInfo[0].description}
@@ -90,13 +100,14 @@ const Home = async () => {
               "https://filmfreeway.com/RamsgateInternationalFilmFestival/tickets"
             }
             edit={false}
-          />
+          /> */}
+          <LatestScreeningCard title={latestInfo[0].heading} date={dateString} time={formattedTime} description={latestInfo[0].description} img={latestImage} edit={false} url=""/>
         </Grid>
         <Grid
           container
           spacing={1}
           direction={"row"}
-          paddingTop={3}
+          paddingTop={1}
           paddingBottom={3}
           marginBottom={3}
           paddingLeft={"3%"}
@@ -109,7 +120,7 @@ const Home = async () => {
           }}
           minHeight={"47.61vh"}
         >
-          <Grid item xs={12} width={"100%"}>
+          <Grid item xs={12} width={"100%"} >
             <Typography
               variant="h2"
               fontFamily={`${inter.style.fontFamily}`}
