@@ -64,7 +64,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
       <Card sx={{display:'flex', "@media (max-width: 1024px)": {
             flexDirection:'column',
           },}}>
-        <Box width={960}  sx={{ "@media (max-width: 1024px)": {
+        <Box width={'100%'} maxHeight={'682px'} sx={{"@media (max-width: 1280px)": {
             width:'100%',
             padding:'10px',
             display:'block',
@@ -72,9 +72,9 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             height:'auto'
           },}}>
           <Image objectFit="cover" src={props.img} height={682} width={960}alt={props.title} title={
-                  "Ramsgate Community Cinema Latest Screening: " + props.title} loading="eager" sizes="(min-width: 1040px) 50vw, 100vw" style={{height:'auto', width:'100%', borderRadius:'5px', }}/>
+                  "Ramsgate Community Cinema Latest Screening: " + props.title} loading="eager"  style={{height:'auto', width:'100%', borderRadius:'5px', }}/>
         </Box>
-        <CardContent sx={{justifyContent:'center', alignItems:'center',backgroundColor:'white', width:'50%', textAlign:'center', height:'100%', "@media (max-width: 1024px)": {
+        <CardContent sx={{justifyContent:'center', alignItems:'center',backgroundColor:'white', width:'100%', textAlign:'center', height:'100%', "@media (max-width: 1024px)": {
             width:'100%',
             paddingTop:'0px',
             height:'100%',
@@ -90,7 +90,8 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           
           <Stack direction={'row'} spacing={3}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
           <Typography variant="h4" component="h3" maxWidth={250} paddingBottom={4}>{props.date}</Typography>
-          <Button variant="contained" sx={{borderRadius:'10px', backgroundColor:'#237A2B', color:'white', height:'40px'}}>Tickets</Button>
+          {/* <Button variant="contained" sx={{borderRadius:'10px', backgroundColor:'#237A2B', color:'white', height:'40px'}}>Tickets</Button> */}
+          <TicketButton/>
           </Stack>
           <Box sx={{ maxWidth:'98%', "@media (max-width: 1024px)": { display:'none'}}}>
           
