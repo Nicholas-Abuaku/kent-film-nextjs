@@ -20,8 +20,13 @@ let EventGridTheme = createTheme({
       fontWeight: 500,
       color:'#1E2A38',
     },
+
+    h4:{
+      fontSize:'2.5rem'
+    },
+
     body1: {
-      fontSize: "1rem",
+      fontSize: "1.5rem",
       color:'white',
     },
   },
