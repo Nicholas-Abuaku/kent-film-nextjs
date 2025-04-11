@@ -25,7 +25,7 @@ const TicketButton = () => {
         variant="contained"
         onClick={handleClickOpen}
         sx={{
-          borderRadius: "50px",
+          borderRadius: "10px",
           height: "50px",
           width: "180px",
           fontSize:'20px',
@@ -37,7 +37,7 @@ const TicketButton = () => {
           "@media (max-width: 1024px)": {
             marginTop: "0px",
             paddingTop: "auto",
-            width: "30%",
+            width: "90%",
             height: "30px",
             fontSize: "0.9rem",
             textAlign:'center'
@@ -45,7 +45,7 @@ const TicketButton = () => {
           },
         }}
       >
-        Tickets
+        Ticket Info
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="aler-dialog-title">Ticket Info!</DialogTitle>
