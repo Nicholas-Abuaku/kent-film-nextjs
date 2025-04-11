@@ -10,7 +10,10 @@ import {
   useMediaQuery,
   Pagination,
   Skeleton,
+  Stack,
+  ThemeProvider,
 } from "@mui/material";
+import EventGridTheme from "../Themes/EventGridTheme";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -59,7 +62,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
     return date1.getTime() - date2.getTime();
   });
   return (
-    <>
+    <ThemeProvider theme={EventGridTheme}>
       {upcomingEvents.length > 0 ? (
         <>
           {upcomingEvents.slice(startIndex, endIndex).map((event: Event) => {
@@ -87,23 +90,34 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           })}
         </>
       ) : (
-        <Grid item>
+        <Grid item color={'white'} marginTop={0}>
           {isMobile ? (
+            <>
             <Typography
-              variant="h5"
-              color={"black"}
-              sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
+              variant="h4"
+              marginBottom={3}
             >
-              Nothing Scheduled yet, check back again later!
+              Coming Soon!
             </Typography>
+            <Typography>We're busy programming our next exciting season of films! Please check back soon for new announcements and showtimes. </Typography>
+            <Stack spacing={2}>
+              <Typography>Want to be the first to know?</Typography>
+              <Typography>Sign up to our Mailing List!</Typography>
+            </Stack>
+            </>
           ) : (
-            <Typography
-              variant="h3"
-              color={"black"}
-              sx={{ fontFamily: `${notoSans.style.fontFamily}` }}
-            >
-              Nothing Scheduled yet, check back again later!
-            </Typography>
+            <>
+          
+            <Typography variant="h4">Coming Soon!</Typography>
+            <Typography>We're busy programming our next exciting season of films! Please check back soon for new announcements and showtimes. </Typography>
+            <Typography>Want to be the first to know?</Typography>
+            <Stack spacing={1} direction={'row'}>
+              
+              <Typography>Sign up to our</Typography>
+              <Typography component={'a'} href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform"> {" Mailing List!"}</Typography>
+            </Stack>
+            </>
+            
           )}
         </Grid>
       )}
@@ -117,7 +131,7 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           />
         </Grid>
       )}
-    </>
+    </ThemeProvider>
   );
 };
 
