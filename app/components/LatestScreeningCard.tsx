@@ -46,7 +46,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           "@media (max-width: 900px)": { fontSize: "0.4rem" },
           "@media (max-width: 956px)": { fontSize: "5rem" },
           "@media (max-width: 1024px)": {
-            fontSize: "2rem",
+            fontSize: "2.3rem",
             textAlign:'left'
           },
           "@media (max-width: 400px)": {
@@ -85,16 +85,17 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
             <Box width={'100%'}>
           <Typography variant="h1">{renderTitle()}</Typography>
           </Box>
-          <Box width={'100%'}>
+          <Box width={'100%'} sx={{"@media (max-width: 1024px)": {marginTop:'10px'}}}>
           <Typography variant="h3" sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date}</Typography>
-          <Typography variant="h3">{props.time.replaceAll(" ", "")}</Typography>
+          <Typography variant="h3" marginBottom={1}>{props.time.replaceAll(" ", "")}</Typography>
           </Box>
           
           
-          <Stack direction={'row'} spacing={3}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
-          <Typography variant="h4" component="h3" maxWidth={250} paddingBottom={4}>{props.date}</Typography>
-          {/* <Button variant="contained" sx={{borderRadius:'10px', backgroundColor:'#237A2B', color:'white', height:'40px'}}>Tickets</Button> */}
+          <Stack direction={'row'} width={'100%'}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
+          <Typography variant="h4" component="h3" width={'50%'} paddingBottom={4}>{props.date}</Typography>
+          <Box width={'50%'}>
           <TicketButton/>
+          </Box>
           </Stack>
           <Box sx={{ maxWidth:'98%', "@media (max-width: 1024px)": { display:'none'}}}>
           
