@@ -14,8 +14,11 @@ let LatestScreeningTheme = createTheme( {
     h1: {
       fontSize: "4.5rem",
       color:'#1E2A38',
+      
 
     },
+
+
     body1: {
       fontSize: "1rem",
        color:'#1E2A38',
@@ -45,6 +48,14 @@ LatestScreeningTheme.typography.body1["@media (max-width:1024px)"] = {
 };
 LatestScreeningTheme.typography.body1["@media (max-width:768px)"] = {
   fontSize: "1rem",
+};
+LatestScreeningTheme.typography.h3["@media (max-width:1024px)"] = {
+  fontSize: "1.8rem",
+  fontWeight:'100'
+};
+
+LatestScreeningTheme.typography.h4["@media (max-width:768px)"] = {
+  fontSize: "1.3rem",
 };
 LatestScreeningTheme.typography.body1["@media (max-width:360px)"] = {
   fontSize: "1rem",
