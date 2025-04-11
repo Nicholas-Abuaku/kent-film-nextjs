@@ -22,7 +22,12 @@ let LatestScreeningTheme = createTheme( {
     },
 
     h4:{
-      color:'#1E2A38'
+      color:'#1E2A38',
+      fontSize:'2rem'
+    },
+    h3:{
+      color:'#1E2A38',
+      fontSize:'2rem'
     }
     
   },
