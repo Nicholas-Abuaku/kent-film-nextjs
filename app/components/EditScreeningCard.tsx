@@ -14,7 +14,7 @@ import placeHolderImage from "../assets/images/PlaceHolderImage.jpg";
 import axios from "axios";
 import CheckIcon from "@mui/icons-material/Check";
 import { revalidateLatestScreening } from "../actions";
-import SelectTime from "./SelectTime";
+
 type EditScreeningProps = {
   title: string;
   date: Date;
