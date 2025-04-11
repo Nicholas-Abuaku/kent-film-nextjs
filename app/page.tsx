@@ -112,7 +112,7 @@ const Home = async () => {
           marginBottom={3}
           paddingLeft={"3%"}
           sx={{
-            backgroundColor: "#2F7D3D",
+            backgroundColor: "#254D32",
             width: "100%",
             maxHeight: "723px",
             display: "flex",
