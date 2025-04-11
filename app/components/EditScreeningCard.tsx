@@ -14,6 +14,7 @@ import placeHolderImage from "../assets/images/PlaceHolderImage.jpg";
 import axios from "axios";
 import CheckIcon from "@mui/icons-material/Check";
 import { revalidateLatestScreening } from "../actions";
+import SelectTime from "./SelectTime";
 type EditScreeningProps = {
   title: string;
   date: Date;
@@ -25,16 +26,28 @@ const EditScreeningCard = (props: EditScreeningProps) => {
   const [fileUrl, setFileUrl] = useState<string | null>(props.image);
   const [fileName, setFileName] = useState<string>("");
   const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(false);
+  //Time Hour and error
+  const [hour,setHour] = useState<string>("");
+  const [error,setError] = useState(false);
   //
   const [heading, setHeading] = useState<string>("");
   const [date, setDate] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [eventUrl, setEventUrl] = useState<string>("");
-
+  const timeRegex = /^(0|[1-9]|1[0-9]|2[0-2]):([0-5]?[0-9])$/;
   function handleHeadingChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
     setHeading(e.target.value);
   }
+
+   const handleHourChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+    setHour(event.target.value);
+    setError(false)
+    }
+
+    const handleBlur = ()=>{
+      setError(!timeRegex.test(hour))
+    }
 
   function handleDescriptionChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -57,9 +70,14 @@ const EditScreeningCard = (props: EditScreeningProps) => {
   }
 
   const handlePost = async () => {
+    if(!error){
+
+    
     const formData = new FormData();
+    let dateTime = date+"T"+hour+":00"
+    dateTime.replaceAll(" ","");
     formData.append("heading", heading);
-    formData.append("date", date);
+    formData.append("date", dateTime);
     formData.append("description", description);
     if (file) {
       formData.append("img_Url", file, fileName);
@@ -78,6 +96,8 @@ const EditScreeningCard = (props: EditScreeningProps) => {
     } catch (err) {
       console.log(err);
     }
+  } else (console.log("Please enter valid time"))
+    
   };
   return (
     <>
@@ -158,6 +178,26 @@ const EditScreeningCard = (props: EditScreeningProps) => {
               }}
             />
             <TextField
+              label="Time (HH:MM)"
+              value={hour}
+              onChange={handleHourChange}
+              onBlur={handleBlur}
+              error={error}
+              helperText = {error ? 'Format must be HH:MM' : ''}
+              name="time"
+              placeholder={"e.g 13:24"}
+              
+              
+              sx={{
+                "& .MuiInputLabel-root": { color: "white" },
+                "& .MuiOutlinedInput-input": {
+                  color: "white",
+                  textAlign: "center",
+                },
+                
+              }}
+            />
+            <TextField
               type="date"
               name="date"
               onChange={handleDateChange}
@@ -205,7 +245,7 @@ const EditScreeningCard = (props: EditScreeningProps) => {
       </Stack>
       {showSuccessAlert && (
         <Alert icon={<CheckIcon />} severity="success">
-          Screening Successfully Updated!
+          Screening Successfully Updated! 
         </Alert>
       )}
     </>
