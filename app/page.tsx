@@ -108,7 +108,7 @@ const Home = async () => {
           spacing={1}
           direction={"row"}
           paddingTop={1}
-          paddingBottom={3}
+          paddingBottom={10}
           marginBottom={3}
           paddingLeft={"3%"}
           sx={{
@@ -120,16 +120,15 @@ const Home = async () => {
           }}
           minHeight={"47.61vh"}
         >
-          <Grid item xs={12} width={"100%"} >
+          <Grid item xs={12} width={"100%"}  >
             <Typography
               variant="h2"
               fontFamily={`${inter.style.fontFamily}`}
               sx={{
-                // border: "2px solid",
-                // borderBottom:'0px',
-                // borderLeft: "0px",
-                // borderRight: "0px",
-                marginRight: "40px",
+                
+                // marginRight: "40px",
+                marginBottom:'0',
+                paddingBottom:'0',
                 color: "white",
                 "@media (max-width: 1024px)": {
                   fontSize: "2.5rem",
@@ -139,7 +138,9 @@ const Home = async () => {
               What's On
             </Typography>
           </Grid>
+          <Grid item xs={12}>
           <CardGridPaginated response={allEvents} />
+          </Grid>
         </Grid>
         <Grid item xs={12}>
           <PayPalDonate />

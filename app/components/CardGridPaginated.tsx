@@ -12,6 +12,7 @@ import {
   Skeleton,
   Stack,
   ThemeProvider,
+  Box,
 } from "@mui/material";
 import EventGridTheme from "../Themes/EventGridTheme";
 
@@ -90,32 +91,35 @@ const CardGridPaginated = (props: CardGridPaginatedProps) => {
           })}
         </>
       ) : (
-        <Grid item color={'white'} marginTop={0}>
+        <Grid item color={'white'} marginTop={0} xs={12}>
           {isMobile ? (
             <>
             <Typography
               variant="h4"
               marginBottom={3}
+              marginTop={0}
             >
               Coming Soon!
             </Typography>
             <Typography>We're busy programming our next exciting season of films! Please check back soon for new announcements and showtimes. </Typography>
-            <Stack spacing={2}>
-              <Typography>Want to be the first to know?</Typography>
-              <Typography>Sign up to our Mailing List!</Typography>
+            <Typography>Want to be the first to know?</Typography>
+            <Stack spacing={0} direction={'row'}>
+              
+              <Typography>{"Sign up to our "} {<a href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
+              
             </Stack>
             </>
           ) : (
             <>
-          
+            
             <Typography variant="h4">Coming Soon!</Typography>
             <Typography>We're busy programming our next exciting season of films! Please check back soon for new announcements and showtimes. </Typography>
             <Typography>Want to be the first to know?</Typography>
             <Stack spacing={1} direction={'row'}>
               
-              <Typography>Sign up to our</Typography>
-              <Typography component={'a'} href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform"> {" Mailing List!"}</Typography>
+            <Typography>{"Sign up to our "} {<a href="https://docs.google.com/forms/d/e/1FAIpQLSc2wUiczHiUs9dqQ6jKGw9a9gDmOBrUpzj9McnHnxht4b1EPg/viewform" style={{textDecoration:'underline'}}>Mailing List!</a>}</Typography>
             </Stack>
+            
             </>
             
           )}
