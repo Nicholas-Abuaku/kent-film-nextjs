@@ -67,7 +67,7 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
       <Card elevation={0} sx={{display:'flex', "@media (max-width: 1024px)": {
             flexDirection:'column',
           },}}>
-        <Box width={'100%'} maxHeight={'682px'} sx={{"@media (max-width: 1280px)": {
+        <Box width={'100%'} maxHeight={'682px'}  sx={{ padding:'5px',"@media (max-width: 1280px)": {
             width:'100%',
             padding:'10px',
             display:'block',
