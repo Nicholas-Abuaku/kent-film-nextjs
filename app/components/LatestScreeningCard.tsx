@@ -89,13 +89,15 @@ const LatestScreeningCard = (props: LatestScreeningCardProps) => {
           <Typography variant="h1">{renderTitle()}</Typography>
           </Box>
           <Box width={'100%'} sx={{"@media (max-width: 1024px)": {marginTop:'10px'}}}>
-          <Typography variant="h3" sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date}</Typography>
-          <Typography variant="h3" marginBottom={1}>{props.time.replaceAll(" ", "")}</Typography>
+          {/* <Typography variant="h3" sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date }</Typography> */}
+          
+          <Typography variant="h3" marginBottom={1} sx={{"@media (max-width: 1024px)": {display:'none'}}}>{props.date+"|"+props.time.replaceAll(" ", "")}</Typography>
+          
           </Box>
           
           
           <Stack direction={'row'} width={'100%'}  sx={{"@media (min-width: 1024px)": {display:'none'}}}>
-          <Typography variant="h4" component="h3" width={'50%'} paddingBottom={4}>{props.date}</Typography>
+          <Typography variant="h4" component="h3" width={'50%'} paddingBottom={4}>{props.date+" "+props.time.replaceAll(" ", "")}</Typography>
           <Box width={'50%'}>
           <TicketButton/>
           </Box>
