@@ -57,9 +57,17 @@ const FilmClubTable = () => {
         <Button
           variant="contained"
           color="success"
-          sx={{ marginTop: "5px", marginRight: "5px", float: "right" }}
+          sx={{
+            marginTop: "5px",
+            marginRight: "5px",
+            float: "right",
+            marginBottom: "10px",
+            backgroundColor:'#1e5943',
+            color:'white',
+            height:'45px'
+          }}
         >
-          Add
+          Add Film Club
         </Button>
       </Link>
       <div
@@ -74,19 +82,19 @@ const FilmClubTable = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Heading</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Image</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>ID</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Heading</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Description</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Image</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((club: FilmClubData) => (
                 <TableRow key={club.id}>
-                  <TableCell>{club.id}</TableCell>
-                  <TableCell>{club.heading}</TableCell>
-                  <TableCell>{club.description}</TableCell>
+                  <TableCell sx={{color:'#1E2A38'}}>{club.id}</TableCell>
+                  <TableCell sx={{color:'#1E2A38'}}>{club.heading}</TableCell>
+                  <TableCell sx={{color:'#1E2A38'}}>{club.description}</TableCell>
                   <TableCell>
                     <img
                       src={

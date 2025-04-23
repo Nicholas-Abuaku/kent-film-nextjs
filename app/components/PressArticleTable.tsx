@@ -61,21 +61,21 @@ const PressArticleTable = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>News Source</TableCell>
-              <TableCell>Article Title</TableCell>
-              <TableCell>Article Url</TableCell>
+              <TableCell sx={{backgroundColor:'#f5f6f6'}}>ID</TableCell>
+              <TableCell sx={{backgroundColor:'#f5f6f6'}}>News Source</TableCell>
+              <TableCell sx={{backgroundColor:'#f5f6f6'}}>Article Title</TableCell>
+              <TableCell sx={{backgroundColor:'#f5f6f6'}}>Article Url</TableCell>
               
-              <TableCell>Actions</TableCell>
+              <TableCell sx={{backgroundColor:'#f5f6f6'}}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {pressData.map((article: PressArticleData) => (
               <TableRow key={article.id}>
-                <TableCell>{article.id}</TableCell>
-                <TableCell>{article.news_source}</TableCell>
-                <TableCell>{article.article_title}</TableCell>
-                <TableCell>
+                <TableCell sx={{color:'#1E2A38'}}>{article.id}</TableCell>
+                <TableCell sx={{color:'#1E2A38'}}>{article.news_source}</TableCell>
+                <TableCell sx={{color:'#1E2A38'}}>{article.article_title}</TableCell>
+                <TableCell sx={{color:'#1E2A38'}}>
                   {
                     <Link href={article.article_url}>
                       <Typography color="blue">Article</Typography>

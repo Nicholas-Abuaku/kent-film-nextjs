@@ -60,15 +60,18 @@ const AllScreeningTable = () => {
       <Link href={"/dashboard/all-screenings/new"}>
         <Button
           variant="contained"
-          color="success"
+          // color="success"
           sx={{
             marginTop: "5px",
             marginRight: "5px",
             float: "right",
             marginBottom: "10px",
+            backgroundColor:'#1e5943',
+            color:'white',
+            height:'45px'
           }}
         >
-          Add
+          Add Screening
         </Button>
       </Link>
       <div
@@ -83,21 +86,21 @@ const AllScreeningTable = () => {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>Event Title</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Event Date</TableCell>
-                <TableCell>Event Time</TableCell>
-                <TableCell>Image</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Event Title</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Description</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Event Date</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Event Time</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Image</TableCell>
+                <TableCell sx={{backgroundColor:'#f5f6f6'}}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((club: FilmClubData) => (
-                <TableRow key={club.id}>
-                  <TableCell>{club.title}</TableCell>
-                  <TableCell>{club.description}</TableCell>
-                  <TableCell>{club.date}</TableCell>
-                  <TableCell>{club.time}</TableCell>
+                <TableRow key={club.id}  >
+                  <TableCell sx={{color:'#1E2A38'}}>{club.title}</TableCell>
+                  <TableCell sx={{maxWidth:'290px', color:'#1E2A38'}} >{club.description}</TableCell>
+                  <TableCell sx={{color:'#1E2A38'}}>{club.date}</TableCell>
+                  <TableCell sx={{color:'#1E2A38'}}>{club.time}</TableCell>
                   
                   <TableCell>
                     <img

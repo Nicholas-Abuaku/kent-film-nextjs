@@ -1,28 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import { Grid, Stack, IconButton, Typography } from "@mui/material";
+import { Grid, Stack, IconButton, Typography, ThemeProvider } from "@mui/material";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const FilmClubTable = dynamic(() => import("@/app/components/FilmClubTable"));
 import { ManageTableContext } from "@/app/contexts/ManageTableContext";
 import dynamic from "next/dynamic";
+import DashboardTheme from "@/app/Themes/DashboardTheme";
 
 const AllFilmClubs = () => {
   const [tableUpdate, setTableUpdate] = useState(false);
   return (
+    <ThemeProvider theme={DashboardTheme}>
     <Grid
       container
       minHeight={"90vh"}
       sx={{ display: "flex", flexDirection: "column" }}
     >
-      <Grid item xs={12}>
+      <Grid item xs={12} marginBottom={2}>
         <Stack direction={"row"} spacing={2} justifyContent={"center"}>
           <Link href={"/dashboard"}>
             <IconButton>
               <ArrowBackIcon />
             </IconButton>
           </Link>
-          <Typography variant="h4">Film Clubs</Typography>
+          <Typography variant="h3">Film Clubs</Typography>
         </Stack>
       </Grid>
       <Grid item xs={12}>
@@ -31,6 +33,7 @@ const AllFilmClubs = () => {
         </ManageTableContext.Provider>
       </Grid>
     </Grid>
+    </ThemeProvider>
   );
 };
 
