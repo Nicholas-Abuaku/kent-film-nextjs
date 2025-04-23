@@ -239,8 +239,8 @@ const EditScreeningCard = (props: EditScreeningProps) => {
         </Box>
       </Card>
       <Stack justifyContent={"center"} direction={"row"} marginTop={1}>
-        <Button variant="contained" color="success" onClick={handlePost}>
-          Submit
+        <Button variant="contained" sx={{backgroundColor:'#1e5943', height:'50px'}} onClick={handlePost}>
+          Save
         </Button>
       </Stack>
       {showSuccessAlert && (
