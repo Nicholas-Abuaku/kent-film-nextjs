@@ -23,7 +23,7 @@ This inspired one of the filmmakers who had also grown up in poverty herself, to
 Since its inception in 2010, the charity has an excellent track record in achieving its outcomes. It recently received a prestigious nomination in the Colyer Fergusson 50th Anniversary Awards in the category "Unlocking Opportunities". 
           </Typography>
         </Grid>
-        <Grid item xs={12} textAlign={'center'}>
+        <Grid item xs={12} textAlign={'center'} marginTop={4}>
           <Typography variant="h5" >Our Cinema</Typography>
         </Grid>
         <Grid item width={900}>
