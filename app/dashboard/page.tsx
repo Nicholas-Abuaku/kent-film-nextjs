@@ -23,12 +23,13 @@ interface LatestScreeningInfo {
 }
 const page = async () => {
   const response = await fetch(
-    "https://picayune-belief-production.up.railway.app/api/featured-content",
+    "https://kentfilm2025-production.up.railway.app/api/featured-content",
     { next: { tags: ["latest-screening"] }, cache: "no-store" }
   );
   const latestInfo: LatestScreeningInfo[] = await response.json();
   let latestImage =
-    "https://picayune-belief-production.up.railway.app/storage/"+ latestInfo[0].img_Url;
+    "https://kentfilm2025-production.up.railway.app/storage/" +
+    latestInfo[0].img_Url;
 
   return (
     <Grid container>
